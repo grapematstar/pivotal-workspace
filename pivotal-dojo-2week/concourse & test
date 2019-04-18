@@ -1,0 +1,15 @@
+#### 1. concourse(pipeline) & minio(s3) & gitlab(source reposistory) & harbor(docker repository) 사용 Platform Pipeline
+  
+  concource 
+  
+  1.1 Platform 실습 vm 복구 용 git hub 생성 jumpbox-bosh, minio, harbor
+  1.2 https://bosh.io/releases/github.com/concourse/concourse-bosh-release?all=1 (concourse 설치)
+      stemcell/release/manifest external download -> internal scp
+      concourse deployment bosh manifest https://bosh.io/d/github.com/concourse/concourse-bosh-release?v=5.1.0
+      
+  issue 1: credhub <-> uaa 연결 시 도메인을 사용하면 dns를 구성해주지 않으면 알수 없는 에러가 발생한다.
+    log: [2019-04-18 07:15:41+0000] Could not reach the UAA server
+  
+  issue 2: bosh의 credhub와 무관하게 추가적으로 deployment에 credhub를 연결 할 경우 버전 차이로 인하여 에러가 발생 할 수 있다.
+  bosh와 설치 할 deployment가 사용 할 credhub release의 버전을 가게 해줘야 할 수 있다.
+  
