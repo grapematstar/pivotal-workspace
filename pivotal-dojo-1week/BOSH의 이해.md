@@ -25,7 +25,6 @@
 
 #### **1-2 BOSH를 사용해야하는 이유(Cloud Native)**
 
-![bosh-cloud-native][bosh-image-7]
 
 - **Speed**
 	 - 신속한 VM, Service, Application 배포
