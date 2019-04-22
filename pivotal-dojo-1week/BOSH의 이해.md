@@ -7,13 +7,17 @@
 ![bosh-소개][bosh-image-0]
 
 #bosh docs 참고 주소
+
 https://ultimateguidetobosh.com/
+
 http://bosh-docs.cfapps.io/
+
 https://bosh.io/docs/dns/
 
 - BOSH를 통해 관리가 가능한 Databases
 
   ![bosh-managed-databases][bosh-image-1]
+  
 - BOSH를 통해 관리가 가능한 Messaging Clusters
  
   ![bosh-managed-clusters][bosh-image-2]
@@ -53,17 +57,17 @@ https://bosh.io/docs/dns/
 
 	- BOSH 설치 Manifest 파일은 배포에 필요한 컴포넌트 및 속성 정보를 YAML 파일 형식으로 구성이 되어 있으며 크게 Release 정보를 설정 하는 Block, Network 정보를 설정하는 Block, Resource Pools 스템셀과 CPI 정보를 설정하는 Block, Disk Pool 사이즈를 설정하는 Block, Job 정보를 설정하는 Bloc, Property를설정하는 Block 등이 존재한다.
 
-		※ 다음은 BOSH 설치 Manifest 파일의 Block 설명 이다.
+	※ 다음은 BOSH 설치 Manifest 파일의 Block 설명 이다.
 
-		1.  Deployment Identification: 배포 명과 Director의 고유 UUID를 설정하는 Block
-		2.  Releases Block: 배포 시 사용할 Release 명과 버전을 설정하는 Block
-		3.  Networks Block: 배포 시 할당 할 IaaS의 네트워크 정보를 설정하는 Block
-		4.  Resource Pools Block: BOSH가 설치 하고 관리 하는 VM의 속성 Block
-		5.  Disk Pools Block: BOSH가 작성하고 관리하는 Disk Pool의 등록 정보를 설정하는 Block
-		6.  Compilation Block: VM의 컴파일 속성을 설정하는 Block
-		7.  Update Block: 배포 중에 BOSH가 작업 인스턴스를 업데이트하는 방법을 정의하는 Block
-		8.  Jobs Block: Job에 대한 구성 및 자원을 설정하는 Block
-		9.  Properties Block: 전역 속성과 일반화 된 구성 정보(config)를 설정 하는 Block
+	1.  Deployment Identification: 배포 명과 Director의 고유 UUID를 설정하는 Block
+	2.  Releases Block: 배포 시 사용할 Release 명과 버전을 설정하는 Block
+	3.  Networks Block: 배포 시 할당 할 IaaS의 네트워크 정보를 설정하는 Block
+	4.  Resource Pools Block: BOSH가 설치 하고 관리 하는 VM의 속성 Block
+	5.  Disk Pools Block: BOSH가 작성하고 관리하는 Disk Pool의 등록 정보를 설정하는 Block
+	6.  Compilation Block: VM의 컴파일 속성을 설정하는 Block
+	7.  Update Block: 배포 중에 BOSH가 작업 인스턴스를 업데이트하는 방법을 정의하는 Block
+	8.  Jobs Block: Job에 대한 구성 및 자원을 설정하는 Block
+	9.  Properties Block: 전역 속성과 일반화 된 구성 정보(config)를 설정 하는 Block
 
  #### 1-4 BOSH의 구성 요소 (Architecture)
 ![bosh-stemcell][bosh-image-6]
