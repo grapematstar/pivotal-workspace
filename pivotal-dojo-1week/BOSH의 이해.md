@@ -9,24 +9,18 @@
  - 수백가지의 VM 들을 배포 할 수 있으며 구축 한 VM들의  Life Cycle 관리 및 모니터링하여 자동으로 장애를 복구
  -  Ubuntu/Centos/Windows OS 지원 (공식적으로는 Ubuntu 지원)
  -  VM 배포 시스템의 Release 엔지니어링 커스텀 아이징을 통해 어떤 소프트웨어든지 배포, 이식이 가능
+ - 
+#### **1-1 BOSH Deployed & Managed Service**
 
-#bosh docs 참고 주소
-
-https://ultimateguidetobosh.com/
-
-http://bosh-docs.cfapps.io/
-
-https://bosh.io/docs/dns/
-
-- BOSH를 통해 관리가 가능한 Databases
+- **BOSH를 통해 관리가 가능한 Databases...**
 
   ![bosh-managed-databases][bosh-image-1]
   
-- BOSH를 통해 관리가 가능한 Messaging Clusters
+- **BOSH를 통해 관리가 가능한 Messaging Clusters...**
  
   ![bosh-managed-clusters][bosh-image-2]
   
-- BOSH를 통해 관리가 가능한 CI/CD
+- **BOSH를 통해 관리가 가능한 CI/CD...**
    ![bosh-managed-ci/cd][bosh-image-3]
 
 #### **1-2 BOSH를 사용해야하는 이유**
@@ -94,8 +88,14 @@ https://bosh.io/docs/dns/
 6.  Health Monitor: Health Monitor는 BOSH Agent로부터 클라우드의 상태정보들을 수집한다. 클라우드로부터 특정 Alert이 발생하면 Resurrector를 하거나 Notification Plug-in을 통해 Alert Message를 전송할 수도 있다.
 7.  Agent:  BOSH를 통해 클라우드에 배포되는 모든 VM에 설치되고 Director로부터 특정 명령을 받고 수행하는 역할을 하게된다. Agent는 Director로부터 수신 받은 Job Specification(설치할 패키지 및 구성 방법)정보로부터 해당 VM에 Director의 지시대로 지정된 패키지를 설치하고, 필요한 구성정보를 설정하게 된다.
 
+**※ bosh docs 참고 주소**
 
-   
+https://ultimateguidetobosh.com/
+
+http://bosh-docs.cfapps.io/
+
+https://bosh.io/docs/dns/
+
 [bosh-image-0]:./images/bosh-image-0.png
 [bosh-image-1]:./images/bosh-image-1.png
 [bosh-image-2]:./images/bosh-image-2.png
@@ -103,5 +103,3 @@ https://bosh.io/docs/dns/
 [bosh-image-4]:./images/bosh-image-4.png
 [bosh-image-5]:./images/bosh-image-5.png
 [bosh-image-6]:./images/bosh-image-6.png
- 
-
