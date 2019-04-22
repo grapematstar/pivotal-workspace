@@ -9,7 +9,7 @@
  - 수백가지의 VM 들을 배포 할 수 있으며 구축 한 VM들의  Life Cycle 관리 및 모니터링하여 자동으로 장애를 복구
  -  Ubuntu/Centos/Windows OS 지원 (공식적으로는 Ubuntu 지원)
  -  VM 배포 시스템의 Release 엔지니어링 커스텀 아이징을 통해 어떤 소프트웨어든지 배포, 이식이 가능
- - 
+ 
 #### **1-1 BOSH Deployed & Managed Service**
 
 - **BOSH를 통해 관리가 가능한 Databases...**
@@ -23,7 +23,9 @@
 - **BOSH를 통해 관리가 가능한 CI/CD...**
    ![bosh-managed-ci/cd][bosh-image-3]
 
-#### **1-2 BOSH를 사용해야하는 이유**
+#### **1-2 BOSH를 사용해야하는 이유(Cloud Native)**
+
+![bosh-stemcell][bosh-image-7]
 
 - **Speed**
 	 - 신속한 VM, Service, Application 배포
