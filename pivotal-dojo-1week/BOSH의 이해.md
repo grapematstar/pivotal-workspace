@@ -1,3 +1,4 @@
+
 ## BOSH의 내부구조
 
 ### 1.  BOSH 소개
@@ -26,6 +27,7 @@ https://bosh.io/docs/dns/
    ![bosh-managed-ci/cd][bosh-image-3]
 
 #### 1-2 BOSH를 사용해야하는 이유
+
 - Speed
 	 - 신속한 VM, Service, Application 배포
 	 - 최신 버전의 플랫폼 Upgrade
@@ -45,12 +47,18 @@ https://bosh.io/docs/dns/
 	
 	![bosh-stemcell][bosh-image-4]
 	
+- Stemcell 다운로드 주소
+	[https://bosh.io/stemcells/](https://bosh.io/stemcells/)
+	
 - Release
 	- 릴리즈는 해당 소프트웨어나 패키지의 구성 정보와 시작과 중지 스크립트 등이 존재하며 소프트웨어를 빌드하고 실행 시키는데 필요한 Package와 Job의 모음이다.
 	-   Packages에는 Package와 package 간 의존 관계 및 설치 스크립트 등이 존재 한다.
 	-   Job에는 VM을 배포 시 적용 되는 설정 파일과 프로세스 시작/종료에 관한 스크립트 파일 등이 존재 한다.
 	
 	![bosh-stemcell][bosh-image-5]
+	
+- Release 다운로드 주소
+	[https://bosh.io/releases/](https://bosh.io/releases/)
 	
 - Deployment Manifest
 	- 배포는 IaaS 환경 별 스템셀 이미지를 기반으로 다 수의 VM 생성 하는 것이며 특정 릴리즈의 Package, Job과 배포 Manifest 파일에 명시 되어 있는 Resource(VM의 Disk Size, 소프트웨어 정보, VM의 네트워크 정보 등)를 BOSH의 Director에 업로드를하고 Director를 통해 리소스를 할당 하여 IaaS에 VM 및 을 생성 한다.
@@ -69,6 +77,9 @@ https://bosh.io/docs/dns/
 	8.  Jobs Block: Job에 대한 구성 및 자원을 설정하는 Block
 	9.  Properties Block: 전역 속성과 일반화 된 구성 정보(config)를 설정 하는 Block
 
+- Bosh Manifest 다운로드 주소
+   [https://github.com/cloudfoundry/bosh-deployment](https://github.com/cloudfoundry/bosh-deployment)  
+
  #### 1-4 BOSH의 구성 요소 (Architecture)
 ![bosh-stemcell][bosh-image-6]
 
@@ -80,17 +91,7 @@ https://bosh.io/docs/dns/
 6.  Health Monitor: Health Monitor는 BOSH Agent로부터 클라우드의 상태정보들을 수집한다. 클라우드로부터 특정 Alert이 발생하면 Resurrector를 하거나 Notification Plug-in을 통해 Alert Message를 전송할 수도 있다.
 7.  Agent:  BOSH를 통해 클라우드에 배포되는 모든 VM에 설치되고 Director로부터 특정 명령을 받고 수행하는 역할을 하게된다. Agent는 Director로부터 수신 받은 Job Specification(설치할 패키지 및 구성 방법)정보로부터 해당 VM에 Director의 지시대로 지정된 패키지를 설치하고, 필요한 구성정보를 설정하게 된다.
 
-#### 1-5 BOSH의 구성 요소 (설치 링크)
-- 스템셀 다운로드 주소
-	[https://bosh.io/stemcells/](https://bosh.io/stemcells/)
 
-- 릴리즈 다운로드 주소
-	[https://bosh.io/releases/](https://bosh.io/releases/)
-
-- Bosh Manifest 다운로드 주소
-   [https://github.com/cloudfoundry/bosh-deployment](https://github.com/cloudfoundry/bosh-deployment)
-   
-   
 [bosh-image-0]:./images/bosh-image-0.png
 [bosh-image-1]:./images/bosh-image-1.png
 [bosh-image-2]:./images/bosh-image-2.png
