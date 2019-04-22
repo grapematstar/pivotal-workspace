@@ -89,4 +89,14 @@ https://bosh.io/docs/dns/
 
 - Bosh Manifest 다운로드 주소
    [https://github.com/cloudfoundry/bosh-deployment](https://github.com/cloudfoundry/bosh-deployment)
+   
+   
+[bosh-image-1]:./images/bosh-image-1.png
+[bosh-image-2]:./images/bosh-image-2.png
+[bosh-image-3]:./images/bosh-image-3.png
+[bosh-image-4]:./images/bosh-image-4.png
+[bosh-image-5]:./images/bosh-image-5.png
+[bosh-image-6]:./images/bosh-image-6.png
+   
+ 
 
