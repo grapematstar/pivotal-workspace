@@ -25,7 +25,7 @@
 
 #### **1-2 BOSH를 사용해야하는 이유(Cloud Native)**
 
-![bosh-stemcell][bosh-image-7]
+![bosh-cloud-native][bosh-image-7]
 
 - **Speed**
 	 - 신속한 VM, Service, Application 배포
@@ -105,3 +105,4 @@ https://bosh.io/docs/dns/
 [bosh-image-4]:./images/bosh-image-4.png
 [bosh-image-5]:./images/bosh-image-5.png
 [bosh-image-6]:./images/bosh-image-6.png
+[bosh-image-7]:./images/bosh-image-7.png
