@@ -1,11 +1,14 @@
 
-## BOSH의 내부구조
+## **BOSH의 내부구조**
 
-### 1.  BOSH 소개
-
-#### 1-1 BOSH는 다양한 Public/Private Cloud 또는 local 환경에서의 수백가지의 VM 배포 시스템의 Release 엔지니어링, Deployment Deploy, Life Cycle 관리 및 모니터링을위한 Opensource 도구
+### **1.  BOSH 소개**
 
 ![bosh-소개][bosh-image-0]
+
+ - BOSH는 다양한 Public/Private Cloud(vSphere, Openstack, AWS, Azure, GCP) 또는 Local(Virtual Box) 등 다양한 환경에서 구축이 가능
+ - 수백가지의 VM 들을 배포 할 수 있으며 구축 한 VM들의  Life Cycle 관리 및 모니터링하여 자동으로 장애를 복구
+ -  Ubuntu/Centos/Windows OS 지원 (공식적으로는 Ubuntu 지원)
+ -  VM 배포 시스템의 Release 엔지니어링 커스텀 아이징을 통해 어떤 소프트웨어든지 배포, 이식이 가능
 
 #bosh docs 참고 주소
 
@@ -26,21 +29,21 @@ https://bosh.io/docs/dns/
 - BOSH를 통해 관리가 가능한 CI/CD
    ![bosh-managed-ci/cd][bosh-image-3]
 
-#### 1-2 BOSH를 사용해야하는 이유
+#### **1-2 BOSH를 사용해야하는 이유**
 
-- Speed
+- **Speed**
 	 - 신속한 VM, Service, Application 배포
 	 - 최신 버전의 플랫폼 Upgrade
 	 - Upgrade의 소요 시간
-- Stability & Scalability(안정성과 확장성)
+- **Stability & Scalability(안정성과 확장성)**
 	- 플랫폼, Application 고가용성
 	- 플랫폼, Application의 scale up/scale out 지원
-- Security
+- **Security**
 	- 무중단 패치
 	- 네트워크 보안
 	- 플랫폼 데이터 보안
 
-#### 1-3 BOSH의 구성 요소 (VM설치 구성)
+#### **1-3 BOSH의 구성 요소 (VM설치 구성)**
 
 - **Stemcell**
 	-  스템셀은 IaaS의 특정 패키징으로 포장 된 버전 관리 OS 이미지로 기본 OS 이미지의 구성을 가지고 있다. 스템셀에는 BOSH Agent를 포함하고 있으며 Agent를 통해 해당 bosh의 Blobstore로부터 Job을 배포 한다.
@@ -80,7 +83,7 @@ https://bosh.io/docs/dns/
 ※ Bosh Manifest 다운로드 주소
    [https://github.com/cloudfoundry/bosh-deployment](https://github.com/cloudfoundry/bosh-deployment)  
 
- #### 1-4 BOSH의 구성 요소 (Architecture)
+ #### **1-4 BOSH의 구성 요소 (Architecture)**
 ![bosh-stemcell][bosh-image-6]
 
 1.  Command Line Interface(CLI): Director와 상호작용을 위한 Command Line Interface
