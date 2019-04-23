@@ -45,9 +45,41 @@ http://docs.pivotal.io/platform-automation/v2.1/reference/pipeline.html#retrievi
 
 #### 2.2. harbor 서버 실습 환경
 -  http://{harbor_domain}
+##### 2.2.1. docker publl
+	- docker pull harbor.pcf.posco.co.kr/concourse/pivotalcf/pivnet-resource:latest
 
 #### 2.3. concourse 서버 실습 환경
  - http://{concourse_domain}
 
 #### 2.4. 실습용 DNS 서버 주소
 -  172.30.161.118 # bind9을 통해 실습 환경 도메인 서버 구축
+
+
+### 3. Pipeline Test
+
+fly -t leedh login -c https://concourse.pcf.posco.co.kr/ -k -u admin -p 'Posco!23
+fly -t leedh sp -p test-resources-leedh -c test-resources.yml -l ./test-resources-params.yml
+fly -t leedh unpause-pipeline -p test-resources-leedh
+
+setting credhub
+
+fly -t leedh sp -p test-resources-leedh -c test-resources.yml
+
+
+Expected to find variables: access_key_id
+bucket
+endpoint
+region
+secret_access_key
+
+
+ubuntu@TLKPCFJB1:~/concourse/concourse-bosh-deployment/cluster$ credhub find
+credentials:
+- name: /concourse/main/s3_access_key_id
+  version_created_at: "2019-04-23T05:56:15Z"
+- name: /concourse/main/s3_secret_access_key
+  version_created_at: "2019-04-23T05:53:31Z"
+- name: /concourse/shpark/s3_secret_access_key
+  version_created_at: "2019-04-23T05:45:16Z"
+- name: /concourse/shpark/s3_access_key_id
+  version_created_at: "2019-04-23T05:44:29Z"
