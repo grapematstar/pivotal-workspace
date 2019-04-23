@@ -26,6 +26,10 @@
 
 #### 6. locale과 NTP를 맞춰 log 시간 같게 해야 한다.
 
+#### 7. https:// ssl 공인인증서를 사용 할 때 apps-manager가 작동하지 않음, 사설인증서에는 가능한 Issue
+
+
+
 
 
 
