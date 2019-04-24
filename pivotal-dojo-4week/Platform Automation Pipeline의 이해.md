@@ -118,9 +118,9 @@ github 주소 https://github.com/do-workspace/platform-automation-pipelines-temp
 	# 아래 명령어를 재 실행하여 정상 동작임을 확인한다.
 	$ fly -t leedh sp -p test-resources-leedh -c test-resources.yml
 
-### 4. Ops Manager Pipeline Install
+### 4. Ops Manager & dirtor Pipeline Install
 
-#### 4.1 Ops Manager Pipeline Git Hub 다운로드
+#### 4.1 Ops Manager Pipeline & dirtor Git Hub 다운로드
  
  https://github.com/myminseok/pivotal-docs/blob/master/platform-automation/install_opsman.md
 ```
