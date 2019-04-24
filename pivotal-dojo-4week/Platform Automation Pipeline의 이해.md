@@ -1,3 +1,4 @@
+
 ## Platform Automation Pipeline의 이해
 
 ### 1. Download Product (수동)
@@ -57,29 +58,116 @@ http://docs.pivotal.io/platform-automation/v2.1/reference/pipeline.html#retrievi
 
 ### 3. Pipeline Test
 
-fly -t leedh login -c https://concourse.pcf.posco.co.kr/ -k -u admin -p 'Posco!23
-fly -t leedh sp -p test-resources-leedh -c test-resources.yml -l ./test-resources-params.yml
-fly -t leedh unpause-pipeline -p test-resources-leedh
+github 주소 https://github.com/do-workspace/platform-automation-pipelines-template
 
-setting credhub
+	./test-resources.yml # pipeline task yaml
+	./test-resources-params.yml # task param yaml
+	
+	test-resources-params.yml 파일에 minio 정보 수정 후 아래의 명령어 실행
+	
+	# 수정 값
+	endpoint: http://{minio_domain}:9000
+	access_key_id: admin
+	secret_access_key: Posco!23
+	region: ""
+	bucket: "platform-automation"
+	
+	$ fly -t leedh login -c https://concourse.pcf.posco.co.kr/ -k -u admin -p 'Posco!23
+	$ fly -t leedh sp -p test-resources-leedh -c test-resources.yml -l ./test-resources-params.yml
+	
+	# 아래 명령어를 재 실행하여 정상 동작임을 확인한다.
+	$ fly -t leedh unpause-pipeline -p test-resources-leedh
+	
+	
 
-fly -t leedh sp -p test-resources-leedh -c test-resources.yml
+#### 3.1 .setting credhub
 
+	./test-resources.yml # pipeline task yaml
+	./test-resources-params.yml # task param yaml
 
-Expected to find variables: access_key_id
-bucket
-endpoint
-region
-secret_access_key
+	test-resources-params.yml 파일에 minio 정보 수정 후 아래의 명령어 실행
+	
+	# 수정 값
+	endpoint: http://{minio_domain}:9000
+	access_key_id: ((s3_access_key_id))
+	secret_access_key: ((s3_secret_access_key))
+	region: ""
+	bucket: "platform-automation"
 
+	$ fly -t leedh sp -p test-resources-leedh -c test-resources.yml
 
-ubuntu@TLKPCFJB1:~/concourse/concourse-bosh-deployment/cluster$ credhub find
-credentials:
-- name: /concourse/main/s3_access_key_id
-  version_created_at: "2019-04-23T05:56:15Z"
-- name: /concourse/main/s3_secret_access_key
-  version_created_at: "2019-04-23T05:53:31Z"
-- name: /concourse/shpark/s3_secret_access_key
-  version_created_at: "2019-04-23T05:45:16Z"
-- name: /concourse/shpark/s3_access_key_id
-  version_created_at: "2019-04-23T05:44:29Z"
+	# 아래의 예외 코드를 concourse 화면에서 확인 한다.
+	Expected to find variables: access_key_id
+	bucket
+	endpoint
+	region
+	secret_access_key
+
+	# concourse credhub에 로그인 & s3_access_key_id 등 변수를 넣는다.
+	ubuntu@TLKPCFJB1:~/concourse/concourse-bosh-deployment/cluster$ credhub find
+	credentials:
+	- name: /concourse/main/s3_access_key_id
+	  version_created_at: "2019-04-23T05:56:15Z"
+	- name: /concourse/main/s3_secret_access_key
+	  version_created_at: "2019-04-23T05:53:31Z"
+	- name: /concourse/shpark/s3_secret_access_key
+	  version_created_at: "2019-04-23T05:45:16Z"
+	- name: /concourse/shpark/s3_access_key_id
+	  version_created_at: "2019-04-23T05:44:29Z"
+	
+	# 아래 명령어를 재 실행하여 정상 동작임을 확인한다.
+	$ fly -t leedh sp -p test-resources-leedh -c test-resources.yml
+
+### 4. Ops Manager Pipeline Install
+
+#### 4.1 Ops Manager Pipeline Git Hub 다운로드
+ 
+ https://github.com/myminseok/pivotal-docs/blob/master/platform-automation/install_opsman.md
+```
+platform-automation-configuration-template
+└── dev-1
+    ├── config
+    │   ├── auth.yml    
+    │   └── opsman-2.4.yml
+    ├── download-product-configs
+    ├── env
+    │   └── env.yml
+    ├── generated-config
+    ├── state
+    └── vars
+```
+* issue 
+	* concourse는 sp할 때만 credhub를 참조하지만 task에서 따로 사용할 경우 credhub의 접속 정보가 필요하다.
+	* Credhub team/ foundation이 같을 경우 설정이 서로 엉킬수 있어 Ops manager 타겟이 잘 못될 수 있다.
+
+#### 4.2. Ops Manager Pipeline Manifest 수정
+
+##### 4.2.1. Ops Manager Install Pipeline에 사용 할 Credhub 정보 저장
+
+	$ credhub set -t value -n /concourse/main/git_user_email -v {git email}
+	$ credhub set -t value -n /concourse/main/git_user_username -v leedonghyean
+
+	# register ssh key for git. ex) ~/.ssh/id_rsa
+
+	$ credhub set -t rsa  -n /concourse/main/git_private_key  -p ~/.ssh/id_rsa
+
+	$ cd concourse-bosh-deployment/cluster
+	$ bosh int ./creds.yml --path /atc_tls/certificate > atc_tls.cert
+	$ credhub set -t certificate -n /concourse/main/credhub_ca_cert -c ./atc_tls.cert
+
+	#grep concourse_to_credhub ./creds.yml
+	$ credhub set -t user -n /concourse/main/credhub_client -z concourse_to_credhub -w udwusbr76j4u9zxoty9n
+
+	$ credhub set -t user  -n /concourse/dev-leedh/opsman_admin -z {opsman id} -w {opsman pwd}
+	$ credhub set -t value -n /concourse/dev-leedh/decryption-passphrase -v "{opsman pwd}"
+	$ credhub set -t value -n /concourse/dev-leedh/opsman_target -v https://{opsman ip}
+
+##### 4.2.2. Ops Manager Config 파일을 수정
+
+	# 아래 Manifest 파일을 맞는 vSphere 환경으로 수정
+	# credhub_dev는 concourse의 credhub 저장소 명칭
+	do-workspace/platform-automation-configuration-template/{credhub_dev}/config/opsman-2.4.yml
+	
+	$ fly -t leedh sp -p install-opsman-leedh -c install-opsman.yml -l ./install-opsman-params.yml
+
+##### 4.2.3. Ops Manager Config 파일을 수정
