@@ -28,9 +28,11 @@
 
 #### 7. https:// ssl 공인인증서를 사용 할 때 apps-manager가 작동하지 않음, 사설인증서에는 가능한 Issue
 
-
-
-
+#### 8. git hub가 유실되면 파이프라인이 사라지는지? Concourse 서버가 죽으면 파이프라인이 새로 구축 되는지
+  - gp 후 받은 pipeline을 통해 복구가 가능
+  - concourse 서버가 죽엇을 때 git hub를 통해서 복구 가능
+  
+#### 9. Ops Manager 버전 Upgrade시 바뀌는 계정 -> Ops Manager vm 삭제 후 업그레이드 해야 한다.
 
 
 
