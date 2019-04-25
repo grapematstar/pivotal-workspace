@@ -191,4 +191,4 @@ platform-automation-configuration-template
 - 4.2.3 절차를 완료하였으면 Concourse 화면에서  install-director를 실행 시킨다.
 - bosh director 설치가 정상적으로 완료 됬음을 확인 한다.
 
-### 5. Pas Pipeline Install
+
