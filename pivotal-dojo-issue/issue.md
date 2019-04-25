@@ -35,6 +35,10 @@
 #### 9. Ops Manager 버전 Upgrade시 바뀌는 계정 -> Ops Manager vm 삭제 후 업그레이드 해야 한다.
 
 
+#### 10. PAS의 go router와 haproxy의 차이점
+  - haproxy, router의 차이점: haproxy는 L4같은 역할, PCF 안에서 다이렉트로 하는 일은 없음
+  - router는 동일하게 haproxy 처럼 트래픽을 처리하지만 , 헤더의 조작 등을 처리해주는 역할, workload가 심함
+
 
 
 
