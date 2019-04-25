@@ -1,5 +1,5 @@
 
-## Platform Automation Pipeline
+## Platform Automation Pipeline의 이해
 
 ### 1. Download Product (수동)
 
@@ -140,7 +140,7 @@ platform-automation-configuration-template
 	* concourse는 sp할 때만 credhub를 참조하지만 task에서 따로 사용할 경우 credhub의 접속 정보가 필요하다.
 	* Credhub team/ foundation이 같을 경우 설정이 서로 엉킬수 있어 Ops manager 타겟이 잘 못될 수 있다.
 
-#### 4.2. Ops Manager Pipeline Manifest 수정
+#### 4.2. Ops Manager Pipeline 수정
 
 ##### 4.2.1. Ops Manager Install Pipeline에 사용 할 Credhub 정보 저장
 
