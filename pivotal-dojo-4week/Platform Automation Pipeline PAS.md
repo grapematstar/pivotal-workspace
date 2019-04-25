@@ -1,4 +1,3 @@
-
 ## PAS?
 
 ### 1.  PAS Web Config
@@ -27,9 +26,14 @@
 #### 1.3 Application Container
 - 실제 컨테이너를 관리에 있는 Properties
 - NFS LDAP: 인증된 NFS 만 사용하겠다는 Properties
-- 
 
 #### 1.4 applicaton 3개는 apps manager에 관련있는 Properties
 
 
 [vShpere PAS 구성도](https://docs.pivotal.io/pivotalcf/2-4/customizing/vsphere-nsx-t.html)
+
+## PAS Pipeline
+
+### 1.  PAS Pipeline 수정
+
+#### 1.1.  platform-automation-pipelines-template/product/install-products.yml 수정
