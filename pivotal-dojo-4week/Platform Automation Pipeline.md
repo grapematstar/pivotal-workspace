@@ -1,5 +1,5 @@
 
-## Platform Automation Pipeline의 이해
+## Platform Automation Pipeline
 
 ### 1. Download Product (수동)
 
@@ -118,9 +118,9 @@ github 주소 https://github.com/do-workspace/platform-automation-pipelines-temp
 	# 아래 명령어를 재 실행하여 정상 동작임을 확인한다.
 	$ fly -t leedh sp -p test-resources-leedh -c test-resources.yml
 
-### 4. Ops Manager & dirtor Pipeline Install
+### 4. Ops Manager Pipeline Install
 
-#### 4.1 Ops Manager Pipeline & dirtor Git Hub 다운로드
+#### 4.1 Ops Manager Pipeline Git Hub 다운로드
  
  https://github.com/myminseok/pivotal-docs/blob/master/platform-automation/install_opsman.md
 ```
@@ -168,6 +168,27 @@ platform-automation-configuration-template
 	# credhub_dev는 concourse의 credhub 저장소 명칭
 	do-workspace/platform-automation-configuration-template/{credhub_dev}/config/opsman-2.4.yml
 	
+	# 아래 명령어를 통해 pipeline을 생성하고 Concourse 화면에서 install-opsman을 동작 시킨다.
 	$ fly -t leedh sp -p install-opsman-leedh -c install-opsman.yml -l ./install-opsman-params.yml
 
-##### 4.2.3. Ops Manager Config 파일을 수정
+##### 4.2.3. Ops Manager Director Config 파일을 추출
+- Opsmanager 서버에 로그인 후 Bosh Director Tile의 Config를 vSphere  환경에 맞게 수정
+- Concourse 화면에서  staged-director-config를 실행 시킨다.
+
+		위 실행 결과 값은 아래 파일 구조의 자동으로 git commit & push 후 director.yml로 생성된다.
+		platform-automation-configuration-template
+		└── dev-1
+		    ├── generated-config
+			    ├── director.yml
+
+- 아래 director.yml 파일 내용을 아래 파일 구조의 director-2.4.yml에 적용시킨다.
+
+		└── dev-1
+		    ├── config
+		    │   ├── director-2.4.yml 
+
+##### 4.2.4. bosh director 설치
+- 4.2.3 절차를 완료하였으면 Concourse 화면에서  install-director를 실행 시킨다.
+- bosh director 설치가 정상적으로 완료 됬음을 확인 한다.
+
+### 5. Pas Pipeline Install
