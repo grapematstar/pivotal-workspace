@@ -37,3 +37,40 @@
 ### 1.  PAS Pipeline 수정
 
 #### 1.1.  platform-automation-pipelines-template/product/install-products.yml 수정
+	# 실습은 PAS Install Pipeline을 구축하기 위함으로 install-products.yml의 apply-product-changes job에 configure-healthwatch 등 healthwatch에 대한 정보를 삭제한다.
+	
+	# PAS Pipeline Manfest 파일 수정이 완료 되면 아래 명령어를 통해 Concourse에 Pipeline을 생성한다.
+	$ fly -t leedh sp -p install-products-leedh -c install-products.yml -l install-opsman-params.yml
+
+#### 1.2.  PAS Pipeline 실행
+
+##### 1.2.1. upload-and-stage-pas job을 실행
+- pipeline을 실행 시킬 upload-and-stage-pas job을 실행하여 minio에 있는 platform-automation-image와 platform-automation-tasks를 컨테이너에 다운로드 한다.
+- PAS를 설치 할 cf-2.4.5-build.25.pivotal를 컨테이너에 다운로드 한다.
+- task의 om upload-product를 사용하여 PAS 타일을 Ops Manager에 업로드한다.
+
+##### 1.2.2. Opsmanager의 PAS Tile에 정보를 입력한다.
+- 도메인을 입력하고 bind9이 동작하고 있는 dns server에 해당 도메인을 연동 시킨다.
+- Networking block 입력 시 생성한 cert/private key는 초기 pipeline 구성 시 config의 cf-env.yml 파일에 뽑아지지 않음으로 따로 저장한다.
+- Concourse 화면의 staged-pas-config job을 실행 시킨다.
+
+		위 실행 결과 값은 아래 파일 구조의 자동으로 git commit & push 후 director.yml로 생성된다.
+		platform-automation-configuration-template
+		└── dev-1
+		    ├── generated-config
+			    ├── cf-xxx.yml
+- 위에서 뽑은 cf-xxx.yml 파일에 초기 Pipeline 설정임으로 아래 속성들을 수정 및 작성한다.
+	
+	-  `((uaa_service_provider_key_credentials.cert_pem))`-> tile에서 생성한 cert key 정보
+	- `((uaa_service_provider_key_credentials.private_key_pem))`- tile에서 생성한 private key 정보
+	- `credhub_key_encryption_passwords` passwords 정보 입력
+	- `properties.networking_poe_ssl_certs`tile에서 생성한 cert key, private key 정보
+	등 (( xxx ))로 감싸있는 manifest 파일을 설정한다.
+
+- 설정한 yml 파일을  아래 폴더 구조로 덮어쓴다.
+		
+		└── dev-1
+		    ├── config
+		    │   ├── cf.yml
+
+##### 1.2.3 configure-pas job을 실행 시킨다
