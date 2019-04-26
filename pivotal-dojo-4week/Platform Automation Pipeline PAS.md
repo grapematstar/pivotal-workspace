@@ -34,22 +34,22 @@
 
 ## PAS Pipeline
 
-### 1.  PAS Pipeline 수정
+### 2.  PAS Pipeline 수정
 
-#### 1.1.  platform-automation-pipelines-template/product/install-products.yml 수정
+#### 2.1.  platform-automation-pipelines-template/product/install-products.yml 수정
 	# 실습은 PAS Install Pipeline을 구축하기 위함으로 install-products.yml의 apply-product-changes job에 configure-healthwatch 등 healthwatch에 대한 정보를 삭제한다.
 	
 	# PAS Pipeline Manfest 파일 수정이 완료 되면 아래 명령어를 통해 Concourse에 Pipeline을 생성한다.
 	$ fly -t leedh sp -p install-products-leedh -c install-products.yml -l install-opsman-params.yml
 
-#### 1.2.  PAS Pipeline 실행
+#### 2.2.  PAS Pipeline 실행
 
-##### 1.2.1. upload-and-stage-pas job을 실행
+##### 2.2.1. upload-and-stage-pas job을 실행
 - pipeline을 실행 시킬 upload-and-stage-pas job을 실행하여 minio에 있는 platform-automation-image와 platform-automation-tasks를 컨테이너에 다운로드 한다.
 - PAS를 설치 할 cf-2.4.5-build.25.pivotal를 컨테이너에 다운로드 한다.
 - task의 om upload-product를 사용하여 PAS 타일을 Ops Manager에 업로드한다.
 
-##### 1.2.2. Opsmanager의 PAS Tile에 정보를 입력한다.
+##### 2.2.2. Opsmanager의 PAS Tile에 정보를 입력한다.
 - 도메인을 입력하고 bind9이 동작하고 있는 dns server에 해당 도메인을 연동 시킨다.
 - Networking block 입력 시 생성한 cert/private key는 초기 pipeline 구성 시 config의 cf-env.yml 파일에 뽑아지지 않음으로 따로 저장한다.
 - Concourse 화면의 staged-pas-config job을 실행 시킨다.
@@ -73,4 +73,22 @@
 		    ├── config
 		    │   ├── cf.yml
 
-##### 1.2.3 configure-pas job을 실행 시킨다
+##### 2.2.3 configure-pas job을 실행 시킨다
+	실행이 완료 되면 cf.yml 파일에 적용한 정보들이 PAS Tile의 Properties에 정상적으로 적용되었는지 확인 한다.
+	
+##### 2.2.4 apply-product-changes을 실행 시킨다.
+	PAS가 정상적으로 설치 완료되면 Ops manager에서 Status를 확인한다.
+
+### 3.  PAS Pipeline Issue
+
+	1. Error could not execute "staged-config": cannot retrieve credentials for product 'cf': deploy the product and retry
+	# PAS 초기 설정 시 PAS Pileline staged-pas-config에서 PAS tile에 적용 된 (( key )) 파일을 뽑아오지 못해 에러가 발생 해결 방법: install-products.yml Pipeline의 staged-pas-config job 아래SUBSTITUTE_CREDENTIALS_WITH_PLACEHOLDERS 설정 값을 true로 변경하여 job을 실행한다.
+
+	2. Error {"errors":{"base":["Product cf-7dd8b2324d3bed84c77c cannot change its availability zones, as it is deployed."]}}
+	# PAS Tile을 업로드하고 PAS를 설치 할 경우 AZ에 대한 정보는 변경 할 수 없음. 해결 방법은 bosh or Tile을 삭제 후 재 업로드하고 실행해야 함
+	
+	3. Error could not execute "configure-product": could not read file (vars/dev-leedh/vars/cf-vars.yml): open vars/dev-leedh/vars/cf-vars.yml: no such file or directory
+	# Pipeline configure-product job에서 cf-vars.yml를 찾는 라인이 존재, cf-vars.yml이 존재하지 않는다면 해당 라인을 삭제한다.
+	
+	4. Error 'mysql_monitor/92215424-2e03-4fbd-9e6e-2f08efd421a0 (0)' is not running after update. Review logs for failed jobs: replication-canary
+	# apply-product-changes 실행 시 아래와 같은 에러가 발생한다, 해결 방법은 cf.yml의 `ha_proxy.skip_cert_verify을 true로 변경 시킨다.
