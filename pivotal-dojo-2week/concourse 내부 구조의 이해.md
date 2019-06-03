@@ -31,6 +31,7 @@
 - Beacon: TSA와 join 하여 extenal worker의 2222 port와 handshake 하여 ATC와 통신이 가능하게 하며 Pipeline 생성 시 Worker의 준비 완료 상태를 전달하는 Component
 - Garden: 실제 Container 환경이 실행 되는 Component, 7777 PORT로 컨테이너 API 요청을 수신한다.
 - Baggageclaim: ATC가 Container에 Mount 된 Disk Resource 또는 Volume를 관리하기위한 7788 PORT API를 제공하는 Component
+- Postgres: Pipeline의 정보와 Build 로그를 저장하고 있는 Component
 
 ### 1.5. fly CLI
 - Concourse의 모든 관리 Command Line으로 Pipeline의 Life Cycle를 관리한다.
