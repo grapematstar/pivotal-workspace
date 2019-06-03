@@ -96,7 +96,8 @@ browser: https://concourse.bosh.co.kr
 ```
 #### 1.1.6. Concourse Test 환경 구축
 ```
-$ crehub api
+$ credhub api https://concourse.bosh.co.kr:8844 --skip-tls-validation
+$ credhub login    --client-name=admin  --client-secret=admin
 
 $ credhub set -t value -n /concourse/main/test/hello -v test
 
