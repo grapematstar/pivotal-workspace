@@ -40,6 +40,7 @@ $ git clone https://github.com/concourse/concourse-bosh-deployment.git
 
 #### 1.1.3. Concourse Deployment Manifest 파일 편집 & deploy
 ```
+# Credhub을 Concourse에서 사용하기 위해 아래 링크에서 yml 파일을 다운로드 한다.
 # add-credhub-uaa-to-web.yml 다운로드 후 추가 다운로드 url 
 $ wget  https://raw.githubusercontent.com/pivotalservices/concourse-credhub/master/operations/add-credhub-uaa-to-web.yml
 - concourse-bosh-deployment/cluster/operations/add-credhub-uaa-to-web.yml
@@ -73,3 +74,35 @@ bosh deploy -e {ailas-env} --no-redact -d concourse concourse.yml \
   --var deployment_name=concourse \
   --var local_user.username=admin \
   --var local_user.password=admin
+
+# 설치 중 Schema-validation: missing column [credential_uuid] in table [permission] 에러가 발생 할 경우 아래와 같이 조치
+ bosh/0:/var/vcap/packages/postgres-10/bin# ./psql -U vcap credhub -h /var/vcap/data/postgres-10/tmp/
+```
+#### 1.1.5. Concourse Deploy 확인
+```
+$ bosh -e ${alias-env} vms
+
+Deployment 'concourse'
+
+Instance                                     Process State  AZ    IPs            VM CID                                   VM Type  Active
+db/a5acd5d4-0848-4eb7-bdd1-1abe234797ad      running        mgmt  172.28.83.196  vm-98c64825-6b60-4020-912a-68621d3e8eb2  micro    true
+web/1a4d6bab-51f0-4754-bf8f-d674850904da     running        mgmt  172.28.83.200  vm-72593326-2bf7-4e50-8330-b1525036bf8e  micro    true
+worker/028fd516-14de-4d6e-847f-8102ae1169ba  running        mgmt  172.28.83.202  vm-d6b0b89a-7a14-40a5-b44b-37648e98aabe  large    true
+worker/9e1585d3-2f9e-42b2-80fb-e975921a1bde  running        mgmt  172.28.83.197  vm-559b532c-d482-41bb-bcec-9329a0c1df33  large    true
+worker/be3b0cb4-1de2-4bb9-b98c-73d5063ccaf9  running        mgmt  172.28.83.203  vm-14175096-7730-424f-87b9-b51988dbc879  large    true
+worker/ce99482f-4196-4781-8ee6-6522f69b59ee  running        mgmt  172.28.83.204  vm-12947d11-2cd6-4bfd-9d24-33c96d1d7f4c  large    true
+
+browser: https://concourse.bosh.co.kr
+```
+#### 1.1.6. Concourse Test 환경 구축
+```
+$ crehub api
+
+$ credhub set -t value -n /concourse/main/test/hello -v test
+
+$ credhub get -n /concourse/main/test/hello
+id: 3cd51b78-426f-4145-b94e-baacf16c383d
+name: /concourse/main/test/hello
+type: value
+value: test
+```
