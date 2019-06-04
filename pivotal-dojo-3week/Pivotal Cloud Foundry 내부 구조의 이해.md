@@ -1,3 +1,4 @@
+
 ## 1. Pivotal Cloud Foundry 내부 구조의 이해
 
 ### 1.1. Pivotal Cloud Foundry 의 컨셉
@@ -35,30 +36,46 @@
 - Pivotal Cloud Foundry는 Application을 Container에 배포하고 LifeCycle을 관리하기 위해 Diego를 사용 한다.
 
 - Pivotal Cloud Foundry 사하는 Diego의 동작방식은 아래와 같다.
-
+------------------------------------------------
 1. Cloud Controller는 Application 배포 명령을 Diego BBS VM에 전달하고 BBS는 Application의 목표 Spec(instance 수, Memory 등)을 저장 한다.
 
 ![diego-cell-1][cf-image-3]
 
+------------------------------------------------
+
+------------------------------------------------
 2. BBS는 Application의 목표 Spec를 바탕으로 요청을 Diego Brain VM의 Auctioneer 프로세스에 전달 한다.
 
 ![diego-cell-2][cf-image-4]
 
+------------------------------------------------
+
+------------------------------------------------
 3. Auctioneer는 Diego_Cell VM의 Rep에 Application 배포를 요청하고  Rep는 실제 Container 환경의 Garden Runc의 상태가 정상이면 해당 요청을 승인 한다.
 
 ![diego-cell-3][cf-image-5]
 
+------------------------------------------------
+
+------------------------------------------------
 4. Rep는 Garden Runc를 호출하여 Container를 생성하고 Garden Runc는 $ cf push, Application 배포 시 생성한 Droplet을 Blobstore VM에서 다운로드하고 Garden Container 환경에서 Application을 실행 한다.
 
 ![diego-cell-4][cf-image-6]
 
+------------------------------------------------
+
+------------------------------------------------
 5. Diego Cell VM의 route_emitter는 Application의 접근 경로를 Go Router에 등록 시킨다.
 
 ![diego-cell-4][cf-image-7]
 
+------------------------------------------------
+------------------------------------------------
 6. Diego Cell VM 내부 프로세스 Loggreate agent가 Application의 Log와 Metric 정보를Doppler를 통해 Loggregator Component에 전달하여 사용자에게 4333 PORT로 제공 한다.
 
 ![diego-cell-4][cf-image-8]
+
+------------------------------------------------
 
 #### 1.3.2. Pivotal Cloud Foundry Cloud Controller
 
