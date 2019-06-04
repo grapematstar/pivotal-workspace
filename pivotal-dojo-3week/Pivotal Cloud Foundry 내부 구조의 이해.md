@@ -107,15 +107,15 @@
 
 
 
-[cf-image-0]:./images/cf-image-0.png
-[cf-image-1]:./images/cf-image-1.png
-[cf-image-2]:./images/cf-image-2.png
-[cf-image-3]:./images/cf-image-3.png
-[cf-image-4]:./images/cf-image-4.png
-[cf-image-5]:./images/cf-image-5.png
-[cf-image-6]:./images/cf-image-6.png
-[cf-image-7]:./images/cf-image-7.png
-[cf-image-8]:./images/cf-image-8.png
-[cf-image-9]:./images/cf-image-9.png
-[cf-image-10]:./images/cf-image-10.png
-[cf-image-10]:./images/cf-image-11.png
+[cf-image-0]:./images/cfimage-0.png
+[cf-image-1]:./images/cfimage-1.png
+[cf-image-2]:./images/cfimage-2.png
+[cf-image-3]:./images/cfimage-3.png
+[cf-image-4]:./images/cfimage-4.png
+[cf-image-5]:./images/cfimage-5.png
+[cf-image-6]:./images/cfimage-6.png
+[cf-image-7]:./images/cfimage-7.png
+[cf-image-8]:./images/cfimage-8.png
+[cf-image-9]:./images/cfimage-9.png
+[cf-image-10]:./images/cfimage-10.png
+[cf-image-10]:./images/cfimage-11.png
