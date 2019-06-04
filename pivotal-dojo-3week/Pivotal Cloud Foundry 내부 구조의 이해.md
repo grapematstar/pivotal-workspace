@@ -3,7 +3,6 @@
 ### 1.1. Pivotal Cloud Foundry 의 컨셉
 
 ![cf-cencept][cf-image-0]
-[concept_Image][https://docs.pivotal.io/pivotalcf/2-4/concepts/overview.html](https://docs.pivotal.io/pivotalcf/2-4/concepts/overview.html)
 
 -  사용자에게 플랫폼의 확장성과 개방성을 제공하여 기존의 레거시 시스템에서 보다 빠르게 Application을 배포/관리 할 수 있다.
 - Bosh를 통해 Pivotal Cloud Foundry VM을 생성/관리하고 Cloud Controller를 통해 Application의 LifeCycle을 관리 한다.
