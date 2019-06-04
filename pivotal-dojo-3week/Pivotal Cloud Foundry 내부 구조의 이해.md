@@ -2,6 +2,7 @@
 
 ### 1.1. Pivotal Cloud Foundry 의 컨셉
 
+![cf-cencept][cf-image-0]
 [concept_Image][https://docs.pivotal.io/pivotalcf/2-4/concepts/overview.html](https://docs.pivotal.io/pivotalcf/2-4/concepts/overview.html)
 
 -  사용자에게 플랫폼의 확장성과 개방성을 제공하여 기존의 레거시 시스템에서 보다 빠르게 Application을 배포/관리 할 수 있다.
@@ -14,6 +15,7 @@
 
 ### 1.2. Pivotal Cloud Foundry 아키텍처
 
+![cf-arc][cf-image-1]
 [아키텍처_Image][https://docs.pivotal.io/pivotalcf/2-4/concepts/architecture/index.html](https://docs.pivotal.io/pivotalcf/2-4/concepts/architecture/index.html)
 
 - Router:  System Doamin(UAA, CC,  LOGIN, SSH, Apps)에 대한 요청을 수신하는 Component
@@ -29,32 +31,51 @@
 ### 1.3. Pivotal Cloud Foundry 주요 구성 요소 상세
 
 #### 1.3.1. Pivotal Cloud Foundry Diego
+
+![diego-arc][cf-image-2]
 [diego_아키텍처_Image][https://docs.pivotal.io/pivotalcf/2-4/concepts/diego/diego-architecture.html](https://docs.pivotal.io/pivotalcf/2-4/concepts/diego/diego-architecture.html)
 
 - Pivotal Cloud Foundry는 Application을 Container에 배포하고 LifeCycle을 관리하기 위해 Diego를 사용 한다.
 
 - Pivotal Cloud Foundry 사하는 Diego의 동작방식은 아래와 같다.
 
+![diego-cell-1][cf-image-3]
 [diego_cell 동작 방식_1][https://docs.pivotal.io/pivotalcf/2-4/concepts/diego/diego-architecture.html](https://docs.pivotal.io/pivotalcf/2-4/concepts/diego/diego-architecture.html)
+
 1. Cloud Controller는 Application 배포 명령을 Diego BBS VM에 전달하고 BBS는 Application의 목표 Spec(instance 수, Memory 등)을 저장 한다.
 
+![diego-cell-2][cf-image-4]
 [diego_cell 동작 방식_2][https://docs.pivotal.io/pivotalcf/2-4/concepts/diego/diego-architecture.html](https://docs.pivotal.io/pivotalcf/2-4/concepts/diego/diego-architecture.html)
+
 2. BBS는 Application의 목표 Spec를 바탕으로 요청을 Diego Brain VM의 Auctioneer 프로세스에 전달 한다.
 
+![diego-cell-3][cf-image-5]
 [diego_cell 동작 방식_3][https://docs.pivotal.io/pivotalcf/2-4/concepts/diego/diego-architecture.html](https://docs.pivotal.io/pivotalcf/2-4/concepts/diego/diego-architecture.html)
+
 3. Auctioneer는 Diego_Cell VM의 Rep에 Application 배포를 요청하고  Rep는 실제 Container 환경의 Garden Runc의 상태가 정상이면 해당 요청을 승인 한다.
 
+![diego-cell-4][cf-image-6]
 [diego_cell 동작 방식_4][https://docs.pivotal.io/pivotalcf/2-4/concepts/diego/diego-architecture.html](https://docs.pivotal.io/pivotalcf/2-4/concepts/diego/diego-architecture.html)
+
 4. Rep는 Garden Runc를 호출하여 Container를 생성하고 Garden Runc는 $ cf push, Application 배포 시 생성한 Droplet을 Blobstore VM에서 다운로드하고 Garden Container 환경에서 Application을 실행 한다.
 
+
+![diego-cell-4][cf-image-7]
 [diego_cell 동작 방식_5][https://docs.pivotal.io/pivotalcf/2-4/concepts/diego/diego-architecture.html](https://docs.pivotal.io/pivotalcf/2-4/concepts/diego/diego-architecture.html)
+
 5. Diego Cell VM의 route_emitter는 Application의 접근 경로를 Go Router에 등록 시킨다.
 
+![diego-cell-4][cf-image-8]
 [diego_cell 동작 방식_6][https://docs.pivotal.io/pivotalcf/2-4/concepts/diego/diego-architecture.html](https://docs.pivotal.io/pivotalcf/2-4/concepts/diego/diego-architecture.html)
+
 6. Diego Cell VM 내부 프로세스 Loggreate agent가 Application의 Log와 Metric 정보를Doppler를 통해 Loggregator Component에 전달하여 사용자에게 4333 PORT로 제공 한다.
 
 #### 1.3.2. Pivotal Cloud Foundry Cloud Controller
+
+![diego-cell-4][cf-image-9]
+
  [cloudcontroller_아키텍처_Image][https://docs.cloudfoundry.org/concepts/architecture/cloud-controller.html](https://docs.cloudfoundry.org/concepts/architecture/cloud-controller.html)
+ 
  - Cloud Controller는 사용자가 플랫폼에 Access 할 수 있는 REST API EndPoint를 제공하며 Opg/Space/Service/MarketPlace/Buildpack 등에 관련한 정보를 CC_DB Database Table을 통해 관리 한다.
 - 사용자가 API 요청을 보내면 Go Router가 Cloud Controller의 주소로 요청을 보내 처리 한다. 
 
@@ -62,6 +83,8 @@
 -   [V2 API Docs](http://apidocs.cloudfoundry.org/)
  
 #### 1.3.3. Pivotal Cloud Foundry Loggregator
+
+![diego-cell-4][cf-image-10]
 [loggregator_아키텍처_Image][[https://docs.pivotal.io/pivotalcf/2-4/loggregator/architecture.html](https://docs.pivotal.io/pivotalcf/2-4/loggregator/architecture.html)
 
 - Pivotal Cloud Foundry는 Loggregator Component를 통해 VM과 Application Log를 Low Latency, Highly scalable, distributed systems 실시간으로 사용자에게 제공 한다.
@@ -71,7 +94,10 @@
 5. Traffic Controller는 사용자가 요청하는 API에 따라 Doppler에서 가공한 Log를 사용자에게 제공 한다.
 
 #### 1.3.4. Pivotal Cloud Foundry UAA
+
+![diego-cell-4][cf-image-11]
 [uaa아키텍처_Image][https://docs.cloudfoundry.org/uaa/uaa-overview.html](https://docs.cloudfoundry.org/uaa/uaa-overview.html)
+
 - Pivotal Cloud Foundry Uaa는 플랫폼에 대한 ID/PASSWORD 인증에 대한 보안을 제공한다.
 - 제공하는 인증 방법은 아래와 같다.
 	- OAuth 2.0
@@ -80,3 +106,17 @@
 	- LDAP
 	- SCIM 1.0
 
+
+
+[cf-image-0]:./images/cf-image-1.png
+[cf-image-1]:./images/cf-image-2.png
+[cf-image-2]:./images/cf-image-3.png
+[cf-image-3]:./images/cf-image-4.png
+[cf-image-4]:./images/cf-image-5.png
+[cf-image-5]:./images/cf-image-6.png
+[cf-image-6]:./images/cf-image-7.png
+[cf-image-7]:./images/cf-image-8.png
+[cf-image-8]:./images/cf-image-9.png
+[cf-image-9]:./images/cf-image-10.png
+[cf-image-10]:./images/cf-image-11.png
+[cf-image-10]:./images/cf-image-12.png
