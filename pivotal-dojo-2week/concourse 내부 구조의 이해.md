@@ -2,7 +2,7 @@
 
 ### 1.1. Concourse의 특징
 
-[Concourse_Image]
+![concouse][concouse-image-0]
 
 -  Go로 작성한 CI/CD 자동화 시스템으로 단순한 Build 부터 복잡한 배포까지 모든 종류의 Pipeline을 구성하여 관리를 할 수 있게하는 Tool
 -  모든 Pipeline이 Container 내에서 실행 되고 자체 이미지를 사용하여 코드/패키지에 대한 종속성을 완벽하게 제어
@@ -24,7 +24,7 @@
 
 ### 1.4. Concourse 아키텍처
 
-[아키텍처_Image]
+![concouse_아키텍쳐][concouse-image-1]
 
 - ATC: Concourse의 Web  UI와 fly 명령어/REST API 요청을 처리하는 Component
 - TSA:  동작하는 Container의 SSH(2222) PORT 수신을 대기하며 internal/exteranl worker를 등록하여 ATC에 사용 할 수 있는 worker 정보를 전달, 지속적으로 ping을 체크하여 불안전한 worker 상태를 확인하는 Component
@@ -199,3 +199,5 @@ Tasks는 아래와 같은 구조를 가지고 있다.
 	- user: string -> Container 환경의 사용자를 지정 defalut: root
 - params: {string: string} -> 환경 변수를 통해 job에 노출 할 key/value
 ```
+[concouse-image-0]:./images/concourse-image-0.png
+[concouse-image-1]:./images/concourse-image-1.png
