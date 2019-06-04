@@ -96,13 +96,13 @@
 
 [cf-image-0]:./images/cfimage-0.png
 [cf-image-1]:./images/cfimage-1.png
-[cf-image-2]:./images/cfimage-2.png
-[cf-image-3]:./images/cfimage-3.png
-[cf-image-4]:./images/cfimage-4.png
-[cf-image-5]:./images/cfimage-5.png
-[cf-image-6]:./images/cfimage-6.png
-[cf-image-7]:./images/cfimage-7.png
-[cf-image-8]:./images/cfimage-8.png
-[cf-image-9]:./images/cfimage-9.png
-[cf-image-10]:./images/cfimage-10.png
-[cf-image-11]:./images/cfimage-11.png
+[cf-image-2]:./images/cfimage-2.PNG
+[cf-image-3]:./images/cfimage-3.PNG
+[cf-image-4]:./images/cfimage-4.PNG
+[cf-image-5]:./images/cfimage-5.PNG
+[cf-image-6]:./images/cfimage-6.PNG
+[cf-image-7]:./images/cfimage-7.PNG
+[cf-image-8]:./images/cfimage-8.PNG
+[cf-image-9]:./images/cfimage-9.PNG
+[cf-image-10]:./images/cfimage-10.PNG
+[cf-image-11]:./images/cfimage-11.PNG
