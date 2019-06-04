@@ -16,7 +16,7 @@
 
 [아키텍처_Image][https://docs.pivotal.io/pivotalcf/2-4/concepts/architecture/index.html](https://docs.pivotal.io/pivotalcf/2-4/concepts/architecture/index.html)
 
-- Router:  System Doamin(UAA, CC,  LOGIN, SSH)에 대한 요청을 수신하는 Component
+- Router:  System Doamin(UAA, CC,  LOGIN, SSH, Apps)에 대한 요청을 수신하는 Component
 - Uaa: Pivotal Cloud Foundry에 접근하는 사용자에 대한 정보와 Role을 제공하는 Component
 - Cloud Controller: Pivotal Cloud Foundry는 사용자의 Rest API/CLI 요청을 받아 처리 하는 Component
 - Database: Cloud Controller API에 대한 정보를 가지고 있는 Mysql/Postgres Component
@@ -24,7 +24,6 @@
 - Nats:  Pivotal Cloud Foundry VM 사이의 내부 통신 메세지 채널 Component
 - Diego Cell: Droplet을 통해 생성한 Application 정보를 바탕으로 Garden Container에 실제 Application을 배포 하는 Component
 - Loggregator: Pivotal Cloud Foundry VM 과 배포 한 Application의 Syslog를 제공하는 Component
-- Go Router: Diego Cell에 배포한 Application의 경로를 Router에 등록시키고 지속적으로 BBS를 통해 Application의 상태를 확인하는 Component
 - BBS: Diego Cell의 현재 상태와 목표 상태 주기를 확인 하고 저장하는 Database Component
 
 ### 1.3. Pivotal Cloud Foundry 주요 구성 요소 상세
