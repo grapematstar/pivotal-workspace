@@ -1,7 +1,7 @@
 ## 1. Pivotal Cloud Foundry 내부 구조의 이해
 
 ### 1.1. Pivotal Cloud Foundry 의 컨셉
-
+              
 ![cf-cencept][cf-image-0]
 
 -  사용자에게 플랫폼의 확장성과 개방성을 제공하여 기존의 레거시 시스템에서 보다 빠르게 Application을 배포/관리 할 수 있다.
@@ -13,7 +13,7 @@
 - Application 구동 시 연동 Database 또는 타 Brand의 API를 호출 할 수있는 사용자 제공 Service API를 제공 한다.
 
 ### 1.2. Pivotal Cloud Foundry 아키텍처
-
+              
 ![cf-arc][cf-image-1]
 [아키텍처_Image][https://docs.pivotal.io/pivotalcf/2-4/concepts/architecture/index.html](https://docs.pivotal.io/pivotalcf/2-4/concepts/architecture/index.html)
 
@@ -107,15 +107,15 @@
 
 
 
-[cf-image-0]:./images/cf-image-1.png
-[cf-image-1]:./images/cf-image-2.png
-[cf-image-2]:./images/cf-image-3.png
-[cf-image-3]:./images/cf-image-4.png
-[cf-image-4]:./images/cf-image-5.png
-[cf-image-5]:./images/cf-image-6.png
-[cf-image-6]:./images/cf-image-7.png
-[cf-image-7]:./images/cf-image-8.png
-[cf-image-8]:./images/cf-image-9.png
-[cf-image-9]:./images/cf-image-10.png
+[cf-image-0]:./images/cf-image-0.png
+[cf-image-1]:./images/cf-image-1.png
+[cf-image-2]:./images/cf-image-2.png
+[cf-image-3]:./images/cf-image-3.png
+[cf-image-4]:./images/cf-image-4.png
+[cf-image-5]:./images/cf-image-5.png
+[cf-image-6]:./images/cf-image-6.png
+[cf-image-7]:./images/cf-image-7.png
+[cf-image-8]:./images/cf-image-8.png
+[cf-image-9]:./images/cf-image-9.png
+[cf-image-10]:./images/cf-image-10.png
 [cf-image-10]:./images/cf-image-11.png
-[cf-image-10]:./images/cf-image-12.png
