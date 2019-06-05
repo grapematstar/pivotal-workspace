@@ -1,5 +1,5 @@
 
-## Bosh Backup And Restore
+## Bosh Backup And Restore Director
  - 전제 조건
 	- Ops Manager는 정상 동작해야 한다.
 	- 외부 Database를 사용 할 경우 BBR이 가능한지 확인 해야 한다.
