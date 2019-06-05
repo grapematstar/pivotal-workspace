@@ -1,9 +1,10 @@
 
 
+
 ## 1. Pivotal Cloud Foundry & Bosh Prometheus Metric
 
 - 전제 조건
-	- BOSH/Pivotal Cloud Foundry가 설치되어 있어야 한다.
+	- BOSH/PAS가 설치되어 있어야 한다.
 	- 외부와 통신이 가능한 Jumpbox(workspace server)가 존재 해야 한다.
  
 ### 1.1 Bosh Prometheus 아키텍처
@@ -86,6 +87,8 @@ grafana_password: 1r1jr1oxxt873r7j21yt
 grafana_secret_key: dxlse2wlchfafr4ldb3n
 postgres_grafana_password: sxsfajchrv1ec7nhak86
 prometheus_password: jhdmvpjowqfgphpo1q0p
+
+# 설치가 완료되면 http://<nginx-ip-address>:3000를 통하여 들어온 Bosh/Pivotal Cloud Foundry의 시각화한 Metric 정보를 확인 한다.
 ```
 
 ### 2.1 Prometheus Customizing
