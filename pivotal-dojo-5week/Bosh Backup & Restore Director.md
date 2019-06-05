@@ -96,7 +96,7 @@ drwxrwxr-x 3 ubuntu ubuntu       4096 May 30 15:56 ../
 	- Director Restore 시 Backup 파일이 존재 해야 한다. 
 	- Director Restore 명령어 실행 전 Ops Manger에 Restore 대상 Director(껍데기)가 존재 해야 한다.
 	
-#### 2.1. Restore 실행 과정
+#### 3.1. Restore 실행 과정
 
 - Bosh Director Backup 대상과 관련 한 Component(UAA, Credhub) Job에 아래와 같은 파일 구조가 존재 한다.
 ```
@@ -115,7 +115,7 @@ drwxr-x--- 3 root vcap 4096 May  9 02:22 ../
 
 [Bosh Director Restore workflow][https://docs.cloudfoundry.org/bbr/bbr-devguide.html#pre-backup-lock](https://docs.cloudfoundry.org/bbr/bbr-devguide.html#pre-backup-lock)
 
-#### 2.2.  BBR CLI를 실행하여 Director를 Restore
+#### 3.2.  BBR CLI를 실행하여 Director를 Restore
 ```
 # bosh director restore 명령을 실행 한다.
 $ bbr director \
