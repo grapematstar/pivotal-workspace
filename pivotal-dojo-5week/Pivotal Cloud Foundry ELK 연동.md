@@ -2,6 +2,7 @@
 
 ### 1. Opensource Bosh ELK Stack Deployment Deploy
 - 전제 조건: Opensource BOSH가 설치 되어 있어야한다.
+- Bosh/Pivotal Cloud Foundry가 설치 되어 있어야 한다.
 
 #### 1.1.  PCF Loggregator 아키텍쳐
 ```
