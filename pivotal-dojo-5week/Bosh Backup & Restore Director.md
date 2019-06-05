@@ -59,13 +59,13 @@ $ bbr director \
 --host ${BOSH_DIRECTOR_IP} \
 backup-cleanup
 
-# bosh director를 backup이 가능한지 pre-backup-check을 실행한다.
+# bosh director가 backup이 가능한지 pre-backup-check을 실행한다.
 $ bbr director --host ${BOSH_DIRECTOR_IP} \
 --username bbr  \
 --private-key-path ${BOSH_PRIVATE_KEY_FILE} \
 pre-backup-check
 
-# bosh director back을 실행 한다.
+# bosh director backup을 실행 한다.
 $ bbr director \
 --private-key-path ${BOSH_PRIVATE_KEY_FILE} \
 --username bbr \
