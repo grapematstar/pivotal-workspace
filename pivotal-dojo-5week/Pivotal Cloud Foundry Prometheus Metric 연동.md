@@ -1,12 +1,21 @@
-## 1. PAS & Bosh Prometheus Metric
+
+
+## 1. Pivotal Cloud Foundry & Bosh Prometheus Metric
 
 - 전제 조건
-	- BOSH/PAS가 설치되어 있어야 한다.
+	- BOSH/Pivotal Cloud Foundry가 설치되어 있어야 한다.
 	- 외부와 통신이 가능한 Jumpbox(workspace server)가 존재 해야 한다.
+ 
+### 1.1 Bosh Prometheus 아키텍처
+[prometheu 아키텍처]
+[https://github.com/myminseok/pcf-prometheus-pipeline-minseok](https://github.com/myminseok/pcf-prometheus-pipeline-minseok)
 
-### 1.1 Bosh Prometheus Deploy
+- Bosh Prometheus Release 내부에는 각 Deployment(BOSH, Pivotal Cloud Foundy, Mysql, Redis, RabbitMq 등) 별 Metric을 수집하는 Exporter들이 존재 한다.
+- Prometheus Exporter를 통해  수집 한 각 Deployment의 Metric을 Grafana에서 가공하여 시각화 한다.
 
-#### 1.1.1. Bosh Prometheus Deployment Download git
+### 1.2 Bosh Prometheus Deploy
+
+#### 1.2.1. Bosh Prometheus Deployment Download git
 
 ```
 # git clone prometheus
