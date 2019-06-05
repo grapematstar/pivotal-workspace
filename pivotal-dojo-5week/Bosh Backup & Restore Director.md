@@ -45,7 +45,7 @@ drwxr-x--- 3 root vcap 4096 May  9 02:22 ../
 
 [Bosh Director Backup workflow][https://docs.cloudfoundry.org/bbr/bbr-devguide.html#pre-backup-lock](https://docs.cloudfoundry.org/bbr/bbr-devguide.html#pre-backup-lock)
 
-#### 2.2.  BBR CLI를 실행하여 Director를 BackUp
+#### 2.2.  BBR CLI를 실행하여 Director를 Backup
 ```
 # director backup을 하기전 backup disk 용량을 최소화와 빠른 실행을 위해 director를 clean up 한다.
 
