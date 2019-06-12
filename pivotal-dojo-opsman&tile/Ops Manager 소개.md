@@ -9,7 +9,7 @@
 
 ### 1.1. Ops Manager Install Dash Board 소개
 
-[Opsmanager Install Dashboard Image][https://docs.pivotal.io/pivotalcf/2-3/customizing/pcf-interface.html](https://docs.pivotal.io/pivotalcf/2-3/customizing/pcf-interface.html)
+![Opsmanager Install Dashboard Image][opsman-image-0]
 
 - A: Import Product = Pivtotal Netowork에서 다운로드 한 Ops Manager에 호환이 되는 Product Tile을 추가,  F의 Setting에서 External API Access를 Pivotal Network로 설정하면 자동으로 Ops Manager 버전에 맞는 Product Tile들이 나타난다.
 - B: Delete All Unused Products = 사용하지 않는 모든 Product Tile을 삭제한다.
@@ -27,11 +27,11 @@
 
 - 아래의 Image에서 Ops Manager의 자체 설정 정보를 변경 할 수 있다.
 
-[Opsmanager Setting][https://docs.pivotal.io/pivotalcf/2-3/customizing/pcf-interface.html](https://docs.pivotal.io/pivotalcf/2-3/customizing/pcf-interface.html)
+![Opsmanager Install Dashboard Image][opsman-image-1]
 
 #### 1.2.1. Decryption Passphrase
 
-[Decryption Passphrase][https://docs.pivotal.io/pivotalcf/2-3/customizing/pcf-interface.html](https://docs.pivotal.io/pivotalcf/2-3/customizing/pcf-interface.html)
+![Opsmanager Install Dashboard Image][opsman-image-2]
 
 - Ops Manager 초기 설치 시 설정 한 Decryption Passphrase를 수정 할 수 있다.
 
@@ -46,7 +46,7 @@
 	
 #### 1.2.3. SSL Certificate
 
-[SSL Certificate][[https://docs.pivotal.io/pivotalcf/2-4/customizing/pcf-interface.html](https://docs.pivotal.io/pivotalcf/2-4/customizing/pcf-interface.html)
+![Opsmanager Install Dashboard Image][opsman-image-3]
 
 - Ops Manager가 사용하는 UI/API의 트래픽에 대해 해당 SSL 인증서를 사용, 빈칸일 경우 자체적으로 생성한 인증서를 사용한다.
 
@@ -58,7 +58,7 @@
 
 #### 1.2.6. Custom Banner
 
-[Custom Banner][[https://docs.pivotal.io/pivotalcf/2-4/customizing/pcf-interface.html](https://docs.pivotal.io/pivotalcf/2-4/customizing/pcf-interface.html)
+![Opsmanager Install Dashboard Image][opsman-image-5]
 
 - 운영자에게 보여질 Banner를 Text 형식으로 설정 한다. UI Banner는 Web에서 보여지며 SSH Banner는 Shell에 접속 했을 경우 나타난다. 
 
@@ -67,7 +67,7 @@
 
 #### 1.2.8. Syslog
 
-[Syslog][[https://docs.pivotal.io/pivotalcf/2-4/customizing/pcf-interface.html](https://docs.pivotal.io/pivotalcf/2-4/customizing/pcf-interface.html)
+![Opsmanager Install Dashboard Image][opsman-image-6]
 
 - Ops Manager의 Syslog를 특정 로그 수집기(logstash, rsyslog) 등으로 보내준다.
 
@@ -81,7 +81,7 @@
 
 #### 1.3.1. Review Pending Changes 화면
 
-[Review Pending Changes Page][https://docs.pivotal.io/pivotalcf/2-4/customizing/review-pending-changes.html](https://docs.pivotal.io/pivotalcf/2-4/customizing/review-pending-changes.html)
+![Opsmanager Install Dashboard Image][opsman-image-7]
 
 - A: Select All Products = Ops Manager에 등록한 모든 Product Tile들이 선택되고 Apply Change 시 선택 한 Product들이 배포/수정 배포 된다.
 - B: Select Product = Apply Change를 실행 할 단일 Product Tile들에 대한 선택이 된다, Director Tile은 항상 Defaut로 선택되어 있다.
@@ -104,20 +104,20 @@
 
 #### 1.3.2. Adding and Deleting Products
 
-[pivotal network][[https://network.pivotal.io/](https://network.pivotal.io/)
+![Opsmanager Install Dashboard Image][opsman-image-8]
 
 - Ops Manager에서 사용 할 수있는 Product Tile은 Pivotal Network에서 다운로드 가능하다.
 
-[import Product][https://docs.pivotal.io/pivotalcf/2-4/customizing/add-delete.html](https://docs.pivotal.io/pivotalcf/2-4/customizing/add-delete.html)
+![Opsmanager Install Dashboard Image][opsman-image-9]
 
 - Pivotal Network에서 다운로드 한 Product Tile을 Installation Dash board의 "import product" 버튼을 통해 Ops Manager에 넣는다.
 
-[version][https://docs.pivotal.io/pivotalcf/2-4/customizing/add-delete.html](https://docs.pivotal.io/pivotalcf/2-4/customizing/add-delete.html)
+![Opsmanager Install Dashboard Image][opsman-image-10]
 
 - Ops Manager의 Version에 호환하는 Product Tile Version이 아닐 경우 호환하는 Version을 출력 한다.
 - 녹색의 "+" 아이콘을 클릭하게 되면 Product Tile이 Ops Manager에 등록 된다.
 
-[Product Tile Orange][https://docs.pivotal.io/pivotalcf/2-4/customizing/add-delete.html](https://docs.pivotal.io/pivotalcf/2-4/customizing/add-delete.html)
+![Opsmanager Install Dashboard Image][opsman-image-11]
 
 - Product Tile이 주황색일 경우 설정해야 할 정보가 필요함을 의미
 - Product Tile 구성을 완료하고 "Apply Change" 버튼을 클릭한다.
@@ -126,15 +126,16 @@
 
 - Stemcell OS를 Ops Manager 화면에 등록 해 Product Tile에 적용 시킬수 있다.
 
-[Pivtoal Stemcell][https://network.pivotal.io/products/stemcells-ubuntu-xenial/](https://network.pivotal.io/products/stemcells-ubuntu-xenial/)
+![Opsmanager Install Dashboard Image][opsman-image-12]
 
 - Pivotal Network 또는 bosh io 에서 Stemcell을 다운로드 한다.
 
-[Import Stemcell][https://docs.pivotal.io/pivotalcf/2-4/opsguide/managing-stemcells.html](https://docs.pivotal.io/pivotalcf/2-4/opsguide/managing-stemcells.html)
+![Opsmanager Install Dashboard Image][opsman-image-13]
 
 - "Import Stemcells" 버튼을 클릭하여 다운로드 한 Stemcell을 Ops Manager에 Import 시킨다.
 
-[Change Stemcell][https://docs.pivotal.io/pivotalcf/2-4/opsguide/managing-stemcells.html](https://docs.pivotal.io/pivotalcf/2-4/opsguide/managing-stemcells.html)
+![Opsmanager Install Dashboard Image][opsman-image-14]
+
 - Product Tile에서 사용할 Stemcell Version을 선택 한다.
 
 #### 1.3.4. Ops Manager 사용자 생성
@@ -171,3 +172,20 @@ success
 
 # 읽기 권한만 할당한 사용자는 Ops Manager 화면이 Block 처리 됨을 확인한다.
 ```
+
+[opsman-image-0]:./images/opsman1.png
+[opsman-image-1]:./images/opsman2.png
+[opsman-image-2]:./images/opsman3.png
+[opsman-image-3]:./images/opsman4.png
+[opsman-image-4]:./images/opsman5.png
+[opsman-image-5]:./images/opsman6.png
+[opsman-image-6]:./images/opsman7.png
+[opsman-image-7]:./images/opsman8.PNG
+[opsman-image-8]:./images/opsman9.png
+[opsman-image-9]:./images/opsman10.png
+[opsman-image-10]:./images/opsman11.png
+[opsman-image-11]:./images/opsman12.png
+[opsman-image-12]:./images/opsman13.PNG
+[opsman-image-13]:./images/opsman14.png
+[opsman-image-14]:./images/opsman15.png
+
