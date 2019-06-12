@@ -93,6 +93,28 @@
 
 - Manage Autoscaling 화면에서 Config를 설정하여 자동으로 Application이 Autoscaling 되도록 설정 한다.
 
+#### 1.1.3. App Manager 사용자 생성
+
+- Apps Manger는 사용자를 관리하기 위해 Pivotal Cloud Foundry 설치 시 Login Server인 UAA와 연동 되어 있다. UAA에 Apps Manager 계정을 추가 하기 위해 Ops Manager Shell에 접속하여 진행 한다.
+
+```
+# Pivotal Cloud Foundry UAA 서버를 Targeting 한다.
+$ uaac target uaa.{SYSTEM_DOMAIN} --skip-ssl-validation
+
+$ uaac token client get admin -s 
+<- admin client credential 비번
+
+$ uaac contexts( 계정정보 확인 )    
+
+$ uaac user add <username> -p <password>  --emails <e-mail address>
+
+admin에 대한 user 권한추가
+$ uaac member add cloud_controller.admin username
+$ uaac member add uaa.admin username
+$ uaac member add scim.read username
+$ uaac member add scim.write username
+
+```
 [appsman-image-1]:./images/appsman-1.png
 [appsman-image-2]:./images/appsman-2.png
 [appsman-image-3]:./images/appsman-3.png
