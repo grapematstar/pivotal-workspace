@@ -93,13 +93,13 @@
 
 - Manage Autoscaling 화면에서 Config를 설정하여 자동으로 Application이 Autoscaling 되도록 설정 한다.
 
-[apps-image-1]:./images/appsman-1.png
-[apps-image-2]:./images/appsman-2.png
-[apps-image-3]:./images/appsman-3.png
-[apps-image-4]:./images/appsman-4.png
-[apps-image-5]:./images/appsman-5.png
-[apps-image-6]:./images/appsman-6.png
-[apps-image-7]:./images/appsman-7.png
-[apps-image-8]:./images/appsman-8.png
+[appsman-image-1]:./images/appsman-1.png
+[appsman-image-2]:./images/appsman-2.png
+[appsman-image-3]:./images/appsman-3.png
+[appsman-image-4]:./images/appsman-4.png
+[appsman-image-5]:./images/appsman-5.png
+[appsman-image-6]:./images/appsman-6.png
+[appsman-image-7]:./images/appsman-7.png
+[appsman-image-8]:./images/appsman-8.png
 
 
