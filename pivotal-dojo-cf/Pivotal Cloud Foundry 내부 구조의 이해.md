@@ -24,7 +24,7 @@
 - BlobStore: Pivotal Cloud Foundry에서 배포 한 Application의 메타 데이터(Buildpack, Source Code 등) 정보를 가지고 있는 Component
 - Nats:  Pivotal Cloud Foundry VM 사이의 내부 통신 메세지 채널 Component
 - Diego Cell: Droplet을 통해 생성한 Application 정보를 바탕으로 Garden Container에 실제 Application을 배포 하는 Component
-- Loggregator: Pivotal Cloud Foundry VM 과 배포 한 Application의 Syslog를 제공하는 Component
+- Loggregator: Pivotal Cloud Foundry VM 과 배포 한 Application의 Metric, Container Log를 제공하는 Component
 - BBS: Diego Cell의 현재 상태와 목표 상태 주기를 확인 하고 저장하는 Database Component
 
 ### 1.3. Pivotal Cloud Foundry 주요 구성 요소 상세
