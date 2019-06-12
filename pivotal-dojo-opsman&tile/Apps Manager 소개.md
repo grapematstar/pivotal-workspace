@@ -86,8 +86,12 @@
 		- Space의 Service를 선택하고 "Bind App" 버튼을 클릭하여 Application을 Bind 한다.
 
 [Scale][https://docs.pivotal.io/pivotalcf/2-4/appsman-services/autoscaler/using-autoscaler.html](https://docs.pivotal.io/pivotalcf/2-4/appsman-services/autoscaler/using-autoscaler.html)
+
 - Space에서 Bind한 Application을 선택하고 Autoscaling를 가능으로 변경 -> "Manage Autoscaling"  버튼을 클릭 한다.
 - 
-- 
+[Scale][https://docs.pivotal.io/pivotalcf/2-4/appsman-services/autoscaler/using-autoscaler.html](https://docs.pivotal.io/pivotalcf/2-4/appsman-services/autoscaler/using-autoscaler.html)
+
+- Manage Autoscaling 화면에서 Config를 설정하여 자동으로 Application이 Autoscaling 되도록 설정 한다.
+
 
 
