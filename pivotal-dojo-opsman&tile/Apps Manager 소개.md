@@ -13,7 +13,7 @@
 
 ---
 
-[Manager Domains][https://docs.pivotal.io/pivotalcf/2-3/console/manage-spaces.html#view-space](https://docs.pivotal.io/pivotalcf/2-4/console/manage-spaces.html#view-space)
+![apps-manager][appsman-image-1]
 
 1. Manager Domains
 	- Pivotal Cloud Foundry Domain을 통해 배포 한 Application에 대한 경로를 지정 할 수 있다.
@@ -22,21 +22,21 @@
 ---
 ---
 
-[Manger Members][https://docs.pivotal.io/pivotalcf/2-5/console/console-roles.html](https://docs.pivotal.io/pivotalcf/2-4/console/console-roles.html)
+![apps-manager][appsman-image-2]
 
 2.  Manger Members
 	- Apps Manager에서는 Org에 대한 사용자 초대 및 Org와 Space에 대한 권한을 설정 할 수 있다.
 ---
 ---
 
-[Setting][https://docs.pivotal.io/pivotalcf/2-5/console/console-roles.html](https://docs.pivotal.io/pivotalcf/2-4/console/console-roles.html)
+![apps-manager][appsman-image-3]
 
 3. Setting
 - Apps Manager에서는 Setting을 통해 Org/Space의 Name 수정과 Application 단의 Security Group, Metadata를 설정 할 수 있다.
 ---
 ---
 
-[Apps][https://docs.pivotal.io/pivotalcf/2-5/console/console-roles.html](https://docs.pivotal.io/pivotalcf/2-4/console/console-roles.html)
+![apps-manager][appsman-image-4]
 
 4. Apps
 - Apps Manager에서는 선택한 Org -> Space 화면에서 Application의 Status, Name, Instance 수, 사용 가능한 Memory 양, 마지막 Push 이후 시간, Application의 접속 경로들을 확인 할 수 있다.
@@ -44,7 +44,7 @@
 
 ---
 
-[Services][https://docs.pivotal.io/pivotalcf/2-5/console/console-roles.html](https://docs.pivotal.io/pivotalcf/2-4/console/console-roles.html)
+![apps-manager][appsman-image-5]
 
 5. Services
 - Apps Manager의 Service 목록에는 Service, Name, Bound 한 Application 수 및 각 Service Instance의 Plan을 확인 할 수 있다.
@@ -53,7 +53,7 @@
 
 ---
 
-[Routes][https://docs.pivotal.io/pivotalcf/2-5/console/console-roles.html](https://docs.pivotal.io/pivotalcf/2-4/console/console-roles.html)
+![apps-manager][appsman-image-6]
 
 6. Routes
 - Apps Manager의 Routes 목록에는 Route와 Route에 Bound 한 Application을 확인 할 수 있다.
@@ -85,13 +85,21 @@
 	4. Space에 이미 만들어진 Service Instance가 있는 경우 (optional)
 		- Space의 Service를 선택하고 "Bind App" 버튼을 클릭하여 Application을 Bind 한다.
 
-[Scale][https://docs.pivotal.io/pivotalcf/2-4/appsman-services/autoscaler/using-autoscaler.html](https://docs.pivotal.io/pivotalcf/2-4/appsman-services/autoscaler/using-autoscaler.html)
+![apps-manager][appsman-image-7]
 
 - Space에서 Bind한 Application을 선택하고 Autoscaling를 가능으로 변경 -> "Manage Autoscaling"  버튼을 클릭 한다.
-- 
-[Scale][https://docs.pivotal.io/pivotalcf/2-4/appsman-services/autoscaler/using-autoscaler.html](https://docs.pivotal.io/pivotalcf/2-4/appsman-services/autoscaler/using-autoscaler.html)
+
+![apps-manager][appsman-image-8]
 
 - Manage Autoscaling 화면에서 Config를 설정하여 자동으로 Application이 Autoscaling 되도록 설정 한다.
 
+[apps-image-1]:./images/appsman-1.png
+[apps-image-2]:./images/appsman-2.png
+[apps-image-3]:./images/appsman-3.png
+[apps-image-4]:./images/appsman-4.png
+[apps-image-5]:./images/appsman-5.png
+[apps-image-6]:./images/appsman-6.png
+[apps-image-7]:./images/appsman-7.png
+[apps-image-8]:./images/appsman-8.png
 
 
