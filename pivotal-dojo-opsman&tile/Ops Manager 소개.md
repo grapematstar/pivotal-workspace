@@ -182,8 +182,8 @@ success
 [opsman-image-4]:./images/opsman5.png
 [opsman-image-5]:./images/opsman6.png
 [opsman-image-6]:./images/opsman7.png
-[opsman-image-7]:./images/opsman8.PNG
-[opsman-image-8]:./images/opsman9.png
+[opsman-image-7]:./images/opsman8.png
+[opsman-image-8]:./images/opsman9.PNG
 [opsman-image-9]:./images/opsman10.png
 [opsman-image-10]:./images/opsman11.png
 [opsman-image-11]:./images/opsman12.png
