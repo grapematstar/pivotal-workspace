@@ -1,4 +1,4 @@
-##  Ops Manager Bosh Director Tile
+##  Bosh Director Tile
 
 - Bosh Director Tile은 Bosh 를 설치하는 Tile으로 Bosh 설치에 대한 전반적인 Network, AZ, Syslog, Instance Type 등의 Config 정보를 설정 할 수있다.
 - Bosh Director Tile은 Ops Manager를 설치 시 자동으로 Tile을 구성 한다.
