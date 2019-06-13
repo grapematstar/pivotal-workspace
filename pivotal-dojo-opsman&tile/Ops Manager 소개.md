@@ -50,11 +50,14 @@
 
 - Ops Manager가 사용하는 UI/API의 트래픽에 대해 해당 SSL 인증서를 사용, 빈칸일 경우 자체적으로 생성한 인증서를 사용한다.
 
-![Opsmanager Install Dashboard Image][opsman-image-4]
+
 
 #### 1.2.4. External API Access
- -   Pivotal Network API의 Token을 입력하여 Ops Manager의 Version을 감지해 호환되는 Product Tile을 Install Dashboard에 보여준다.
 
+![Opsmanager Install Dashboard Image][opsman-image-4]
+
+ -   Pivotal Network API의 Token을 입력하여 Ops Manager의 Version을 감지해 호환되는 Product Tile을 Install Dashboard에 보여준다.
+ 
 #### 1.2.5. Proxy Settings
 - Ops Manager에 연결할 때 http/https Proxy 서버를 사용할 경우 입력 한다.
 
