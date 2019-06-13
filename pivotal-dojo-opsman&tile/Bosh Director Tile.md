@@ -14,7 +14,7 @@
 - Bosh Director를 설치 할 vShpere 환경 정보를 설정 할 수 있다.
 - vShpere 환경 설정 정보는 Bosh Director를 통해 배포 하는 모든 Deployment에 영향을 준다.
 
-[vCenter][https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites](https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites)
+![Opsmanager tile_Image][opsmantile-image-1]
 
 - Name: vCenter Config의 별칭
 - vCenter Host: vSphere 접속 Host Name/IP
@@ -42,7 +42,7 @@
 #### 1.2. Create Director Config
 - Bosh Director VM Job의 Config를  설정 할 수 있다.
 
-[Director Config][https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites](https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites)
+![Opsmanager tile_Image][opsmantile-image-2]
 
 - NTP Servers : NTP server의 주소 ",로 복수 개 구분"
 - JMX Provider IP Address:  JMX Provider IP 주소 (Firehose를 통해 Metric이 전달 됨으로 빈 값을 권고)
@@ -59,7 +59,7 @@
 
 ---
 
-[Pager Duty][https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites](https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites)
+![Opsmanager tile_Image][opsmantile-image-3]
 
 - HM Pager Duty Plugin: Bosh Director의 HM과 PagerDuty를 연동
 	- Service Key: PagerDuty의 API Service Key
@@ -68,7 +68,7 @@
 ---
 ---
 
-[Pager Duty][https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites](https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites)
+![Opsmanager tile_Image][opsmantile-image-4]
 
 - HM Email Plugin: Bosh Health Monitor의 Status를 Email로 연동 
 	- Host: SMTP 서버 주소
@@ -83,7 +83,7 @@
 
 ---
 
-[CredHub Encryption Provider][https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites](https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites)
+![Opsmanager tile_Image][opsmantile-image-5]
 
 - CredHub Encryption Provider: Bosh Credhub가 내부적인 Bosh의 Director와 내부 VM으로 저장 할지, HSM 하드웨어로 저장 할지 선택
 	- internal: 내부 Credhub를 사용 할 경우 선택
@@ -101,7 +101,7 @@
 
 ---
 
-[Blobstore Location][https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites](https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites)
+![Opsmanager tile_Image][opsmantile-image-6]
 
 - Blobstore Location: BlobStore를 Internal, External Endpoint로 구성 할 수 있다. Bosh Director를 배포 한 후에는 수정이 불가능 하다. 입력 값은 아래와 같다.
 	- Internal: 내부 Blob 저장소를 사용 할 경우 선택
@@ -120,7 +120,7 @@
 
 ---
 
-[Database][https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites](https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites)
+![Opsmanager tile_Image][opsmantile-image-9]
 
 - Database Location: Bosh Database Component 구성을 Internal/External Mysql 선택을 할 수 있다.  Bosh Director를 배포 한 후에는 수정이 불가능 하다. 입력 값은 아래와 같다.
 - Database TLS 허용을 선택하고 추가적 입력이 가능하다.
@@ -137,7 +137,7 @@
 		- TLS Private Key:  Database와 TLS 상호작용을 하기 위한 Client Private Key 입력
 ---
 
-[Database][https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites](https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites)
+![Opsmanager tile_Image][opsmantile-image-10]
 
 - Director Workers: Bosh Director가 Task를 실행 할 수 있는 Worker의 수 설정, Default는 5
 - Max Threads: Bosh Director가 동시에 실행 할 수 있는 최대 Thread 수, 권고 사항은 Default 값으로 놓고 사용 Defualt 값은 32
@@ -146,7 +146,7 @@
 
 #### 1.3. Create Availability Zones Config
 
-[Availability Zones][https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites](https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites)
+![Opsmanager tile_Image][opsmantile-image-11]
 
 - Bosh Director는 vSphere의 Cluster를 통하여 AZ를 구분 할 수 있으며 여러개의 AZ로 분산해서 사용하여 VM과 Application에 대한 고 가용성과 로드 밸런싱을 제공 한다. Ops Manger Bosh Director를 통해 배포하는 Deployment의 Instance가 2개 이상 일 경우 자동으로 분산 설치 되며 Pivotal 권고 AZ Instance 수는 3개 이상이다.
 - Availability Zones Page에서 "Add Availability Zone" 버튼을 클릭 한다.
@@ -171,14 +171,14 @@
 
 #### 1.5. Assign AZs and Networks Config
 
-[Assign AZs and Networks][https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites](https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites)
+![Opsmanager tile_Image][opsmantile-image-12]
 
 - Bosh를 설치 할 AZ와 Network를 설정 한다.
 - Bosh를 설치 할 때 반드시 단일 AZ로 구성한 Network를 설정해야 한다.
 
 #### 1.6. Security Config
 
-[Security][https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites](https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites)
+![Opsmanager tile_Image][opsmantile-image-13]
 
 - Trusted Certificates: Bosh를 통한 모든 Deployment가 해당 사용자 설정 Root CA Certificate 신뢰하게 한다.
 - Include OpsManager Root CA in Trusted Certs: Ops Manager의 Root CA를 Bosh를 통해 배포한 모든 Deployment들이 신뢰하게 한다.
@@ -186,7 +186,7 @@
 
 #### 1.7. BOSH DNS Config
 
-[BOSH DNS Config][https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites](https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites)
+![Opsmanager tile_Image][opsmantile-image-14]
 
 - Excluded Recursors: Bosh의 내부 DNS에서 사용하지 않을 주소
 - Recursor Timeout: Bosh 내부 DNS Recursion에서   응답 시간 제한
@@ -194,7 +194,7 @@
 
 #### 1.8. BOSH SysLog Config
 
-[BOSH SysLog Config][https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites](https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites)
+![Opsmanager tile_Image][opsmantile-image-15]
 
 - Do you want to configure Syslog for Bosh Director?: Syslog를 사용 할 경우 "Yes"를 선택 한다.
 - Address: Syslog Remote Server의 주소
@@ -209,8 +209,26 @@
 
 #### 1.9. Resource Config
 
-[Resource Config][https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites](https://docs.pivotal.io/pivotalcf/2-5/om/vsphere/config.html#prerequisites)
+![Opsmanager tile_Image][opsmantile-image-16]
 
 - Bosh Director Config에서 Bosh Instance 수와 VM Spce을 지정 할 수 있다.
+
+
+[opsmantile-image-1]:./images/opsmantile-1.png
+[opsmantile-image-2]:./images/opsmantile-2.png
+[opsmantile-image-3]:./images/opsmantile-3.png
+[opsmantile-image-4]:./images/opsmantile-4.png
+[opsmantile-image-5]:./images/opsmantile-5.png
+[opsmantile-image-6]:./images/opsmantile-6.png
+[opsmantile-image-7]:./images/opsmantile-7.png
+[opsmantile-image-8]:./images/opsmantile-8.png
+[opsmantile-image-9]:./images/opsmantile-9.png
+[opsmantile-image-10]:./images/opsmantile-10.png
+[opsmantile-image-11]:./images/opsmantile-11.png
+[opsmantile-image-12]:./images/opsmantile-12.png
+[opsmantile-image-13]:./images/opsmantile-13.png
+[opsmantile-image-14]:./images/opsmantile-14.png
+[opsmantile-image-15]:./images/opsmantile-15.png
+[opsmantile-image-16]:./images/opsmantile-16.png
 
 
