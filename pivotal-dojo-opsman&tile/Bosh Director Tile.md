@@ -32,6 +32,9 @@
 		- NSX User Name: NSX Admin에 연결할 User 명
 		- NSX Password: NSX Admin에 연결할 User의 PWD
 		- NSX CA Cert: NSX 서버에 인증하는 Cert Key (OpenSSL을 통하여 검색 가능)
+		```
+		openssl s_client -showcerts -connect NSX-MANAGER-ADDRESS:443 < /dev/null 2> /dev/null | openssl x509
+		```
 - VM Folder: 배포 한 VM이 배치되는 Folder(자동 생성), Director 배포가 완료 되면 변경 불가
 - Template Folder: 배포 한 Stemcell이 배치 되는 Folder(자동 생성) , Director 배포가 완료 되면 변경 불가
 - Disk path Folder: 배포 한 Disk가 배치되는 Folder(자동 생성), Director 배포가 완료 되면 변경 불가
