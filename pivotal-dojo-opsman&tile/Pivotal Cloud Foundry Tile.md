@@ -189,3 +189,12 @@
 - Prevent node auto re-join: Node 사이의 데이터 집합에 불일치가 있음을 알게되면 Mysql Database에 대한 모든 쓰기를 중지 여부 설정
 
 #### 1.13. Configure File Storage
+- Pivotal Cloud Foundry Tile에서 Cloud Controller가 사용하는 Blob 저장소 Config를 설정 할 수 있다.
+- Max Valid Packages per App min: 1:  각 Application이 최근 저장한 Package의 수의 최대 값
+- Max Staged Droplets per App min: 1:  각 Application이 최근  Staged 단계 중 저장한 Droplets 수의 최대 값 
+- Configure your Cloud Controller's filesystem:  Blob 저장소의 Internal/External 위치 선택
+	- Internal WebDAV: WebDAV 방식으로 Pivotal Cloud Foundry 내부 Instance를 Blob 저장소로 사용
+	- External S3-Compatible File Store (if you want to use a service like S3 or Ceph): S3 Server를 Blob 저장소로 사용
+	- External Google Cloud Storage with Access Key and Secret Key: Access Key/Secret Key를 통한 Google Cloud Storage를 Blob 저장소로 사용
+	- External Google Cloud Storage with Service Account: Service Account를 통한 Google Cloud Storage를 Blob 저장소로 사용
+	- External Azure Storage: Azure Storage Account를 통한 Azure Storage를 Blob 저장소 사용
