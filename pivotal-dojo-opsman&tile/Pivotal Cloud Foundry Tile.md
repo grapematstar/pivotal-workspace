@@ -198,3 +198,10 @@
 	- External Google Cloud Storage with Access Key and Secret Key: Access Key/Secret Key를 통한 Google Cloud Storage를 Blob 저장소로 사용
 	- External Google Cloud Storage with Service Account: Service Account를 통한 Google Cloud Storage를 Blob 저장소로 사용
 	- External Azure Storage: Azure Storage Account를 통한 Azure Storage를 Blob 저장소 사용
+
+#### 1.14. Configure System Logging
+
+- Pivotal Cloud Foundry Tile에서 rsyslog를 구성하여 Flatform 구성 요소 Log를 External로 전달할 수 있도록 Config 설정이 가능 하다
+ 
+[Configure System Logging][https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html#auth-config](https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html#auth-config)
+
