@@ -1,4 +1,4 @@
-##  Pivotal Cloud Foundry Tile
+#  Pivotal Cloud Foundry Tile
 
 - PAS Tile은 Pivotal Cloud Foundry를 설치하는 Tile으로 Pivotal Cloud Foundry 설치에 대한 전반적인 Domain, Network, Component, Errand 등의 Config 정보를 설정 할 수있다.
 - 전제 조건
@@ -8,14 +8,14 @@
 	- Ops Manager에 Pivotal Cloud Foundry Tile이 존재 해야 한다.
 - Modify Last Version 2.5
  
-### 1. Pivotal Cloud Foundry Tile Config 구성
+## 1. Pivotal Cloud Foundry Tile Config 구성
 
-#### 1.1. AZ and Network Assignments Config
+### 1.1. AZ and Network Assignments Config
 - Pivotal Cloud Foundry를 배포 할 때 Singleton으로 구성 할 VM(BlobStore)과 여러 다중으로 구성하는 AZ를 선택 한다.
 - Bosh Director Tile에서 설정한 Network를 선택 한다.
 - AZ 또는 Network를 증설 할 경우 Bosh Director Tile의 정보를 수정하고 Apply Change 해야한다.
 
-#### 1.2. Configure Domains
+### 1.2. Configure Domains
 
 ![pas-tile][pastile-image-1]
 
@@ -24,7 +24,7 @@
 - Pivotal은 System Domain과 Application Domain을 Single Wildcard Certificate로 사용 할 수 있도록 권고 한다.
 
 
-#### 1.3. Configure Networking
+### 1.3. Configure Networking
 - Router IPs, HAProxy IPs: vSphere 환경에서는 HA Proxy VM사용 유무에 따라 Router IP의 설정 방법이 달라진다.
 	- HAProxy를 사용하지 않을 경우
 		- HA를 구성하기 위해 2개 이상의 Router IP를 입력 한다.
@@ -71,12 +71,12 @@
 - Enable Dynamic Egress Enforcement: Dynamic Egress을 사용하면 Application이 외부 Service와 연동 할 때 재시작을 하지 않아도 된다 (Beta)
 - Remove Specified HTTP Response Headers: Router가 모든 Application에서 반환 되는 Response에서 제거할 HTTP Header 목록
 
-#### 1.4.  Configure Networking - Service Mesh (Beta) 
+### 1.4.  Configure Networking - Service Mesh (Beta) 
 - Service Mesh는 Micro Service에 대한 Traffic 관리, Security를 제공한다.
 - IP Addresses for Ingress Router: Istio Router의 Static IP를 입력하여하고 요청에 대한 Load Balancer를 구성해야 한다.
 - Ingress Router TLS Keypairs: Istio Router의 Clinet와 TSL 통신을 하기 위해 Certificate와 Private Key를 생성한다.
 
-#### 1.5.   Configure Application Containers 
+### 1.5.   Configure Application Containers 
 
 ![pas-tile][pastile-image-2]
 
@@ -91,7 +91,7 @@
 - Format of timestamps in Diego logs: Diego의 Log Time Stamp 형식 선택
 - Default health check timeout: Application의 시작과 첫 정상 동작 사이의 시간
 
-#### 1.6. Configure Application Developer Controls
+### 1.6. Configure Application Developer Controls
 
 ![pas-tile][pastile-image-3]
 
@@ -105,10 +105,10 @@
 - Internal Domain: Application이 내부 DNS 서비스 검색에 사용하는 Domain 입력
 - Allow Space Developers to manage network policies: 자체 Network 정책을 설정 할 경우 선택
 
-#### 1.7. Configure Application Security Groups
+### 1.7. Configure Application Security Groups
 - Pivotal Cloud Foundry를 통해 배포 한 Application의 내부 Security Groups, X로 입력 할 경우 PAS에 전체 허용, 설치 후 CF CLI로수정 및  추가 구성 할 필요가 있다.
 
-#### 1.8. Configure Authentication and Enterprise SSO
+### 1.8. Configure Authentication and Enterprise SSO
 - 내부 UAA Component, External, SAML Identity Provider, LDAP을 통하여 사용자 인증 서버를 선택 할수 있다.
 
 ![pas-tile][pastile-image-4]
@@ -121,7 +121,7 @@
 	- Minimum Special Characters Required for Password: 최소 특수 문자 길이 입력
 	- Maximum Password Entry Attempts Allowed: 계정이 잠기기 전 최대 실패 허용 수
 
-#### 1.9. Configure UAA
+### 1.9. Configure UAA
 - Pivotal Cloud Foundry UAA 사용자 계정 및 인증 서버 서버를 구성 할수 있다.
 
 ![pas-tile][pastile-image-5]
@@ -141,7 +141,7 @@
 - Customize Username Label (on login page):  UAA Login 화면에서 나오는 Username Text를 변경 
 - Customize Password Label (on login page): UAA Login 화면에서 나오는 Password Text를 변경 
 
-#### 1.10. Configure CredHub
+### 1.10. Configure CredHub
 - Pivotal Cloud Foundry의 내부 Component의 민감한 정보를 가지고 있는 Credhub 설정을 구성 할수 있다.
 
 - Choose the location of your Credhub database: Credhub Database를 Internal/External 사용 설정 할 수 있다.
@@ -156,7 +156,7 @@
 -   HSM Certificate: Credhub와 HSM 사이의 양방향 통신을 위한 mTLS Key
 - Secure Service Instance Credentials: ????
 
-#### 1.11. Configure System Databases
+### 1.11. Configure System Databases
 - Pivotal Cloud Foundry 운용에 있어 필요한 Database 정보를 Internal/External Database에 저장 할 것인지 선택
 - External Database로 지정하게 되면 아래 목록에 있는 DB 정보의 Host/Port/Username/Password 등 을 입력해야 한다.
 	-  `account`
@@ -172,7 +172,7 @@
 	-   `silk`
 	-   `uaa`
 
-#### 1.12. Configure Internal MySQL
+### 1.12. Configure Internal MySQL
 - Pivotal Cloud Foundry Tile에서 설정한 Mysql에 대한 Internal Config를 설정 할 수 있다.
 - Replication canary time period: HA 구성 Mysql의 Read-Write 중 Write에 대한 Replication Canary가 실행 되는지에 대한 시간 설정 
 - Replication canary read delay: 각 MysqlNode에서 데이터가 복제되는지 확인하기 전에 Canary가 대기하는 시간을 설정
@@ -186,7 +186,7 @@
 - Load Balancer Unhealthy Threshold min: 0: Instance shutting down 전에 Mysql Proxy가 연결을 계속 받아 들일 시간
 - Prevent node auto re-join: Node 사이의 데이터 집합에 불일치가 있음을 알게되면 Mysql Database에 대한 모든 쓰기를 중지 여부 설정
 
-#### 1.13. Configure File Storage
+### 1.13. Configure File Storage
 - Pivotal Cloud Foundry Tile에서 Cloud Controller가 사용하는 Blob 저장소 Config를 설정 할 수 있다.
 - Max Valid Packages per App min: 1:  각 Application이 최근 저장한 Package의 수의 최대 값
 - Max Staged Droplets per App min: 1:  각 Application이 최근  Staged 단계 중 저장한 Droplets 수의 최대 값 
@@ -197,7 +197,7 @@
 	- External Google Cloud Storage with Service Account: Service Account를 통한 Google Cloud Storage를 Blob 저장소로 사용
 	- External Azure Storage: Azure Storage Account를 통한 Azure Storage를 Blob 저장소 사용
 
-#### 1.14. Configure System Logging
+### 1.14. Configure System Logging
 
 - Pivotal Cloud Foundry Tile에서 rsyslog를 구성하여 Flatform 구성 요소, Application Container Log를 External로 전달할 수 있도록 Config 설정이 가능 하다
  
@@ -214,7 +214,7 @@
 - Don't Forward Debug Logs: Debug Log를 사용 할 것인지 선택
 - Custom rsyslog Configuration: 사용자 정의 Rsyslog 규칙을 입력
 
-#### 1.15. Configure Custom Branding and Apps Manager
+### 1.15. Configure Custom Branding and Apps Manager
 - Pivotal Cloud Foundry Tile에서 Custom Logo, Background Color, Footer Text 등을 설정하여 사용자 Brand를 구성 할 수 있다.
 
 ![pas-tile][pastile-image-7]
@@ -230,7 +230,7 @@
 - Classification Header Content: Header의 Content 입력
 - Classification Footer Content: Footer의 Content 입력
 
-#### 1.16. Apps Manager Config Page
+### 1.16. Apps Manager Config Page
 
 ![pas-tile][pastile-image-8]
 
@@ -246,7 +246,7 @@
 - App Details Polling Interval: Apps Manager Polling Interval 간격을 통해 만족하는 결과가 이루어지지 않을 때 Cloud Controller의 Load를 줄임
 - Multi-Foundation Configuration (BETA):  Apps Manager가 연동 할 Apps Manager Interface에서 여러 PCF 기반의 Space, Application 및 Service Instance를 관리 할 수 ​​있다.
 
-#### 1.16. Apps Manager Config Page Configure Email Notifications
+### 1.16. Apps Manager Config Page Configure Email Notifications
 - Pivotal Cloud Foundry Tile에서 Email Notifications를 설정하여 SMTP를 사용하여 초대 및 확인을 Apps Manager User에게 보낼 수 있다.
 
 ![pas-tile][pastile-image-9]
@@ -259,7 +259,7 @@
 - SMTP Authentication Mechanism: SMTP 인증 방법 선택
 - SMTP CRAMMD5 secret: 인증 방법에 CRAMMD5를 선택한 경우 입력
 
-#### 1.17. Configure the App Autoscaler
+### 1.17. Configure the App Autoscaler
 - Pivotal Cloud Foundry는 App Autoscaler 설정을 통하여 개발자가 배포한 Application을 Autoscale할 수 있도록 한다.
 
 ![pas-tile][pastile-image-10]
@@ -272,7 +272,7 @@
 - Disable API Connection Pooling: Autoscaler API가 HTTP 통신을 사용 유무를 선택
 - Enable Notifications:  App Autoscaler Event에 e-mail 알람을 받을지 선택
 
-#### 1.18. Configure the Cloud Controller
+### 1.18. Configure the Cloud Controller
 
 - Pivotal Cloud Foundry에서는 실제 API 요청을 받는 Cloud Controller에 대한 Config 설정이 가능 하다.
 
@@ -285,14 +285,14 @@
 - Type "X" to acknowledge that you have no applications running with cflinuxfs2. If you are upgrading from 2.4, please read this documentation closely for steps to verify all apps have been migrated: https://docs.pivotal.io/pivotalcf/2-5/upgrading/checklist.html#cflinuxfs3: cflinuxfs2에서 실행중인 응용 프로그램이 없다는 것을 확인하려면 X를 입력하고 cflinuxfs2를 사용한다면 cflinuxfs3으로 커스텀아이징 단계를 실행 해야 한다.
 - Age in days after which completed tasks will be pruned from the Cloud Controller Database: 완료한 Task가 Cloud Controller Database cc_db에서 정리 되는 시간(days)
 
-#### 1.19. Configure Smoke Tests
+### 1.19. Configure Smoke Tests
 - Pivotal Cloud Foundry Tile에서 PAS Deploy, PAS Errand의 실행 후 간단한 TEST를 할 수 있는 Smoke Test의 설정이 가능하다.
 
 ![pas-tile][pastile-image-12]
 
 - Choose where to deploy applications when running the smoke tests: Smoke Test가 이루어질 공간을 선택한다. 사용자가 지정할 경우 해당 공간은 Smoke Test를 위해 생성 되었다가 완료 후 삭제 한다.
 
-#### 1.20. Configure Advanced Features
+### 1.20. Configure Advanced Features
 
 - Pivotal Cloud Foundry Tile에서 PAS 설정에 대한 특정 고급 설정을 할 수 있다.
 - Diego Cell Memory and Disk Overcommit: Diego Cell VM의 Memory와 Disk에 대한 Overcommit에 대한 Config 설정이 가능하다.
@@ -304,13 +304,13 @@
 - Disable Zero Downtime App Deployments: Application의 Rolling Update를 중지 시킬수 있다.
 - The maximum number of items stored in Log Cache per source: source_id가 가질수 있는 Log Cache의 최대 수
 
-#### 1.21.  Configure the Metric Registrar
+### 1.21.  Configure the Metric Registrar
 - Pivotal Cloud Foundry Tile에서 Metric Registrar를 활성화하여 Component의 구조화 한 Log를 Metric으로 변환하여 Loggretor로 보낼 수 있다.
 - Enable Metric Registrar: Metric Registrar를 사용 할 것 인지 확인
 - Endpoint Scraping Interval: Metric Registrar가 사용자가 정의한 Metric API를 폴링하는 시간 설정
 - Blacklisted Tags: Metric Registrar가 Metric 또는 Event Tag 값을 사용하지 못하도록 하기 위한 설정 값
 
-#### 1.22. Configure Errands
+### 1.22. Configure Errands
 
 [Configure Errands
 
@@ -327,7 +327,7 @@
 - Metric Registrar Smoke Test Erand: 사용자 정의 Metric를 Access하여 Loggregator Metric으로 변환 할 수 있는지 Test 한다.
 - SMB Broker Application Errand: SMB Broker Application Errand는 Pivotal Cloud  Foundry에서 SMB Service Broker를 사용하기 위해서 배포하는 Application
 
-#### 1.23. Resource Config
+### 1.23. Resource Config
 
 ![pas-tile][pastile-image-14]
 
