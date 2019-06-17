@@ -1,5 +1,5 @@
 
-## 1. Ops Manager 소개
+# 1. Ops Manager 소개
 
 - Ops Manager 기능 개요
 	- Ops Manager는 Bosh Director를 바탕으로 Bosh Config/Bosh Stemcell Upload/Bosh Release Upload/Bosh Manifest Deploy 등을 실행 한다.
@@ -7,7 +7,7 @@
 	- Ops Manager는 PCF/PMetric/PCC/Redis/Mysql/HealthWatch 등 Product Tile에 대한 Config 설정을 관리하고 설치에 필요 한 Stemcell OS를  내부적으로 관리하는 한다.
 	- 설치 한 Product Tile의 간략한 VM Spec의 Status(CPU/Memory/Disk 사용률, AZ 등)와 사용한 Credential 정보를 확인 할 수있다.
 
-### 1.1. Ops Manager Install Dash Board 소개
+## 1.1. Ops Manager Install Dash Board 소개
 
 ![Opsmanager Install Dashboard Image][opsman-image-0]
 
@@ -23,19 +23,19 @@
 - J: Missing Stemcell Link = 특정 Product Tile을 배포 할 때 필요한 Stemcell이 D: Stemcell Library에 존재하지 않거나 호환하는 Stemcell이 없을 경우 발생 한다.
 - K: API Docs = Ops Manager 자체의 API 사용 가이드가 나타난다.
 
-### 1.2. Ops Manager Config Setting
+## 1.2. Ops Manager Config Setting
 
 - 아래의 Image에서 Ops Manager의 자체 설정 정보를 변경 할 수 있다.
 
 ![Opsmanager Install Dashboard Image][opsman-image-1]
 
-#### 1.2.1. Decryption Passphrase
+### 1.2.1. Decryption Passphrase
 
 ![Opsmanager Install Dashboard Image][opsman-image-2]
 
 - Ops Manager 초기 설치 시 설정 한 Decryption Passphrase를 수정 할 수 있다.
 
-#### 1.2.2. Change Authentication Method to SAML
+### 1.2.2. Change Authentication Method to SAML
 - Identity Provider 변경 방법
 	- Current Decryption Passphrase: 현재 사용중인 Decryption Passphrase 입력
 	- SAML IDP Metadata: SAML IDP의 전체 URL 또는 XML Metadata 입력
@@ -44,7 +44,7 @@
 	- Groups Attribute: SAML 서버를 구성한 그룹 속성 태그 이름
 	- Provision an admin client in the Bosh UAA: BOSH UAA에서 admin client르  Provision 할경우 선택
 	
-#### 1.2.3. SSL Certificate
+### 1.2.3. SSL Certificate
 
 ![Opsmanager Install Dashboard Image][opsman-image-3]
 
@@ -52,39 +52,39 @@
 
 
 
-#### 1.2.4. External API Access
+### 1.2.4. External API Access
 
 ![Opsmanager Install Dashboard Image][opsman-image-4]
 
  -   Pivotal Network API의 Token을 입력하여 Ops Manager의 Version을 감지해 호환되는 Product Tile을 Install Dashboard에 보여준다.
  
-#### 1.2.5. Proxy Settings
+### 1.2.5. Proxy Settings
 - Ops Manager에 연결할 때 http/https Proxy 서버를 사용할 경우 입력 한다.
 
-#### 1.2.6. Custom Banner
+### 1.2.6. Custom Banner
 
 ![Opsmanager Install Dashboard Image][opsman-image-5]
 
 - 운영자에게 보여질 Banner를 Text 형식으로 설정 한다. UI Banner는 Web에서 보여지며 SSH Banner는 Shell에 접속 했을 경우 나타난다. 
 
-#### 1.2.7. Export Installation Settings
+### 1.2.7. Export Installation Settings
 - Ops Manager에 설정 한 모든 installation  정보를 Export 한다. 실제 Ops Manager Backup 시 해당 기능의 API를 사용 한다.
 
-#### 1.2.8. Syslog
+### 1.2.8. Syslog
 
 ![Opsmanager Install Dashboard Image][opsman-image-6]
 
 - Ops Manager의 Syslog를 특정 로그 수집기(logstash, rsyslog) 등으로 보내준다.
 
-#### 1.2.9. Advanced
+### 1.2.9. Advanced
 - Download activity data: Ops Manager에 설치한 Product Tile 들의 배포 Manifest과 Database/Version 정보를 관리하는 데이터를 다운로드 한다.
 - Download Root CA Cert: Ops Manager의 Root CA Cert를 다운로드 할 때 사용 한다.
 - View diagnostic report: Ops Manager가 설치한 Product Tile들의 Deploy 정보를 확인 한다.
 - Delete this Installation: Ops Manager 정보를 삭제 한다.
 
-### 1.3. Ops Manager 주요 화면 & 기능 소개
+## 1.3. Ops Manager 주요 화면 & 기능 소개
 
-#### 1.3.1. Review Pending Changes 화면
+### 1.3.1. Review Pending Changes 화면
 
 ![Opsmanager Install Dashboard Image][opsman-image-7]
 
@@ -107,7 +107,7 @@
 - G: Errands = Product Tile을 Apply Change 할 때 Trigger로 실행 할 Errands를 설정 할 수있다.
 - H: Apply Changes = Select 한 Product Tile을 전체 배포 한다.
 
-#### 1.3.2. Adding and Deleting Products
+### 1.3.2. Adding and Deleting Products
 
 ![Opsmanager Install Dashboard Image][opsman-image-8]
 
@@ -127,7 +127,7 @@
 - Product Tile이 주황색일 경우 설정해야 할 정보가 필요함을 의미
 - Product Tile 구성을 완료하고 "Apply Change" 버튼을 클릭한다.
 
-#### 1.3.3. Stemcell Library 화면
+### 1.3.3. Stemcell Library 화면
 
 - Stemcell OS를 Ops Manager 화면에 등록 해 Product Tile에 적용 시킬수 있다.
 
@@ -143,7 +143,7 @@
 
 - Product Tile에서 사용할 Stemcell Version을 선택 한다.
 
-#### 1.3.4. Ops Manager 사용자 생성
+### 1.3.4. Ops Manager 사용자 생성
 - Ops Manger는 사용자를 관리하기 위해 설치 시 Login Server인 UAA와 연동 되어 있다. UAA에 Ops Manager 계정을 추가 하기 위해 Ops Manager Shell에 접속하여 진행 한다.
 ```
 # Ops Manager UAA 서버를 Targeting 한다.
