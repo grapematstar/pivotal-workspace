@@ -36,7 +36,7 @@
 $ cf install-plugin linux64-1.1.1
 
 # target 설정
-$ cf eva-create-target 43235-email email pd043235@posco.com  ==>  생성후 메일 확인 필요
+$ cf eva-create-target 43235-email email xxx@xxx.com  ==>  생성후 메일 확인 필요
 $ cf eva-targets
 
 # 토픽 확인 및 설정 (publisher :  healthwatch 
@@ -56,13 +56,13 @@ $ cf eva-sample-publish healthwatch rep.unhealthycell
 # uaac 토큰  받아오기
 $ uaac token client get healthwatch_api_admin -s TIhDUHyEiv59F_zcrnC4MrfCItwXXNz_
 
-$ uaac curl -k https://healthwatch-api.sys.dkpcf.posco.co.kr/info
+$ uaac curl -k https://healthwatch-api.sys.xxx.xxx.co.kr/info
 
 # healthwatch 의 topic 임계치 확인
-$ uaac curl -k "https://healthwatch-api.sys.dkpcf.posco.co.kr/v1/alert-configurations?q=origin == 'healthwatch' and name == 'Diego.AvailableFreeChunksDisk'"
+$ uaac curl -k "https://healthwatch-api.sys.xxx.xxx.co.kr/v1/alert-configurations?q=origin == 'healthwatch' and name == 'Diego.AvailableFreeChunksDisk'"
 
 # healthwatch 의 topic 임계치 설정
-$ uaac curl -X POST "https://healthwatch-api.sys.dkpcf.posco.co.kr/v1/alert-configurations"  \
+$ uaac curl -X POST "https://healthwatch-api.sys.xxx.xxx.co.kr/v1/alert-configurations"  \
        -H "Content-Type: application/json" \
        --data "{\"query\":\"origin == 'healthwatch' and name == 'Diego.AvailableFreeChunksDisk'\",\"threshold\":{\"critical\":5,\"warning\":10,\"type\":\"LOWER\"}}"
 ```
