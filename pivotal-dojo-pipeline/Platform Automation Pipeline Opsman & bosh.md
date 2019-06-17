@@ -47,7 +47,7 @@ http://docs.pivotal.io/platform-automation/v2.1/reference/pipeline.html#retrievi
 #### 2.2. harbor 서버 실습 환경
 -  http://{harbor_domain}
 ##### 2.2.1. docker publl
-	- docker pull harbor.pcf.posco.co.kr/concourse/pivotalcf/pivnet-resource:latest
+	- docker pull harbor.xxx.xxxxx.co.kr/concourse/pivotalcf/pivnet-resource:latest
 
 #### 2.3. concourse 서버 실습 환경
  - http://{concourse_domain}
