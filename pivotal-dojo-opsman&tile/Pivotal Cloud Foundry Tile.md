@@ -314,6 +314,10 @@
 
 #### 1.22. Configure Errands
 
+[Configure Errands
+
+][https://docs.pivotal.io/pivotalcf/2-5/customizing/managing_errands.html](https://docs.pivotal.io/pivotalcf/2-5/customizing/managing_errands.html)
+
 - Pivotal Cloud Foundry Tile에서 PAS 설치 후 실행 하는 Errand, PAS 삭제 전 실행 하는 Errand에 대한 정보를 설정 할 수 있다.
 - Smoke Test Errand: Smoke Test를 실행하면 Application Push/Scale/Delete, Org/Space Create/Delete을 수행 할 수 있는지 Test 한다.
 - Usage Service Errand: Usage Service Errand는 Apps Manager에서 사용하기 위한 Dependency로 Application 형태로 배포 한다.
@@ -326,6 +330,9 @@
 - SMB Broker Application Errand: SMB Broker Application Errand는 Pivotal Cloud  Foundry에서 SMB Service Broker를 사용하기 위해서 배포하는 Application
 
 #### 1.23. Resource Config
+
+[Resource Config][https://docs.pivotal.io/pivotalcf/2-5/opsguide/scaling-ert-components.html](https://docs.pivotal.io/pivotalcf/2-5/opsguide/scaling-ert-components.html)
+
 - Pivotal Cloud Foundry Tile에서 PAS 설치 시 사용 할 VM에 대한 Spec를 설정 할 수 있다.
 - 만약 External S3를 Blobstore로 구성한다면 Resource Config File Storage의 Instance를 0으로 구성 한다.
 - 만약 UAA, System, and CredHub, Cloud Controller를 External Databases 구성 하였다면 Resource Config MySQL Proxy/MySQL Server/MySQL Monitor의 Instance를 0으로 구성 한다.
