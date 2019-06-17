@@ -1,11 +1,11 @@
-## 1. Pivotal Cloud Foundry Diego Cell VM Swap Memory  용량 조절 방법
+# 1. Pivotal Cloud Foundry Diego Cell VM Swap Memory  용량 조절 방법
 
 - 전제 조건
 	- Bosh/Pivotal Cloud Foundry 가 설치 되어 있어야 한다.
 
-### 1.1 Diego Cell Swap 용량 조절
+## 1.1 Diego Cell Swap 용량 조절
 
-#### 1.1.1. Diego Cell 설치 시 Disk 용량의 반이 Swap으로 자동으로 할당
+### 1.1.1. Diego Cell 설치 시 Disk 용량의 반이 Swap으로 자동으로 할당
 ```
 # diego cell 접속
 $ bosh -d cf-54c9c2f906b6aba996cd ssh diego_cell/0
@@ -30,7 +30,7 @@ diego_cell/d097fe0e-0357-4698-b887-c0af632417a8:~$ free -m
 Mem:          32168        5893        2940        1723       23334       23614
 Swap:         32167           8       32159
 ```
-#### 1.1.2. Diego Cell 용량 조절 방법
+### 1.1.2. Diego Cell 용량 조절 방법
 ```
 $ uaac target https://127.0.0.1/uaa --skip-ssl-validation # Opsmanager cli를 사용하기 위해 opsmanger uaa에 접속한다.
 $ uaac token owner get
@@ -67,7 +67,7 @@ ubuntu@opsmanager-2-4:~$ curl -H "Authorization: bearer $TOKEN" https://127.0.0.
 
 $ apply change
 ```
-#### 1.1.3. Diego Cell 용량 조절 확인
+### 1.1.3. Diego Cell 용량 조절 확인
 
 ```
 # diego cell 접속
