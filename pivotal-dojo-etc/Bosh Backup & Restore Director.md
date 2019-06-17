@@ -1,19 +1,19 @@
 
-## Bosh Backup And Restore Director
+# Bosh Backup And Restore Director
  - 전제 조건
 	- Ops Manager는 정상 동작해야 한다.
 	- 외부 Database를 사용 할 경우 BBR이 가능한지 확인 해야 한다.
  
-### 1. Bosh Backup And Restore가 실행 될 JumpBox 구성
+## 1. Bosh Backup And Restore가 실행 될 JumpBox 구성
 
 [jumpbox 구성]](https://docs.pivotal.io/pivotalcf/2-5/customizing/backup-restore/backup-pcf-bbr.html)
 
-#### 1.1. JumpBox Config 확인
+### 1.1. JumpBox Config 확인
 
 - jumpbox는  backup을 위한 충분한 공간이 있어야하고 Private IP로 Director VM에 연결하기 때문에 Director와 동일한 IP 대역에 존재해야 한다.
 - BBR을 실행하기 위해 Director Access Port(25555, 8443, 22)를 허용 해줘야한다.
 
-#### 1.2.  BBR CLI Install
+### 1.2.  BBR CLI Install
 ```
 # jump box에 bbr cli를 설치 한다.
 # bbr cli 설치 주소 https://github.com/cloudfoundry-incubator/bosh-backup-and-restore/releases
@@ -24,10 +24,10 @@ $ chmod +x bbr-1.5.*
 $ mv bbr-1.5.* /usr/local/bin/
 ```
 
-### 2.  Back Director
+## 2.  Back Director
 - Backup 전제조건
 	- Director Backup 시 정상 동작하는 Director를 Backup 해야 한다. 
-#### 2.1. Backup 실행 과정
+### 2.1. Backup 실행 과정
 
 - Bosh Director Backup 대상과 관련 한 Component(UAA, Credhub) Job에 아래와 같은 파일 구조가 존재 한다.
 ```
@@ -45,7 +45,7 @@ drwxr-x--- 3 root vcap 4096 May  9 02:22 ../
 
 [Bosh Director Backup workflow][https://docs.cloudfoundry.org/bbr/bbr-devguide.html#pre-backup-lock](https://docs.cloudfoundry.org/bbr/bbr-devguide.html#pre-backup-lock)
 
-#### 2.2.  BBR CLI를 실행하여 Director를 Backup
+### 2.2.  BBR CLI를 실행하여 Director를 Backup
 ```
 # director backup을 하기전 backup disk 용량을 최소화와 빠른 실행을 위해 director를 clean up 한다.
 
@@ -91,12 +91,12 @@ drwxrwxr-x 3 ubuntu ubuntu       4096 May 30 15:56 ../
 -rw-rw-r-- 1 ubuntu ubuntu      35723 May 30 15:51 metadata
 ```
 
-### 3.  Restore Director
+## 3.  Restore Director
 - Restore 전제조건
 	- Director Restore 시 Backup 파일이 존재 해야 한다. 
 	- Director Restore 명령어 실행 전 Ops Manger에 Restore 대상 Director(껍데기)가 존재 해야 한다.
 	
-#### 3.1. Restore 실행 과정
+### 3.1. Restore 실행 과정
 
 - Bosh Director Backup 대상과 관련 한 Component(UAA, Credhub) Job에 아래와 같은 파일 구조가 존재 한다.
 ```
@@ -115,7 +115,7 @@ drwxr-x--- 3 root vcap 4096 May  9 02:22 ../
 
 [Bosh Director Restore workflow][https://docs.cloudfoundry.org/bbr/bbr-devguide.html#pre-backup-lock](https://docs.cloudfoundry.org/bbr/bbr-devguide.html#pre-backup-lock)
 
-#### 3.2.  BBR CLI를 실행하여 Director를 Restore
+### 3.2.  BBR CLI를 실행하여 Director를 Restore
 ```
 # bosh director restore 명령을 실행 한다.
 $ bbr director \
