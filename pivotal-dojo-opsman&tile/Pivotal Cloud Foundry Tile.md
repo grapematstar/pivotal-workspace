@@ -201,7 +201,133 @@
 
 #### 1.14. Configure System Logging
 
-- Pivotal Cloud Foundry Tile에서 rsyslog를 구성하여 Flatform 구성 요소 Log를 External로 전달할 수 있도록 Config 설정이 가능 하다
+- Pivotal Cloud Foundry Tile에서 rsyslog를 구성하여 Flatform 구성 요소, Application Container Log를 External로 전달할 수 있도록 Config 설정이 가능 하다
  
 [Configure System Logging][https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html#auth-config](https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html#auth-config)
 
+- Address: Syslog Server의 주소 입력
+- Port: Syslog Server의 Port 번호 입력
+- Transport Protocol: Log 전달 전송 Protocol 선택
+- Encrypt syslog using TLS: Log를 전달 할 때 TSL 통신을 할 것 인지 선택
+- Number of syslog drain addresses to retrieve: Cloud Controller이 검색 할 수 있는 Syslog Drain 주소가 있는 Application 수
+- Include container metrics in SysLog Drains: Syslog Drain에 App Container Log를 포함 할 건지 선택
+- Enable Cloud Controller security event logging: Cloud Controller의 Event Log를 Log Stream에 포함 시킬 건지 선택 (API End Point, User, Source 등 노출)
+- Use TCP for file forwarding local transport: TCP를 통하여 Log를 전달 할 것인지 선택, Log의 유실은 막지만 성능에서 문제가 발생 할 수 있음.
+- Don't Forward Debug Logs: Debug Log를 사용 할 것인지 선택
+- Custom rsyslog Configuration: 사용자 정의 Rsyslog 규칙을 입력
+
+#### 1.15. Configure Custom Branding and Apps Manager
+- Pivotal Cloud Foundry Tile에서 Custom Logo, Background Color, Footer Text 등을 설정하여 사용자 Brand를 구성 할 수 있다.
+
+[Configure Custom Branding and Apps Manager][[https://docs.pivotal.io/pivotalcf/2-5/opsguide/custom-branding.html](https://docs.pivotal.io/pivotalcf/2-5/opsguide/custom-branding.html))
+
+- Company Name: 회사/조직 명 입력
+- Accent Color: CSS Type 강조 색상 입력
+- Main Logo (PNGs only): PNG Image의 Base64 인코딩 URL 문자열 입력
+- Square Logo (PNGs only): PNG Image의 Base64 인코딩 URL 문자열 입력
+- Favicon (PNGs only): favicon으로 사용할 PNG Image의 Base64 인코딩 URL 문자열을 입력
+- Footer Text: Footer에 노출 할 Text 입력
+- Classification Header/Footer Background Color: CSS Type Header/Footer의 Background색상 입력
+- Classification Header/Footer Text Color:  CSS Type Header/Footer의 Text 색상 입력
+- Classification Header Content: Header의 Content 입력
+- Classification Footer Content: Footer의 Content 입력
+
+#### 1.16. Apps Manager Config Page
+
+[Apps Manager Config Page][https://docs.pivotal.io/pivotalcf/2-5/opsguide/custom-branding.html](https://docs.pivotal.io/pivotalcf/2-5/opsguide/custom-branding.html)
+
+- Enable Invitations: Apps Manger에서 새로운 사용자를 초대 할 수있는 기능을 사용 할 것인지 선택
+- Display Marketplace Service Plan Prices: Market Place의 Service Plan의 가격을 표시 할 것 인지 선택
+- Supported currencies as JSON: Currencies Type을 Json 형태로 입력
+- Product Name: Apps Manager Product의 표기 명 입력
+- Marketplace Name: Apps Manager의 Market Place 표기 명 입력
+- Customize Sidebar Links: 참고 할 Doc, Market Place, Tool의 URI 입력
+- Apps Manager Memory Usage (MB): Apps Manager App의 Memory 사용량 입력
+- Invitations Memory Usage (MB): Invitations App의 Memory 사용량 입력
+- Apps Manager Polling Interval:  Apps Manager의 사용 요청에 대한 Cloud Controller 응답 시간을 설정 (Default로 사용하는 것을 권고 0-30)
+- App Details Polling Interval: Apps Manager Polling Interval 간격을 통해 만족하는 결과가 이루어지지 않을 때 Cloud Controller의 Load를 줄임
+- Multi-Foundation Configuration (BETA):  Apps Manager가 연동 할 Apps Manager Interface에서 여러 PCF 기반의 Space, Application 및 Service Instance를 관리 할 수 ​​있다.
+
+#### 1.16. Apps Manager Config Page Configure Email Notifications
+- Pivotal Cloud Foundry Tile에서 Email Notifications를 설정하여 SMTP를 사용하여 초대 및 확인을 Apps Manager User에게 보낼 수 있다.
+
+[Apps Manager Config Page Configure Email Notifications][https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html](https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html)
+
+- From Email: Apps Manager 사용자에게 보낼 Mail 주소 입력
+- SMTP Server Address: SMTP 서버 주소 입력
+- SMTP Server Port: SMTP 서버 Port 입력
+- SMTP Server Credentials: SMTP의 자격 증명
+- SMTP Enable Automatic STARTTLS:  SMTP STARTTLS (TSL,SSL) 사용 여부 선택
+- SMTP Authentication Mechanism: SMTP 인증 방법 선택
+- SMTP CRAMMD5 secret: 인증 방법에 CRAMMD5를 선택한 경우 입력
+
+#### 1.17. Configure the App Autoscaler
+- Pivotal Cloud Foundry는 App Autoscaler 설정을 통하여 개발자가 배포한 Application을 Autoscale할 수 있도록 한다.
+
+[Configure the App Autoscaler][https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html](https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html)
+
+- Autoscaler Instance Count: App Autoscaler Application의 Instance 수, HA 구성을 위해 3개일 필요가 있으며 split-brain를 피하기 위해 홀수로 설정 한다.
+- Autoscaler API Instance Count: Autoscaler API Application의 Instance 수
+- Metric Collection Interval:  App Autoscaler 가이 개발자가 배포한 Application의 수집하는 데이터의 Metric 수집 시간
+- Scaling Interval: App Autoscaler가 개발자가 배포 한 Application의 크기를 조정을 평가하는 시간
+- Verbose Logging: App Automoscaler가 개발자가 배포한 Application을 확장 한 구체적 Log를 배출
+- Disable API Connection Pooling: Autoscaler API가 HTTP 통신을 사용 유무를 선택
+- Enable Notifications:  App Autoscaler Event에 e-mail 알람을 받을지 선택
+
+#### 1.18. Configure the Cloud Controller
+
+- Pivotal Cloud Foundry에서는 실제 API 요청을 받는 Cloud Controller에 대한 Config 설정이 가능 하다.
+
+[Configure the Cloud Controller][https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html](https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html)
+
+- Cloud Controller DB Encryption Key: Cloud Controller DB 암호화 키를 입력(Cloud Controller DB에 대해 PAS Backup을 통해 재설치 할 경우)
+- Enabling CF API Rate Limiting will prevent API consumers from overwhelming the platform API servers. Limits are imposed on a per-user or per-client basis and reset on an hourly interval.: 운영자가 API를 사용 할 때 모든 API Endpoint, 비인증 요청 대한 Limit을 설정 할 수 있다.
+- Database Connection Validation Timeout: Cloud Controller Database cc_db 연결에 대한 유효성 Check 시간
+- Database Read Timeout: Cloud Controller Database cc_db Read 시간 초과를 초 단위로
+- Type "X" to acknowledge that you have no applications running with cflinuxfs2. If you are upgrading from 2.4, please read this documentation closely for steps to verify all apps have been migrated: https://docs.pivotal.io/pivotalcf/2-5/upgrading/checklist.html#cflinuxfs3: cflinuxfs2에서 실행중인 응용 프로그램이 없다는 것을 확인하려면 X를 입력하고 cflinuxfs2를 사용한다면 cflinuxfs3으로 커스텀아이징 단계를 실행 해야 한다.
+- Age in days after which completed tasks will be pruned from the Cloud Controller Database: 완료한 Task가 Cloud Controller Database cc_db에서 정리 되는 시간(days)
+
+#### 1.19. Configure Smoke Tests
+- Pivotal Cloud Foundry Tile에서 PAS Deploy, PAS Errand의 실행 후 간단한 TEST를 할 수 있는 Smoke Test의 설정이 가능하다.
+
+[Configure Smoke Tests][https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html](https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html) 
+
+- Choose where to deploy applications when running the smoke tests: Smoke Test가 이루어질 공간을 선택한다. 사용자가 지정할 경우 해당 공간은 Smoke Test를 위해 생성 되었다가 완료 후 삭제 한다.
+
+#### 1.20. Configure Advanced Features
+
+- Pivotal Cloud Foundry Tile에서 PAS 설정에 대한 특정 고급 설정을 할 수 있다.
+- Diego Cell Memory and Disk Overcommit: Diego Cell VM의 Memory와 Disk에 대한 Overcommit에 대한 Config 설정이 가능하다.
+- Whitelist for non-RFC-1918 Private Networks: Pivotal Cloud Foundry의 내부 저장소 Blobstore(WebDev)가 다른 Pivotal Cloud Foundry Component와 통신 할 수 있도록 추가 구성 한다, CIDR 입력
+- CF CLI Connection Timeout: Cloud Foundry 명령 줄 CF CLI에 대한 Timeout 시간을 높일 수 있다, Default 5초
+- Enable SMB volume services: SMB Volume Service를 활성화하여 기존의 SMB 서버를 Application에 Bind 할 수 있도록 Service Broker를 생성한다, Default로 설정 시 Errand의 SMB Broker를 OFF 시키고 배포한다.
+- BETA: Enable TLS for internal system database: Internal Database의 Clinet에 대해 TLS를 사용하도록 설정 한다.
+- Database Connection Limits: Diego와 Application Container가 가질 수 있는 최대 Networking 수
+- Disable Zero Downtime App Deployments: Application의 Rolling Update를 중지 시킬수 있다.
+- The maximum number of items stored in Log Cache per source: source_id가 가질수 있는 Log Cache의 최대 수
+
+#### 1.21.  Configure the Metric Registrar
+- Pivotal Cloud Foundry Tile에서 Metric Registrar를 활성화하여 Component의 구조화 한 Log를 Metric으로 변환하여 Loggretor로 보낼 수 있다.
+- Enable Metric Registrar: Metric Registrar를 사용 할 것 인지 확인
+- Endpoint Scraping Interval: Metric Registrar가 사용자가 정의한 Metric API를 폴링하는 시간 설정
+- Blacklisted Tags: Metric Registrar가 Metric 또는 Event Tag 값을 사용하지 못하도록 하기 위한 설정 값
+
+#### 1.22. Configure Errands
+
+- Pivotal Cloud Foundry Tile에서 PAS 설치 후 실행 하는 Errand, PAS 삭제 전 실행 하는 Errand에 대한 정보를 설정 할 수 있다.
+- Smoke Test Errand: Smoke Test를 실행하면 Application Push/Scale/Delete, Org/Space Create/Delete을 수행 할 수 있는지 Test 한다.
+- Usage Service Errand: Usage Service Errand는 Apps Manager에서 사용하기 위한 Dependency로 Application 형태로 배포 한다.
+- Apps Manager: Apps Manager는 실제 Pivotal Cloud Foundry 관리 GUI Application을 배포 한다.
+- Notifications Errand: Notifications Errand는 Pivotal Cloud Foundry 사용자가 e-mail을 통해 알람을 받기 위한 API를 Application으로 배포 한다.
+- Notifications UI Errand: Notifications UI Errand는 사용자의 알림 구독을 관리 하기 위해 Application으로 배포하는 Dashboard
+- App Autoscaler Errand: App Autoscaler Service Broker를 사용 하기 위해서 배포하는 Application
+- NFS Broker Errand: Pivotal Cloud  Foundry에서 NFS Service Broker를 사용하기 위해서 배포하는 Application
+- Metric Registrar Smoke Test Erand: 사용자 정의 Metric를 Access하여 Loggregator Metric으로 변환 할 수 있는지 Test 한다.
+- SMB Broker Application Errand: SMB Broker Application Errand는 Pivotal Cloud  Foundry에서 SMB Service Broker를 사용하기 위해서 배포하는 Application
+
+#### 1.23. Resource Config
+- Pivotal Cloud Foundry Tile에서 PAS 설치 시 사용 할 VM에 대한 Spec를 설정 할 수 있다.
+- 만약 External S3를 Blobstore로 구성한다면 Resource Config File Storage의 Instance를 0으로 구성 한다.
+- 만약 UAA, System, and CredHub, Cloud Controller를 External Databases 구성 하였다면 Resource Config MySQL Proxy/MySQL Server/MySQL Monitor의 Instance를 0으로 구성 한다.
+- 만약 TCP Router를 사용하지 않는다면 Resource Config TCP Router의 Instance를 0으로 구성 한다.
+- 만약 HA Proxy를 사용하지 않늗나면 Resource Config HAProxy의 Instance를 0으로 구성 한다.
