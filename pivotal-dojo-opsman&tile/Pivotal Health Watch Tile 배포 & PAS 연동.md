@@ -1,3 +1,4 @@
+
 #  Pivotal Health Watch Tile 배포 & PAS 연동
 
 - Pivotal Health Watch Tile은 Pivotal Health Watch를 설치하는 Tile으로 Pivotal Health Watch 설치에 대한 전반적인 Domain, Network, Component, Errand 등의 Config 정보를 설정 할 수있다.
@@ -19,7 +20,7 @@
 - Ingestor Application은 Metric 정보를 Redis에 전달하고 Woker Application이 Redis를 사용하여 Data를 집계하고 변환하여 Mysql에 저장 한다.
 - Mysql에 변환된 데이터는 Pivotal Health UI에서 표기되거나 Aggregator App을 통해 추가로 변환하여 외부 Pivotal Cloud Foundry Firehose를 통하여 출력된다.
 
-[Pivotal Health Watch Architecture][https://docs.pivotal.io/pcf-healthwatch/1-4/architecture.html](https://docs.pivotal.io/pcf-healthwatch/1-4/architecture.html)
+![healthwatch tile_Image][healthwatchtile-image-1]
 
 
 ## 2. Pivotal Health Watch Deploy
@@ -75,6 +76,8 @@
 - Apply Change를 실행하여 Pivotal Health Watch를 배포 한다.
 - Pivotal Health Watch 배포가 완료되면 Apps Manager UI에서 Org=System Space=healthwatch의 healthwatch app의 urls를 통해 화면으로 접속 한다.
 
+![healthwatch tile_Image][healthwatchtile-image-2]
+
 ## 3. Pivotal Healthwatch API Config
 
 - Pivotal Healthwatch의 Metric 계산 및 임계치 정보는 UI에서 변경이 불가능하며  Pivotal Healthwatch API를 사용하여 Pivotal Healthwatch를 Platform 규모에 맞게 커스텀아이징 & 구성해야 한다.
@@ -93,7 +96,7 @@ Context: healthwatch_api_admin, from client healthwatch_api_admin
 ```
 
 
-Healthwatch API의 상태를 확인한다.
+- Healthwatch API의 상태를 확인한다.
 ```
 $ curl https://healthwatch-api.SYSTEM-DOMAIN/info
 # 아래 결과 값 출력
@@ -171,3 +174,57 @@ RESPONSE BODY:
   }
 } ]
 ```
+
+### 3.2 Healthwatch API를 사용하여 Free Chunk Sizes 구성 방법
+
+- 전제조건: Pivotal Cloud Foundry UAA Component에 healthwatch.admin 권한이 존재하고 있는 Client의 Token을 가지고 있다.
+
+- Healthwatch API의 상태를 확인한다.
+```
+$ curl https://healthwatch-api.SYSTEM-DOMAIN/info
+# 아래 결과 값 출력
+HAPI is happy
+```
+
+- 전체 Free Chunk 구성 확인
+```
+$ uaac curl https://healthwatch-api.SYSTEM-DOMAIN/v1/free-chunks
+
+# 결과 값
+[
+  {
+    "id": 1,
+    "deployment": "healthwatch-default",
+    "value": 4096,
+    "type": "memory"
+  }
+]
+```
+
+- free chunk configuration 값 수정
+```
+$ uaac curl -X POST "https://healthwatch-api.SYSTEM-DOMAIN/v1/free-chunks" \
+      -H "Content-Type: application/json" \
+      --data "{\"value\":8192, \"deployment\":\"prod-isolation-segment\",\"type\":\"memory\"}"
+
+# 결과 확인
+200 OK
+```
+- free chunk configuration 변경 값 확인
+
+```
+$ uaac curl https://healthwatch-api.SYSTEM-DOMAIN/v1/free-chunks
+
+# 결과 값
+[
+  {
+    "id": 1,
+    "deployment": "healthwatch-default",
+    "value": 8192, # 변경 확인
+    "type": "memory"
+  }
+]
+```
+
+[healthwatchtile-image-1]:./images/healthwatchtile-1.png
+[healthwatchtile-image-2]:./images/healthwatchtile-2.png
