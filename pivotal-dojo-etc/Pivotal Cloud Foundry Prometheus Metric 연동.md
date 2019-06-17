@@ -8,8 +8,8 @@
 	- 외부와 통신이 가능한 Jumpbox(workspace server)가 존재 해야 한다.
  
 ### 1.1 Bosh Prometheus 아키텍처
-[prometheu 아키텍처]
-[https://github.com/myminseok/pcf-prometheus-pipeline-minseok](https://github.com/myminseok/pcf-prometheus-pipeline-minseok)
+
+![prometheus][prometheus-image-1]
 
 - Bosh Prometheus Release 내부에는 각 Deployment(BOSH, Pivotal Cloud Foundy, Mysql, Redis, RabbitMq 등) 별 Metric을 수집하는 Exporter들이 존재 한다.
 - Prometheus Exporter를 통해  수집 한 각 Deployment의 Metric을 Grafana에서 가공하여 시각화 한다.
@@ -207,3 +207,4 @@ bosh -e b -d prometheus deploy manifests/prometheus.yml \
 
 # grafana 화면에 접속하여 Metric가 제대로 출력 되는지 확인한다. 적용 되기 까지 시간이 조금 걸릴수 있다.
 ```
+[prometheus-image-1]:./images/prometheus-1.png
