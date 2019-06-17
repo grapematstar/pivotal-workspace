@@ -1,12 +1,12 @@
-## 1. Apps Manager 소개
+# 1. Apps Manager 소개
 
 - Apps Manager 기능 개요
 	- Apps Manager는 Pivotal Cloud Foundry의 API를 바탕으로 Org/Space관리와 ApplicationLife Cycle(start/stop/restage/service bind/scaling/Route 등) 을 관리 한다.
 	- Apps Manager는 SMTP 서버 등을 통해 사용자를 초대 할 수 있으며 사용자에게 별도의 권한을 부여 할 수 있다.
 
-### 1.1. Apps Manager 주요 화면 & 기능 소개
+## 1.1. Apps Manager 주요 화면 & 기능 소개
 
-#### 1.1.1. Manage an Org & Space
+### 1.1.1. Manage an Org & Space
 
 - Pivotal Cloud Foundry 운영자는 개발자에게 특정 Org/Space를 할당하여 권한 및 사용량 할당, Service의 노출, Domain의 공유들을 지정 할 수 있다.
 - Apps Manager의 Org/Space를 통해 관리하는 영역은 아래와 같다.
@@ -61,7 +61,7 @@
 
 ---
 
-#### 1.1.2. App Autoscaler를  사용하여 Application Scaling (Apps Manager Market Place Service Bind)
+### 1.1.2. App Autoscaler를  사용하여 Application Scaling (Apps Manager Market Place Service Bind)
 
 - Pivotal Cloud Foundry 배포 후 Push 한 Errand Autoscaler Application의 설정을 통하여Application을 Auto scale 할 수 있다.
 - App Autoscaler는 Market Place로 등록되며 Apps Manager를 이용하거나 Cf CLI를 이용하여 설정 할 수 있다. 설정 방법은 아래와 같다.
@@ -93,7 +93,7 @@
 
 - Manage Autoscaling 화면에서 Config를 설정하여 자동으로 Application이 Autoscaling 되도록 설정 한다.
 
-#### 1.1.3. App Manager 사용자 생성
+### 1.1.3. App Manager 사용자 생성
 
 - Apps Manger는 사용자를 관리하기 위해 Pivotal Cloud Foundry 설치 시 Login Server인 UAA와 연동 되어 있다. UAA에 Apps Manager 계정을 추가 하기 위해 Ops Manager Shell에 접속하여 진행 한다.
 
