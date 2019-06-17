@@ -108,8 +108,6 @@
 #### 1.7. Configure Application Security Groups
 - Pivotal Cloud Foundry를 통해 배포 한 Application의 내부 Security Groups, X로 입력 할 경우 PAS에 전체 허용, 설치 후 CF CLI로수정 및  추가 구성 할 필요가 있다.
 
-[Configure Application Security Groups][https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html#networking](https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html#networking)
-
 #### 1.8. Configure Authentication and Enterprise SSO
 - 내부 UAA Component, External, SAML Identity Provider, LDAP을 통하여 사용자 인증 서버를 선택 할수 있다.
 
