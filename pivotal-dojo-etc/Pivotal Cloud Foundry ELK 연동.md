@@ -1,29 +1,29 @@
-## Pivotal Cloud Foundry Log ELK
+# Pivotal Cloud Foundry Log ELK
 
-### 1. Opensource Bosh ELK Stack Deployment Deploy
+## 1. Opensource Bosh ELK Stack Deployment Deploy
 - 전제 조건: Opensource BOSH가 설치 되어 있어야한다.
 - Bosh/Pivotal Cloud Foundry가 설치 되어 있어야 한다.
 
-#### 1.1.  PCF Loggregator 아키텍쳐
+### 1.1.  PCF Loggregator 아키텍쳐
 ```
 https://docs.pivotal.io/pivotalcf/2-5/loggregator/architecture.html
 PCF 내부 VM안의 agent와 cf logs 명령어를 통해 Loggreagtor VM의 Traffic Controller가 Application, VM 로그를 수집 및 제공 한다.
 외부 SYSLOG Server(ELK의 Logstash로 연동 시키면 ELK에서 VM의 로그를 확인할수있다.)
 ```
 
-#### 1.2.  ELK Bosh Release Deploy
+### 1.2.  ELK Bosh Release Deploy
 
-##### 1.2.1. 아래 git 주소를 통해 ELK Deployment를 clone한다.
+#### 1.2.1. 아래 git 주소를 통해 ELK Deployment를 clone한다.
 ```
 $ git clone https://github.com/bosh-elastic-stack/elastic-stack-bosh-deployment
 ```
-##### 1.2.2. 외부와 인터넷 통신이 되지 않을 경우 아래 2파일을 기준으로 인터넷이 되는 공간에서 release/stemcell을 다운로드 받고 해당 다운로드 URL을 로컬 file 주소로 변경 한다.
+#### 1.2.2. 외부와 인터넷 통신이 되지 않을 경우 아래 2파일을 기준으로 인터넷이 되는 공간에서 release/stemcell을 다운로드 받고 해당 다운로드 URL을 로컬 file 주소로 변경 한다.
 ```
 elastic-stack-bosh-deployment/elastic-stack.yml
 elastic-stack-bosh-deployment/versions.yml
 ```
 
-##### 1.2.3. Test 할 logstash.conf를 작성한다.
+#### 1.2.3. Test 할 logstash.conf를 작성한다.
 ```
 cat <<EOF > logstash.conf
 input {
@@ -43,7 +43,7 @@ output {
 EOF
 ```
 
-##### 1.2.4. bosh deploy 명령어 실행
+#### 1.2.4. bosh deploy 명령어 실행
 ```
 bosh -d elastic-stack deploy elastic-stack.yml \
      -l versions.yml \
@@ -85,10 +85,10 @@ bosh -d elastic-stack deploy elastic-stack.yml \
      --no-redact
 ```
 
-### 2. PAS VM, Application 연동
+## 2. PAS VM, Application 연동
 
-#### 2.1. PAS VM SYSLOG 연동
-##### 2.1.1. Director Tile과 PAS의 Syslog Config를 수정
+### 2.1. PAS VM SYSLOG 연동
+#### 2.1.1. Director Tile과 PAS의 Syslog Config를 수정
 ```
 Address: logstash 주소 ex) 172.16.100.32
 Port: logstash input port ex)5514
@@ -98,8 +98,8 @@ Transport Protocol: logstash input Protocal ex) tcp
 # Syslog Release가 Runtime Config 형식으로 붙으며 VM의 Syslog가 Logstash에 날라 간다.
 ```
 
-#### 2.2. PAS App Logs 연동
-##### 2.2.1. Cf Drain Plugin Install
+### 2.2. PAS App Logs 연동
+#### 2.2.1. Cf Drain Plugin Install
 ```
 CF Apps의 로그를 ELK로 전달하기 위해서 특정 App을 syslog drain을 걸어줘야하는데
 CF Drain 기능을 사용하기 위해 특정 Plugin을 설치한다.
@@ -120,8 +120,8 @@ $ cf bind-service cf-spring log-drain
 $ cf restart cf-spring
 ```
 
-### 3. Kibana 확인
-#### 3.1. Kibana의  Web 화면에서 Index를 생성한다.
+## 3. Kibana 확인
+### 3.1. Kibana의  Web 화면에서 Index를 생성한다.
 ```
 Index 명은 위 logstash config 파일의 logstash-%{+YYYY.MM.dd} 명과 같다.
 logstash-*의 인덱스를 지정하여 생성하고 로그를 색인검색하여 확인한다.
