@@ -1,21 +1,21 @@
 
-## Bosh Backup And Restore Pivotal Cloud Foundry
+# Bosh Backup And Restore Pivotal Cloud Foundry
  - 전제 조건
 	- Ops Manager는 정상 동작해야 한다.
 	- 외부 Database를 사용 할 경우 BBR이 가능한지 확인 해야 한다.
 	- BOSH Director가 정상 동작 해야 한다.
  
-### 1. Bosh Backup And Restore가 실행 될 JumpBox 구성
+## 1. Bosh Backup And Restore가 실행 될 JumpBox 구성
 - Bosh Director를 통해 Jumpbox 환경이 구성이 되어 있으면 생략 한다.
 
 [jumpbox 구성]](https://docs.pivotal.io/pivotalcf/2-5/customizing/backup-restore/backup-pcf-bbr.html)
 
-#### 1.1. JumpBox Config 확인
+### 1.1. JumpBox Config 확인
 
 - jumpbox는  backup을 위한 충분한 공간이 있어야하고 Private IP로 Director VM에 연결하기 때문에 Director와 동일한 IP 대역에 존재해야 한다.
 - BBR을 실행하기 위해 Director Access Port(25555, 8443, 22)를 허용 해줘야한다.
 
-#### 1.2.  BBR CLI Install
+### 1.2.  BBR CLI Install
 ```
 # jump box에 bbr cli를 설치 한다.
 # bbr cli 설치 주소 https://github.com/cloudfoundry-incubator/bosh-backup-and-restore/releases
@@ -26,12 +26,12 @@ $ chmod +x bbr-1.5.*
 $ mv bbr-1.5.* /usr/local/bin/
 ```
 
-### 2.  Backup Pivotal Cloud Foundry
+## 2.  Backup Pivotal Cloud Foundry
 - Backup 전제조건
 	- Pivotal Cloud Foundry Backup 시 정상 동작하는 Pivotal Cloud Foundry를 Backup 해야 한다. 
 	- Pivotal Cloud Foundry은 플랫폼 규모에 따라 시간이 오래 걸릴 수 있음으로 반드시 nohub또는 screen, tmux을 통해 Session을 유지 시켜 준다.
 	
-#### 2.1. Backup 실행 과정
+### 2.1. Backup 실행 과정
 
 - Bosh Pivotal Cloud Foundry Backup 대상과 관련 한 Component(Cloud Controller, Cloud Controller Clock, UAA, Credhub) Job에 아래와 같은 파일 구조가 존재 한다.
 ```
@@ -49,7 +49,7 @@ drwxr-x--- 3 root vcap 4096 May  9 02:22 ../
 
 [Bosh PCF Backup workflow][https://docs.cloudfoundry.org/bbr/bbr-devguide.html#pre-backup-lock](https://docs.cloudfoundry.org/bbr/bbr-devguide.html#pre-backup-lock)
 
-#### 2.2.  BBR CLI를 실행하여 Pivotal Cloud Foundry를 Backup
+### 2.2.  BBR CLI를 실행하여 Pivotal Cloud Foundry를 Backup
 ```
 # bosh pivotal cloud foundry의 backup-restore를 clean 한다.
 $ bbr deployment \
@@ -110,11 +110,11 @@ drwxrwxr-x 5 ubuntu ubuntu        4096 May 29 15:17 ../
 -rw-r--r-- 1 ubuntu ubuntu 78454231040 May 24 19:45 nfs_server-0-blobstore.tar
 ```
 
-### 3.  Restore Pivotal Cloud Foundry
+## 3.  Restore Pivotal Cloud Foundry
 - Restore 전제조건
 	- Pivotal Cloud Foundry Restore 시 Backup 파일이 존재 해야 한다. 
 
-#### 3.1. Restore 실행 전 준비 사항
+### 3.1. Restore 실행 전 준비 사항
 - Pivotal Cloud Foundry VM 중 State가 Running이 아닌 Failing, Unresponsive, Missing, Unbound 등 Error VM에 대한 Reference VM과 Disk를 삭제 한다.
 ```
 # bosh cck 명령어를 실행하여 disk/vm 삭제
@@ -128,7 +128,7 @@ $ bosh -e ${ALIAS-ENV} \
 	- Ops Manager Dashboard에서 Pivotal Cloud Foundry Apply Change를 실행 한다.
 		- Apply Change 중 Error가 발생 할 경우 Ops Manager Dashboard Bosh Director Tile의 Director Config Recreate All VMs를 선택하고 다시 Apply Change를 실행 한다.
 
-#### 3.2. Restore 실행 과정
+### 3.2. Restore 실행 과정
 
 - Bosh Pivotal Cloud Foundry Backup 대상과 관련 한 Component(Cloud Controller, Cloud Controller Clock,UAA, Credhub) Job에 아래와 같은 파일 구조가 존재 한다.
 ```
@@ -147,7 +147,7 @@ drwxr-x--- 3 root vcap 4096 May  9 02:22 ../
 
 [Bosh PCF Restore workflow][https://docs.cloudfoundry.org/bbr/bbr-devguide.html#pre-backup-lock](https://docs.cloudfoundry.org/bbr/bbr-devguide.html#pre-backup-lock)
 
-#### 3.3.  BBR CLI를 실행하여 Pivotal Cloud Foundry를 Restore
+### 3.3.  BBR CLI를 실행하여 Pivotal Cloud Foundry를 Restore
 ```
 # bosh Pivotal Cloud Foundry restore 명령을 실행 한다.
 $  bbr deployment \
