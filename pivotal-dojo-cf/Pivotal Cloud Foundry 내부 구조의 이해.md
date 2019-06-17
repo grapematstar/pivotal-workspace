@@ -1,7 +1,7 @@
 
-## 1. Pivotal Cloud Foundry 내부 구조의 이해
+# 1. Pivotal Cloud Foundry 내부 구조의 이해
 
-### 1.1. Pivotal Cloud Foundry 의 컨셉
+## 1.1. Pivotal Cloud Foundry 의 컨셉
               
 ![cf-cencept][cf-image-0]
 
@@ -13,7 +13,7 @@
 - ORG/SPACE를 통해 namespace 형식의 플랫폼의 역할을 독립적으로 구분 할 수 있다.
 - Application 구동 시 연동 Database 또는 타 Brand의 API를 호출 할 수있는 사용자 제공 Service API를 제공 한다.
 
-### 1.2. Pivotal Cloud Foundry 아키텍처
+## 1.2. Pivotal Cloud Foundry 아키텍처
               
 ![cf-arc][cf-image-1]
 
@@ -27,9 +27,9 @@
 - Loggregator: Pivotal Cloud Foundry VM 과 배포 한 Application의 Metric, Container Log를 제공하는 Component
 - BBS: Diego Cell의 현재 상태와 목표 상태 주기를 확인 하고 저장하는 Database Component
 
-### 1.3. Pivotal Cloud Foundry 주요 구성 요소 상세
+## 1.3. Pivotal Cloud Foundry 주요 구성 요소 상세
 
-#### 1.3.1. Pivotal Cloud Foundry Diego
+### 1.3.1. Pivotal Cloud Foundry Diego
 
 ![diego-arc][cf-image-2]
 
@@ -77,7 +77,7 @@
 
 ------------------------------------------------
 
-#### 1.3.2. Pivotal Cloud Foundry Cloud Controller
+### 1.3.2. Pivotal Cloud Foundry Cloud Controller
 
  - Cloud Controller는 사용자가 플랫폼에 Access 할 수 있는 REST API EndPoint를 제공하며 Opg/Space/Service/MarketPlace/Buildpack 등에 관련한 정보를 CC_DB Database Table을 통해 관리 한다.
 - 사용자가 API 요청을 보내면 Go Router가 Cloud Controller의 주소로 요청을 보내 처리 한다. 
@@ -87,7 +87,7 @@
 -   [V3 API Docs](http://v3-apidocs.cloudfoundry.org/)
 -   [V2 API Docs](http://apidocs.cloudfoundry.org/)
  
-#### 1.3.3. Pivotal Cloud Foundry Loggregator
+### 1.3.3. Pivotal Cloud Foundry Loggregator
 
 ![diego-cell-4][cf-image-10]
 
@@ -97,7 +97,7 @@
 3. Doppler는 임시 받아온 Log를 임시 버퍼에 저장하고 다시 Traffic Controller Component로 전달 한다.
 5. Traffic Controller는 사용자가 요청하는 API에 따라 Doppler에서 가공한 Log를 사용자에게 제공 한다.
 
-#### 1.3.4. Pivotal Cloud Foundry UAA
+### 1.3.4. Pivotal Cloud Foundry UAA
 
 ![diego-cell-4][cf-image-11]
 
