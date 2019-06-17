@@ -207,4 +207,4 @@ bosh -e b -d prometheus deploy manifests/prometheus.yml \
 
 # grafana 화면에 접속하여 Metric가 제대로 출력 되는지 확인한다. 적용 되기 까지 시간이 조금 걸릴수 있다.
 ```
-[prometheus-image-1]:./images/prometheus-1.png
+[prometheus-image-1]:./images/prometheus-1.PNG
