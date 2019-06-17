@@ -17,7 +17,7 @@
 
 #### 1.2. Configure Domains
 
-[Configure Domains][https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html](https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html)
+![pas-tile][pastile-image-1]
 
 - System/Application Domain 정보를 입력 한다.
 	- ex) sys.example.com, apps.sys.example.com
@@ -78,7 +78,7 @@
 
 #### 1.5.   Configure Application Containers 
 
-[Configure Application Containers][https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html#networking](https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html#networking)
+![pas-tile][pastile-image-2]
 
 - Enable Custom Buildpacks:  cf push 명령의 -b 옵션을 통해 사용자 정의 빌드 팩을 사용 할 것인지 선택
 - Allow SSH access to app containers: HA Proxy또는 Load Balancer를 통하여 Default 2222번 Port를 바탕으로 Application에 대한 SSH 접속을 허용/금지 할 것인지 선택
@@ -93,7 +93,7 @@
 
 #### 1.6. Configure Application Developer Controls
 
-[Configure Application Developer Controls][https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html#networking](https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html#networking)
+![pas-tile][pastile-image-3]
 
 - Maximum File Upload Size (MB) min= 1024, max= 2048: Application Upload의 최대 크기
 - Default App Memory (MB) min: 64, max: 2048 : Application 배포 시 할당 하는 Default Memory
@@ -111,7 +111,7 @@
 #### 1.8. Configure Authentication and Enterprise SSO
 - 내부 UAA Component, External, SAML Identity Provider, LDAP을 통하여 사용자 인증 서버를 선택 할수 있다.
 
-[Configure Authentication and Enterprise SSO][https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html#networking](https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html#networking)
+![pas-tile][pastile-image-4]
 
 - Internal UAA
 	- Minimum Password Length:  최소 암호의 길이 입력
@@ -124,7 +124,7 @@
 #### 1.9. Configure UAA
 - Pivotal Cloud Foundry UAA 사용자 계정 및 인증 서버 서버를 구성 할수 있다.
 
-[Configure UAA][https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html#networking](https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html#networking)
+![pas-tile][pastile-image-5]
 
 - Choose the location of your UAA database: UAA Database를 Internal/External 사용 설정 할 수 있다.
 - JWT Issuer URI:  JWT(JSON WEB TOKEN) Issuer Server URI을 통하여 UAA Token을 발급 받을 경우 URI를 입력
@@ -201,7 +201,7 @@
 
 - Pivotal Cloud Foundry Tile에서 rsyslog를 구성하여 Flatform 구성 요소, Application Container Log를 External로 전달할 수 있도록 Config 설정이 가능 하다
  
-[Configure System Logging][https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html#auth-config](https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html#auth-config)
+![pas-tile][pastile-image-6]
 
 - Address: Syslog Server의 주소 입력
 - Port: Syslog Server의 Port 번호 입력
@@ -217,7 +217,7 @@
 #### 1.15. Configure Custom Branding and Apps Manager
 - Pivotal Cloud Foundry Tile에서 Custom Logo, Background Color, Footer Text 등을 설정하여 사용자 Brand를 구성 할 수 있다.
 
-[Configure Custom Branding and Apps Manager][[https://docs.pivotal.io/pivotalcf/2-5/opsguide/custom-branding.html](https://docs.pivotal.io/pivotalcf/2-5/opsguide/custom-branding.html))
+![pas-tile][pastile-image-7]
 
 - Company Name: 회사/조직 명 입력
 - Accent Color: CSS Type 강조 색상 입력
@@ -232,7 +232,7 @@
 
 #### 1.16. Apps Manager Config Page
 
-[Apps Manager Config Page][https://docs.pivotal.io/pivotalcf/2-5/opsguide/custom-branding.html](https://docs.pivotal.io/pivotalcf/2-5/opsguide/custom-branding.html)
+![pas-tile][pastile-image-8]
 
 - Enable Invitations: Apps Manger에서 새로운 사용자를 초대 할 수있는 기능을 사용 할 것인지 선택
 - Display Marketplace Service Plan Prices: Market Place의 Service Plan의 가격을 표시 할 것 인지 선택
@@ -249,7 +249,7 @@
 #### 1.16. Apps Manager Config Page Configure Email Notifications
 - Pivotal Cloud Foundry Tile에서 Email Notifications를 설정하여 SMTP를 사용하여 초대 및 확인을 Apps Manager User에게 보낼 수 있다.
 
-[Apps Manager Config Page Configure Email Notifications][https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html](https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html)
+![pas-tile][pastile-image-9]
 
 - From Email: Apps Manager 사용자에게 보낼 Mail 주소 입력
 - SMTP Server Address: SMTP 서버 주소 입력
@@ -262,7 +262,7 @@
 #### 1.17. Configure the App Autoscaler
 - Pivotal Cloud Foundry는 App Autoscaler 설정을 통하여 개발자가 배포한 Application을 Autoscale할 수 있도록 한다.
 
-[Configure the App Autoscaler][https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html](https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html)
+![pas-tile][pastile-image-10]
 
 - Autoscaler Instance Count: App Autoscaler Application의 Instance 수, HA 구성을 위해 3개일 필요가 있으며 split-brain를 피하기 위해 홀수로 설정 한다.
 - Autoscaler API Instance Count: Autoscaler API Application의 Instance 수
@@ -276,7 +276,7 @@
 
 - Pivotal Cloud Foundry에서는 실제 API 요청을 받는 Cloud Controller에 대한 Config 설정이 가능 하다.
 
-[Configure the Cloud Controller][https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html](https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html)
+![pas-tile][pastile-image-11]
 
 - Cloud Controller DB Encryption Key: Cloud Controller DB 암호화 키를 입력(Cloud Controller DB에 대해 PAS Backup을 통해 재설치 할 경우)
 - Enabling CF API Rate Limiting will prevent API consumers from overwhelming the platform API servers. Limits are imposed on a per-user or per-client basis and reset on an hourly interval.: 운영자가 API를 사용 할 때 모든 API Endpoint, 비인증 요청 대한 Limit을 설정 할 수 있다.
@@ -288,7 +288,7 @@
 #### 1.19. Configure Smoke Tests
 - Pivotal Cloud Foundry Tile에서 PAS Deploy, PAS Errand의 실행 후 간단한 TEST를 할 수 있는 Smoke Test의 설정이 가능하다.
 
-[Configure Smoke Tests][https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html](https://docs.pivotal.io/pivotalcf/2-5/customizing/configure-pas.html) 
+![pas-tile][pastile-image-12]
 
 - Choose where to deploy applications when running the smoke tests: Smoke Test가 이루어질 공간을 선택한다. 사용자가 지정할 경우 해당 공간은 Smoke Test를 위해 생성 되었다가 완료 후 삭제 한다.
 
@@ -314,7 +314,7 @@
 
 [Configure Errands
 
-][https://docs.pivotal.io/pivotalcf/2-5/customizing/managing_errands.html](https://docs.pivotal.io/pivotalcf/2-5/customizing/managing_errands.html)
+![pas-tile][pastile-image-13]
 
 - Pivotal Cloud Foundry Tile에서 PAS 설치 후 실행 하는 Errand, PAS 삭제 전 실행 하는 Errand에 대한 정보를 설정 할 수 있다.
 - Smoke Test Errand: Smoke Test를 실행하면 Application Push/Scale/Delete, Org/Space Create/Delete을 수행 할 수 있는지 Test 한다.
@@ -329,10 +329,26 @@
 
 #### 1.23. Resource Config
 
-[Resource Config][https://docs.pivotal.io/pivotalcf/2-5/opsguide/scaling-ert-components.html](https://docs.pivotal.io/pivotalcf/2-5/opsguide/scaling-ert-components.html)
+![pas-tile][pastile-image-14]
 
 - Pivotal Cloud Foundry Tile에서 PAS 설치 시 사용 할 VM에 대한 Spec를 설정 할 수 있다.
 - 만약 External S3를 Blobstore로 구성한다면 Resource Config File Storage의 Instance를 0으로 구성 한다.
 - 만약 UAA, System, and CredHub, Cloud Controller를 External Databases 구성 하였다면 Resource Config MySQL Proxy/MySQL Server/MySQL Monitor의 Instance를 0으로 구성 한다.
 - 만약 TCP Router를 사용하지 않는다면 Resource Config TCP Router의 Instance를 0으로 구성 한다.
 - 만약 HA Proxy를 사용하지 않늗나면 Resource Config HAProxy의 Instance를 0으로 구성 한다.
+
+
+[pastile-image-1]:./images/pastile-1.png
+[pastile-image-2]:./images/pastile-2.png
+[pastile-image-3]:./images/pastile-3.png
+[pastile-image-4]:./images/pastile-4.png
+[pastile-image-5]:./images/pastile-5.png
+[pastile-image-6]:./images/pastile-6.png
+[pastile-image-7]:./images/pastile-7.png
+[pastile-image-8]:./images/pastile-8.png
+[pastile-image-9]:./images/pastile-9.png
+[pastile-image-10]:./images/pastile-10.png
+[pastile-image-11]:./images/pastile-11.png
+[pastile-image-12]:./images/pastile-12.png
+[pastile-image-13]:./images/pastile-13.png
+[pastile-image-14]:./images/pastile-14.png
