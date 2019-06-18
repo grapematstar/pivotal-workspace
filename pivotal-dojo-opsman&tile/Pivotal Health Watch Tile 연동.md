@@ -1,5 +1,5 @@
 
-#  Pivotal Health Watch Tile 배포 & PAS 연동
+#  Pivotal Health Watch Tile 연동
 
 - Pivotal Health Watch Tile은 Pivotal Health Watch를 설치하는 Tile으로 Pivotal Health Watch 설치에 대한 전반적인 Domain, Network, Component, Errand 등의 Config 정보를 설정 할 수있다.
 - 전제 조건
