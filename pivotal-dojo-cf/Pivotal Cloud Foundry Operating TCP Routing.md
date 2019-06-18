@@ -17,7 +17,7 @@
 - Route_Emitter는 전달 받은 Application의 경로가 Http/Https 일 경우 NATS Component를 통해 Application의 경로, IP, Port를 Go Router Component에 전달하고 TCP 일 경우 Routing API를 통하여 Application의 경로, IP, Port를 TCP Router Component에 전달한다.
 - Go Router와 TCP Router는 Route_Emitter의 정보를 바탕으로 들어오는 Application 경로 요청을 Back End 주소에 Mapping 시킨다.
 
-[Pivotal Cloud Foundry Router Architecture][https://docs.pivotal.io/pivotalcf/2-5/concepts/cf-routing-architecture.html](https://docs.pivotal.io/pivotalcf/2-5/concepts/cf-routing-architecture.html)
+![router-architecture][tcp-router-image-1]
 
 ### 1.1. External Client Request 흐름
 
@@ -26,7 +26,7 @@
 - 이때 HTTP Load Balancer가 받는 Port는 80/443, TCP Load Balancer가 받는 Port는 사용 할 Application에 대한 모든 Port를 등록 해야 한다.
 - 80/443 HTTP/HTTPS 요청은 Go Router로 1024 ~ 65535 TCP 요청은 TCP Router로 보내져 Mapping되어 있는 Application에 전달 된다.
 
-[Pivotal Cloud Foundry Router Architecture][https://docs.pivotal.io/pivotalcf/2-5/concepts/cf-routing-architecture.html](https://docs.pivotal.io/pivotalcf/2-5/concepts/cf-routing-architecture.html)
+![router-architecture][tcp-router-image-2]
 
 
 ## 2. Pivotal Cloud Foundry TCP Router 설정
@@ -99,3 +99,6 @@ $ curl api.MY-DOMAIN/routing/v1/tcp_routes -H "Authorization: bearer TOKEN"
 "backend_port":60000,"backend_ip":"10.244.00.0","port":60000,"modification_tag":{"guid":"d4cc3bbe-c838-4857-7360-19f034440000",   
 "index":1},"ttl":120}]
 ```
+
+[tcp-router-image-1]:./images/tcp-router-1.png
+[tcp-router-image-2]:./images/tcp-router-2.png
