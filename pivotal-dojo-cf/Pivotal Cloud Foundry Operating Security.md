@@ -1,8 +1,6 @@
-
-
 #  Pivotal Cloud Foundry Operating Security
 
-- Pivotal Cloud Foundry에서는 Platform, Application 단의 여러 보안 구성이 가능 하다.
+- Pivotal Cloud Foundry에서는 Platform, Application 단의 여러 보안 구성을 지원한다.
 
 - 전제 조건
 	- vShpere 환경을 전제하에 작성 하였다.
@@ -57,6 +55,53 @@
 - Release를 통하여 Code 부분의 취약점을 지속적으로 보완하며 Stemcell을 통하여 OS 레벨의 보안 패치가 이루어진다.
 
 ### 1.7. Application Security
-- 
 
+- Pivotal Cloud Foundry는 아래와 같은 기능으로 Application의 Code와 구성을 보호 한다.
+	- Application을 Push 할 경우 UAA/SSL을 통한 CF API의 호출을 보안
+	- RBAC(역할 기반 엑세스 제어)를 통해 권한이 있는 사용자만이 특정 Application에 접근
+	- Cloud Controller는 Application의 구성을 암호화 한 Database Table에 저장
+	- Cloud Controller의 Security Group을 통해 Application의 Inbound/Outbound를 설정
+	- Secure Container 환경에서 Application 실행
 
+### 1.8. Security Event Log의 추적
+
+- Pivotal Cloud Foundry는 Bosh Director CLI와 Cloud Foundry CLI를 통하여 특정 VM/Application의 Event Log를 추적 할 수 있다.
+```
+# 최근 실행한 내역을 확인하고 bosh task {task ID}를 통해 상세 실행 내용을 확인 할 수 있다.
+$ bosh tasks --recent
+# 결과 값
+ID     State       Started At                    Last Activity At              User                                Deployment         Description                          Result
+24811  processing  Wed Jun 19 00:34:42 UTC 2019  Wed Jun 19 00:34:42 UTC 2019  p-healthwatch-84d14c8d77d6baa2c4c0  bosh-health-check  create deployment                    -
+24809  done        Wed Jun 19 00:26:36 UTC 2019  Wed Jun 19 00:26:58 UTC 2019  p-healthwatch-84d14c8d77d6baa2c4c0  bosh-health-check  delete deployment bosh-health-check  /deployments/bosh-health-check
+24808  done        Wed Jun 19 00:24:41 UTC 2019  Wed Jun 19 00:26:35 UTC 2019  p-healthwatch-84d14c8d77d6baa2c4c0  bosh-health-check  create deployment
+
+$ cf evnet {my-app} 
+Getting events for app my-app-1 in org system / space system as admin...
+
+time                          event                      actor      description
+2019-06-18T17:25:12.00+0900   audit.app.ssh-authorized   admin      index: 0
+2019-06-12T11:47:07.00+0900   audit.app.process.crash    web        index: 0, reason: CRASHED, cell_id: 5244b492-3477-42bd-a6b0-d4d4cba5bfb9, instance: 15233296-66ec-4038-4f9a-0cb3, exit_description: Instance never healthy after 1m0s: Failed to make TCP connection to port 8080: connection refused
+2019-05-24T09:16:47.00+0900   audit.app.droplet.create   admin
+2019-05-24T09:16:28.00+0900   audit.app.update           admin      state: STARTED
+2019-05-24T09:16:28.00+0900   audit.app.build.create     admin
+```
+
+## 2. Container Security
+
+### 2.1. Pivotal Cloud Foundry Garden Container Isolation
+
+- Pivotal Cloud Foundry의 Application은 Diego Cell Component의 Garden Container에서 실행된다. Garden Container는 Diego Cell의 가상/물리적인 공간을 사용하여 Application의 Process/Memory/File System을 격리하여 실행 한다.
+- 동일한 Host에 있는 모든 Container들은 서로를 탐지하지 못하도록 설정되며 별도의 PID/namespace/network namespace/mount namepace/root file system을 가지고 있다.
+- Pivotal Cloud Foundry는 내부에 Packaging 되어 있는 GrootFS라는 릴리즈를 통하여 Container의 File System을 구축한다.
+
+### 2.2. Pivotal Cloud Foundry Garden Container Security
+- Pivotal Cloud Foundry는 아래와 같은 절차를 통해 Container를 보호 한다.
+	- 기본적인 권한이 없는 Container 환경에 Application 실행
+	- 기능과 Access의 제한하여 Container 보안 강화
+		- Host의 Root가 아닌 다른 User의 UID/GID를 Container UID/GID에 Mapping하여 Application에서 Host의 Root 권한을 부여하지 않음
+		- /proc, /sys(Process, System Device) Mount Disk는 Read Only로 구성된다. 
+		- 권한이 없는 사용자에 대해 Dmesg kernel Log Message Access를 차단 한다.
+		- Container 내부에서 Dependency의 의존성을 없애기 위해 별도의 Script와 Binarie를 실행 하지 않는다.
+	- Application Security Group 기능을 통해 Application의 Inbound/Outbound 허용/차단 설정
+
+## 3. Container Security
