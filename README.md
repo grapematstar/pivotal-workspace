@@ -8,6 +8,7 @@
 	- Pivotal Cloud Foundry Operating TCP Router
 	- Pivotal Cloud Foundry 고가용성
 	- Pivotal Cloud Foundry 내부구조의 이해
+	- Pivotal Cloud Foundry Operating Security
 -  pivotal-dojo-concourse
 	- Bosh Deploy Concourse
 	- Bosh Deploy Harbor
