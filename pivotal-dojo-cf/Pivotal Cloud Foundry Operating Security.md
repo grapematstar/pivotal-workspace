@@ -1,3 +1,4 @@
+
 #  Pivotal Cloud Foundry Operating Security
 
 - Pivotal Cloud Foundry에서는 Platform, Application 단의 여러 보안 구성을 지원한다.
@@ -101,7 +102,82 @@ time                          event                      actor      description
 		- Host의 Root가 아닌 다른 User의 UID/GID를 Container UID/GID에 Mapping하여 Application에서 Host의 Root 권한을 부여하지 않음
 		- /proc, /sys(Process, System Device) Mount Disk는 Read Only로 구성된다. 
 		- 권한이 없는 사용자에 대해 Dmesg kernel Log Message Access를 차단 한다.
-		- Container 내부에서 Dependency의 의존성을 없애기 위해 별도의 Script와 Binarie를 실행 하지 않는다.
+		- Container 내부에서 Dependency의 의존성을 없애기 위해 별도의 Script와 Binary를 실행 하지 않는다.
 	- Application Security Group 기능을 통해 Application의 Inbound/Outbound 허용/차단 설정
 
-## 3. Container Security
+## 3. Application Security Groups
+
+- Pivotal Cloud Foundry는 Application Security Groups를 통해 Application Traffic에 대한 Protocol, Port 및 IP Range를 지정 할 수 있다.
+
+### 3.1. Application Security Groups는 크게 2가지의 Type을 가지고 있다.
+
+- Staging ASG: Application의 Staging 단계에 적용되는 보안 정책  (Network를 통하여 Resource를 가져 온다)
+- Running ASG: Application의 Running 단계에 적용되는 보안 정책 (더이상 Resource가 필요 없음으로 조금더 강화 한 규칙을 선언 한다.)
+
+### 3.2. Application Security Groups Scope
+
+-  Application Security Group는 Platform 전체에 대한, Org에 대한, Space에 대하여 설정 할 수 있다. 그로인하여 3중으로 Application Security Group를 구성 할 수 있다.
+
+### 3.3. Application Security Group Rules Type
+- Protocol: TCP/UDP/ICMP Protocol을 지원 한다.
+- Destination: 단일 IP 주소, 192.0.2.0-192.0.2.50과 같은 IP Range 또는 Traffic을 수신 할 수있는 CIDR Block
+- Ports: 단일 Port, 여러 개의 쉼표로 구분 된 Port 또는 Traffic을 수신 할 수있는 Port Range
+- Code: ICMP Protocol Code 
+- Type: ICMP Protocol type
+-  
+
+### 3.4. CF CLI를 통해 기본적인 Application Security Group 관리 예시
+
+```
+# 신규 Applciation Security Group 생성 시 Json 형태의 security-group 파일을 생성 한다.
+$ cat security-group.json
+
+[
+  {
+    "protocol": "icmp",
+    "destination": "0.0.0.0/0",
+    "type": 0,
+    "code": 0
+  },
+  {
+    "protocol": "tcp",
+    "destination": "10.0.11.0/24",
+    "ports": "80,443",
+    "log": true,
+    "description": "Allow http and https traffic from ZoneA"
+  }
+]
+
+# CF CLI를 이용하여 my-asg 명을 가지고 있는 Applciation Security Group를 생성 한다.
+$ cf create-security-group my-asg ~/workspace/my-asg.json`
+OK
+
+# 생성한 Applciation Security Group 조회
+$ cf security-group my-asg
+Getting info for security group my-asgas admin
+OK
+
+Name    my-asg
+Rules
+        [
+                {
+                        "destination": "0.0.0.0/0",
+                        "protocol": "icmp"
+                        "type": 0,
+					    "code": 0
+                },
+                {
+					    "protocol": "tcp",
+					    "destination": "10.0.11.0/24",
+					    "ports": "80,443",
+					    "log": true,
+					    "description": "Allow http and https traffic from ZoneA"
+                }
+        ]
+
+     Organization   Space
+#0   system         system
+
+```
+
+
