@@ -82,3 +82,10 @@
 ### 3.3. Apply Change
 
 - Ops Manager UI에서 Apply Change를 실행하여 Service Mesh 변경 사항을 배포 한다.
+
+
+## 3. Istio Router Application Domain 접근
+
+[Service Mesh][[https://docs.pivotal.io/pivotalcf/2-5/adminguide/service-mesh.html](https://docs.pivotal.io/pivotalcf/2-5/adminguide/service-mesh.html))
+
+- Istio Router VM을 추가하고 *.mesh.YOUR-APPS-DOMAIN Domain을 통해 Application에 접근 한다.
