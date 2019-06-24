@@ -25,7 +25,7 @@
 		- Copilot는  전달 받은 Route와 Mapping 정보를 가공하여 Pilot에게 노출한다.
 		- Pilot는 해당 구성 정보를 바탕으로 Istio-Router의 Ingress Envoy를 배치 한다.
 		
-[Service Mesh][https://docs.cloudfoundry.org/concepts/architecture/istio-routing.html](https://docs.cloudfoundry.org/concepts/architecture/istio-routing.html)
+![service-mesh][servicemesh-image-1]
 
 
 ## 2.Pivotal Cloud Foundry Service Mesh가 사용하는 Istio의 기능
@@ -35,19 +35,20 @@
 
 ### 2.1. Micro Service Application의 Version 기반의 Traffic 분할
  
-[Traffic 분할]
+![service-mesh][servicemesh-image-2]
 
 - Traffic 분할은 버전별로 Traffic 양을 조절하요 신규 Micro Service Application을 배포할때, 기존 버전으로 95%의 트래픽을 보내고, 새 버전으로 5%의 트래픽만 보내서 테스트하는 것이 가능하다.
 
+
 ### 2.2. Micro Service Application의 Content 기반의 Traffic 분할
 
-[Traffic 분할]
+![service-mesh][servicemesh-image-3]
 
 - Network Connection 통신의 패킷 기반으로 Traffic 분할이 가능 하다, HTTP 헤더의 User-agent를 설정하여 Micro Service Application에 대한 Traffic를 분할 할 수 있다.
 
 ### 2.3. Health Check 및 Service Discovery
 
-[Traffic 분할]
+![service-mesh][servicemesh-image-4]
 
 - Pilot은 Micro Service Application 인스턴스가 많을 경우 자동으로 Load Balancer 해주며 주기적으로 Health Check 하여 이상이 있는 Micro Service Application는 자동으로 제거 한다.
 
@@ -56,12 +57,14 @@
 
 ### 2.5. Security
 
-[Security]
+![service-mesh][servicemesh-image-5]
 
 - 기본적으로 Envoy를 통해서 통신하는 모든 Traffic을 자동으로 TLS를 이용해서 암호화한다. Micro Service Application 통신이 Default로 TLS 암호화 된다.
 - Micro Service Application 대한 인증 (Authentication)을 통해 Network Traffic의 Role을 정할 수 있다.
 
 ### 2.6. Monitoring
+
+![service-mesh][servicemesh-image-6]
 
 - Istio는 Envoy Network Traffic을 모니터링함으로써, 서비스간에 호출 관계가 어떻게 되고, 서비스의 응답 시간, 처리량등의 다양한 Metric을 수집하여 모니터링할 수 있다.
 -   수집한 Metric 정보를 바탕으로 Prometheus, StackDriver, Datadog 등과 연동이 가능하다.
@@ -86,6 +89,14 @@
 
 ## 3. Istio Router Application Domain 접근
 
-[Service Mesh][[https://docs.pivotal.io/pivotalcf/2-5/adminguide/service-mesh.html](https://docs.pivotal.io/pivotalcf/2-5/adminguide/service-mesh.html))
+![service-mesh][servicemesh-image-7]
 
 - Istio Router VM을 추가하고 *.mesh.YOUR-APPS-DOMAIN Domain을 통해 Application에 접근 한다.
+
+[servicemesh-image-1]:./images/servicemesh-image-1.png
+[servicemesh-image-2]:./images/servicemesh-image-2.png
+[servicemesh-image-3]:./images/servicemesh-image-3.png
+[servicemesh-image-4]:./images/servicemesh-image-4.png
+[servicemesh-image-5]:./images/servicemesh-image-5.png
+[servicemesh-image-6]:./images/servicemesh-image-6.png
+[servicemesh-image-7]:./images/servicemesh-image-7.png
