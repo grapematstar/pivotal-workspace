@@ -23,7 +23,7 @@
 
 - Pivotal Cloud Foundry 기본적인 구성에서는 거의 모든 Component 들이 Private Network(Vlan)으로 배포 되며 DMZ 영역에 Go Router의 Endpoint에 도달하는 Load Balancer,  Platform 관리를 위한 Jump box, OutBound를 위한 NAT VM 3가지가 필요하다, External과의 연결을 적은 수로 하여 보안 취약성을 최소화 한다.
 
-[System Access][https://docs.pivotal.io/pivotalcf/2-5/concepts/security.html](https://docs.pivotal.io/pivotalcf/2-5/concepts/security.html)
+![cf-security][cfsecurity-image-1]
 
 ### 1.2. Isolation Segments
 
@@ -31,7 +31,7 @@
 - PAS 내의 ORG/SPACE에서 하나의 Isolation Segments을 사용하도록 구성하여 격리된 환경의 다른 ORG/SPACE에 영향을 받지 않으며 Service를 구축 할 수 있다.
 - Cloud Controller는 placement_tag을 통하여 Isolation Segments를 구분하여 해당 Cell에 접근 가능 하도록 한다.
 
-[Isolation Segments][https://docs.pivotal.io/pivotalcf/2-5/concepts/security.html](https://docs.pivotal.io/pivotalcf/2-5/concepts/security.html)
+![cf-security][cfsecurity-image-2]
 
 ### 1.3. Pivotal Cloud Foundry 인증 & 권한 UAA
 
@@ -179,5 +179,5 @@ Rules
 #0   system         system
 
 ```
-
-
+[cfsecurity-image-1]:./images/cfsecurity-1.png
+[cfsecurity-image-2]:./images/cfsecurity-2.png
