@@ -93,7 +93,7 @@
 
 - Istio Router VM을 추가하고 *.mesh.YOUR-APPS-DOMAIN Domain을 통해 Application에 접근 한다.
 
-[servicemesh-image-1]:./images/servicemesh-image-1.png
+[servicemesh-image-1]:./images/servicemesh-image-1.jpg
 [servicemesh-image-2]:./images/servicemesh-image-2.png
 [servicemesh-image-3]:./images/servicemesh-image-3.png
 [servicemesh-image-4]:./images/servicemesh-image-4.png
