@@ -1,5 +1,5 @@
 
-#  Pivotal Cloud Foundry Application CF Push Developer Guide
+#  Pivotal Cloud Foundry Application Push Developer Guide
 
 - cf CLI를 사용하여 Pivotal Cloud Foundry에 개발자 Application을 배포하는 방법에 대해 설명 한다.
 - Modify Last Version 2.5
