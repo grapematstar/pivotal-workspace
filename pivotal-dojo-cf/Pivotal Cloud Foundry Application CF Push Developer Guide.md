@@ -119,5 +119,8 @@ env
 [bule_green][https://docs.pivotal.io/pivotalcf/2-5/devguide/deploy-apps/blue-green.html](https://docs.pivotal.io/pivotalcf/2-5/devguide/deploy-apps/blue-green.html) 
 
 - Blue라는 실제 Live 환경의 Application이 가동하고 있는 환경에, 신규 Update한 Green Application을 배포하여 Test를 진행하고, Test 처리가 완료 되면 Route를 통하여 Traffic을 Green에 보내 Downtime 없이 Application을 사용 할 수 있다.
+
+[bule_green][https://docs.pivotal.io/pivotalcf/2-5/devguide/deploy-apps/blue-green.html](https://docs.pivotal.io/pivotalcf/2-5/devguide/deploy-apps/blue-green.html) 
+
 - 만약 Green Application을 Live 환경으로 사용 했을 때 Update Version에서 문제가 발생 할 경우 다시 Blue Application으로 Route Traffic을 변경하여 Rollback 시킬 수 있다.
 
