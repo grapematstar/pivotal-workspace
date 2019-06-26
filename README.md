@@ -11,6 +11,7 @@
 	- Pivotal Cloud Foundry Operating Security
 	- Pivotal Cloud Foundry Operating Service Mesh
 	- Pivotal Cloud Foundry Application Push Developer Guide
+	- Pivotal Cloud Foundry Managing Service Developer Guide
 -  pivotal-dojo-concourse
 	- Bosh Deploy Concourse
 	- Bosh Deploy Harbor
