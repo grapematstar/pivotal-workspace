@@ -1,11 +1,7 @@
+
 #  Pivotal Cloud Foundry Application CF Push Developer Guide
 
 - cf CLI를 사용하여 Pivotal Cloud Foundry에 개발자 Application을 배포하는 방법에 대해 설명 한다.
-
-- 전제 조건
-	- vShpere 환경을 전제하에 작성 하였다.
-	- Pivotal Cloud Foundry가 구축 되어 있어야 한다.
-	- cf CLI가 설치 되어 있어 있고 Pivotal Cloud Foundry Target이 잡혀있어야 한다.
 - Modify Last Version 2.5
 
 ## 1. Default CF Push 
@@ -93,8 +89,35 @@ $ cf push APP-NAME -p SPRING-BOOT.jar
 - $ cf push를 통해 구성한 Application에 대한 사용자 정의의 Script를 실행 할 수 있다. $ cf push가 실행되는 경로에서 .profile 파일을 생성하고 Script를 구성 한다. 해당 Script는 Application이 동작하기 전에 실행 된다.
 
 ## 8. Custom Push the App
-- 
+- PAS에서 Application을 Push 할 경우 Manifest를 사용하여 cf CLI에 필요한 인수를 삭제 할 수 있다.
+- Manifest를 사용 할 경우 Application 명, Service의 Bind, Buildpack의 구성, Default가 아닌 Application의 Spec, Application에 추가, 변경 할 환경 변수, Domain/Route 등을 설정 할 수 있다.
 
+```
+---
+# Cf Push Manifest Example
+domain: shared-domain.example.com
+memory: 1G
+instances: 1
+services:
+- clockwork-mysql
+applications:
+- name: springtock
+  host: tock09876
+  path: ./spring-music/build/libs/spring-music.war
+- name: springtick
+  host: tick09875
+  path: ./spring-music/build/libs/spring-music.war
+buildpack: java_buildpack
+env
+  TZ: Asia/Seoul
+```
 
+## 9. Application Update & Downtime
+- 이미 실행 중인 Application을 $ cf push/restart/restage를 통해 Application의 Update/재시작/재배포하게 되면 일시적으로 사용자에게 "404 Not Found"가 나타나게 된다.
+- Application의 Downtime과 Risk을 줄이기 위해 Application의 Blue/Green 방법을 사용 한다.
 
+[bule_green][https://docs.pivotal.io/pivotalcf/2-5/devguide/deploy-apps/blue-green.html](https://docs.pivotal.io/pivotalcf/2-5/devguide/deploy-apps/blue-green.html) 
+
+- Blue라는 실제 Live 환경의 Application이 가동하고 있는 환경에, 신규 Update한 Green Application을 배포하여 Test를 진행하고, Test 처리가 완료 되면 Route를 통하여 Traffic을 Green에 보내 Downtime 없이 Application을 사용 할 수 있다.
+- 만약 Green Application을 Live 환경으로 사용 했을 때 Update Version에서 문제가 발생 할 경우 다시 Blue Application으로 Route Traffic을 변경하여 Rollback 시킬 수 있다.
 
