@@ -85,6 +85,7 @@ $ bosh -e {ailas-env} -d logsearch deploy logsearch-deployment.yml \
 
 ### 2.2. 도메인 정의
 #### 2.2.1. LogSearch 배포 시 설정한 system_domain을 통해 자동으로 logs.((system_domain))으로 Domain이 생성 되는데 해당 부분에 대해 Bind9이나 Hosts를 등록하여 접근 가능하게 한다.
+- logs.((system_domain)) 도메인을 Pivotal Cloud Foundry의 HaProxy 또는 GoRouter IP에 Mapping 시킨다.
 
 ## 3. LogSearch & Pivotal Cloud Foundry 연동
 
