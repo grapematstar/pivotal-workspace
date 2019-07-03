@@ -1,6 +1,8 @@
 # Pivotal Cloud Foundry Opensource LogSearch 연동
 - LogSearch는 ELK 기반으로 유용한 Filter 처리가 존재하는 Logstash.conf 내장 되어 있어 Pivotal Cloud Foundry의 Org/Space 별 Application의 상세 Log를 수집 한다.
 -  Director, Pivotal Cloud Foundry Tile의 Syslog Setting을 통해 일반적인 VM Log도 수집 가능하다.
+- 일반 Bosh ELK Deployment와는 다르게 별도의 Nozzle Plugin으로 Application 또는 Org와 연동이 필요 없이 Prometheus와 동일 하게 Firehose를 통해 자동 모든 Application을 설정한다.
+- 지속적으로 Check하여 신규 Org/Space, VM에 대해서도 별도의 입력 필요 없이 자동으로 Log를 수집한다.
 -  전제 조건
 	- Bosh, Pivotal Cloud Foundry가 배포 되어 있어야 한다.
 	- 외부와 통신이 되는 External Jumpbox가 존재 해야 한다.
