@@ -25,6 +25,7 @@
 	- Pivotal Cloud Foundry Docker Private Repo 사용
 	- Pivotal Cloud Foundry Prometheus  연동
 	- Pivotal VM Certificate 만료 인증서 교체
+	- Pivotal Cloud Foundry Opensource LogSearch 연동
 - pivotal-dojo-opsman&tile
 	- Apps Manager 소개
 	- Ops Manager 소개
