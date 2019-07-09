@@ -1,3 +1,4 @@
+
 #  Pivotal Cloud Foundry Managing Log Service Developer Guide
 
 - Pivotal Cloud Foundry의 Loggregator Component에서 외부 Log Service Instance로 Application Log를 Streaming하는 방법에 대해 기술한다.
@@ -45,3 +46,35 @@ $ cf bind-service YOUR-APP YOUR-LOG-STORE
 
 ## 3. Using Services Not Available in Your Marketplace
 - Pivotal Cloud Foundry가 관리하는 Service가 아닐 경우 사용자 제공 Service를 생성하여 Application의 Log를 Streaming 할 수 있다.
+- CF Drain Plugin을 사용하여 cf CLI를 통해 Application의 Log를 Streaming 한다.
+
+### 3.1. Cf Drain 설치 방법
+```
+$ cf install-plugin -r CF-Community "drains"
+$ cf install-plugin download/path/cf-drain-cli
+```
+
+### 3.2. 사용자 제공 Log Service 사용 방법
+
+#### 3.2.1. Application Outbound 설정
+- Application에 Service를 Bind 하여 Log를 보내기 위해서 External Service의 IP에 외부 통신이 가능한지 확인한다.
+- syslog, syslog-tls 또는 https의 구성을 갖은 URL을 생성 한다.
+	- example: 1.  syslog://logs.example.com:1234
+
+#### 3.2.2. Create and Bind a User-Provided Service Instance
+- Cf Drain을 통해 조직 또는 Application에 Syslog 연동
+```
+# Single App
+$ cf drain APP-NAME SYSLOG-DRAIN-URL
+# All Space App
+$ cf drain-space --drain-name DRAIN-NAME --drain-url SYSLOG-DRAIN-URL --username USERNAME
+```
+
+- Service Instance를 통하여 연동
+```
+$ cf create-user-provided-service DRAIN-NAME -l SYSLOG-URL
+$ cf bind-service YOUR-APP-NAME DRAIN-NAME
+```
+
+
+
