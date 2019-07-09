@@ -56,6 +56,6 @@ done
 ### 3.1. Backup 받은 Application Droplet을 통해 Pivotal Cloud Foundry에 Application을 재 배포 한다.
 - example
 ```
-$ cf curl "/v2/apps/796238a7-00f1-45e1-b030-59432f4648dc/droplet/download" --output authcode-sample.tgz
+$ cf push authcode-sample2 --droplet authcode-sample.tgz
 ```
 
