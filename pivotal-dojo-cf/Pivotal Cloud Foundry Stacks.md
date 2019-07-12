@@ -66,6 +66,50 @@ $ cf push MY-APP -s cflinuxfs3
         #0  running  2015-04-08 04:41:54 PM   0.0%   57.3M of 1G   128.8M of 1G
 ```
 
+### 2.3. Application에 Bind한 Stack을 Plugin을 통해 변경하는 방법
+
+#### 2.3.1. pivotal Stack plugin 설치
+- pivotal network에서 제공하는 stack plugin을 설치 한다.  [https://network.pivotal.io/products/buildpack-extensions/](https://network.pivotal.io/products/buildpack-extensions/)
+```
+$ tar xvzf PATH-TO-BINARY
+$ cf install-plugin PATH-TO-BINARY
+```
+- Application이 사용하는 Stack 목록을 확인한다.
+```
+$ cf audit-stack
+
+$ cf audit-stack
+    first-org/development/first-app cflinuxfs2 
+    first-org/staging/first-app cflinuxfs2
+    first-org/production/first-app cflinuxfs2
+    second-org/development/second-app cflinuxfs3
+    second-org/staging/second-app cflinuxfs3
+    second-org/production/second-app cflinuxfs3
+    ...
+```
+- Application의 소스코드 변경 없이 Stack을 변경 한다.
+- 변경 도중 조금의 Downtime이 발생하며 Blue-Green(Route) 방식을 사용하여 Application의  Downtime을 방지한다.
+```
+$ cf change-stack my-app cflinuxfs3
+Attempting to change stack to cflinuxfs3 for my-app...
+Starting app my-app in org pivotal-pubtools / space pivotalcf-staging as ljarzynski@pivotal.io...
+Downloading staticfile_buildpack...
+
+
+requested state: started
+instances: 1/1
+usage: 64M x 1 instance
+urls: example.com
+last uploaded: Thu Mar 28 17:44:46 UTC 2019
+stack: cflinuxfs3
+buildpack: staticfile_buildpack
+
+     state     since                    cpu    memory        disk         details
+#0   running   2019-04-02 03:18:57 PM   0.0%   8.2M of 64M   6.9M of 1G
+
+Application my-app was successfully changed to Stack cflinuxfs3
+```
+
 ## 3. Trusted System Certificates
 
 - 인증서는 Diego Cell에서 실행되는 Linux 기반 Application에서 사용할 수 있다. Application에는 cflinuxfs3 Stack을 사용하는 buildpack 기반 Application의 /etc/ssl/certs 디렉토리에 Certificates가 추가 되고 Application 환경 변수 CF_SYSTEM_CERT_PATH를 통해 값을 확인 할 수 있다.
