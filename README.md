@@ -41,3 +41,5 @@
 	- Platform Automation Pipeline Install PAS
 	- Platform Automation Pipeline Install Health Watch
 	- Setup Timezone Pipeline | Job Create
+- pivotal-dojo-issue
+	- Pivotal Cloud Foundry Blobstore Redeploy 중 Error 발생
