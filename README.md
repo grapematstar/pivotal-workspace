@@ -4,7 +4,7 @@
 	- Bosh 내부구조의 이해
 	- Opensource Bosh 설치
 	- Bosh-cli 사용 가이드
-- pivotal-dojo-cf
+- pivotal-dojo-pcf
 	- Pivotal Cloud Foundry Operating TCP Router
 	- Pivotal Cloud Foundry 고가용성
 	- Pivotal Cloud Foundry 내부구조의 이해
