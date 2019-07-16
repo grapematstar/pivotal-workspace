@@ -15,6 +15,7 @@
 	- Pivotal Cloud Foundry Buildpacks & 동작 방법
 	- Pivotal Cloud Foundry Stacks
 	- Pivotal Cloud Foundry Service Broker
+	- Pivotal Cloud Foundry Application Design for the Cloud
 -  pivotal-dojo-concourse
 	- Bosh Deploy Concourse
 	- Bosh Deploy Harbor
