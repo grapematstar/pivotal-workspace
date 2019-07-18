@@ -1,6 +1,6 @@
 #  Bosh Deploy Concept
 
-- Bosh Director를 통해 VM(Software)을 배포하는 개념에 대해 기술한 문서이다.
+- Bosh Director를 통해 VM(Software)을 배포에 대한 개념 & 방법에 대해 기술한 문서이다.
 - Bosh CLI v2를 기준으로 작성하였다.
 
 ##  1. Bosh Deploy Core Concept
