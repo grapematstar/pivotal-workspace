@@ -34,6 +34,7 @@
 	- Pivotal VM Certificate 만료 인증서 교체
 	- Pivotal Cloud Foundry Opensource LogSearch 연동
 	- Pivotal CLoud Foundry Application Backup & Upload
+	- Pivotal Cloud Foundry Application Instance_id 추출 방법
 - pivotal-dojo-opsman&tile
 	- Apps Manager 소개
 	- Ops Manager 소개
