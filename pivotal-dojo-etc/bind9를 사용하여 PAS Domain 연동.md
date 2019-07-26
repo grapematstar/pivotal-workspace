@@ -34,7 +34,7 @@ $TTL    604800
                         2419200         ; Expire
                          604800 )       ; Negative Cache TTL
 ;
-@       IN      NS      leedh.posco.co.kr.
+@       IN      NS      {system_domain}.
 @       IN      A       127.0.0.1
 apps.sys            IN      A  172.28.86.50
 uaa.sys              IN      A  172.28.86.50
