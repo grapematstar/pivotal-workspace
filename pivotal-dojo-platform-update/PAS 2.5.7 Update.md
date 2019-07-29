@@ -1,5 +1,5 @@
 
-#  Upgrade Note 3 - Pivotal Cloud Foundry v2.5.7
+#  Pivotal Cloud Foundry v2.5.7
 - 진행한 Ops Manager와 Pivotal Cloud Foundry 현재 Version은 아래와 같다.
 	- Ops Manager v2.5
 	- Pivotal Cloud Foundry v2.4.6
